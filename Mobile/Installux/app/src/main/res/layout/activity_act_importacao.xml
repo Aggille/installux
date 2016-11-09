@@ -1,0 +1,86 @@
+<LinearLayout
+
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context=".act_importacao">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center_vertical"
+        android:gravity="top"
+        android:orientation="vertical">
+
+        <CheckBox
+            android:id="@+id/chk_importa_clientes"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="Importar Clientes" />
+
+        <CheckBox
+            android:id="@+id/chk_importa_produtos"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="Importar Produtos" />
+
+        <CheckBox
+            android:id="@+id/chk_importa_locais"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="Importar Locais" />
+
+        <CheckBox
+            android:id="@+id/chk_importa_arquitetos"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="Importar Arquitetos" />
+
+
+        <CheckBox
+            android:id="@+id/chk_importa_ambientes"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="Importar Ambientes" />
+
+        <CheckBox
+            android:id="@+id/chk_importa_funcionarios"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="Importar Funcionários" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:gravity="bottom|center"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btn_importar"
+                style="@style/BotaoDash"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:drawableTop="@drawable/img_importacao"
+                android:gravity="center"
+                android:onClick="importar"
+                android:text="@string/msg_btn_importar"
+                android:textAlignment="center" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+</LinearLayout>

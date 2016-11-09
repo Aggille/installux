@@ -1,0 +1,123 @@
+<LinearLayout
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/Linear_Padrao"
+    android:gravity="center"
+    android:layout_gravity="top"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    tools:context=".actPrincipal">
+
+    <LinearLayout
+        style="@style/Linear_Padrao"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    <ImageView
+        android:layout_gravity="top"
+        android:scaleType="centerInside"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@drawable/logotipo"/>
+    </LinearLayout>
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingLeft="@dimen/padding_small"
+        android:paddingRight="@dimen/padding_small"
+        android:paddingTop="@dimen/padding_small"
+        android:paddingBottom="@dimen/padding_small">
+
+        <LinearLayout
+            style="@style/Linear_Padrao"
+            android:layout_gravity="top"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+
+                android:padding="@dimen/padding_extra_large"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <Button
+                    android:padding="@dimen/padding_medium"
+                    android:id="@+id/btn_fichas"
+                    style="@style/BotaoDash"
+                    android:drawableTop="@drawable/btn_ficha"
+                    android:onClick="fichas"
+                    android:text="@string/msg_btn_fichas" />
+                <Button
+                    android:padding="@dimen/padding_medium"
+                    android:id="@+id/btn_consulta"
+                    style="@style/BotaoDash"
+                    android:onClick="consultar"
+                    android:drawableTop="@drawable/btn_pesquisa"
+                    android:text="@string/msg_btn_consulta"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:padding="@dimen/padding_extra_large"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+
+                <Button
+                    android:padding="@dimen/padding_medium"
+                    android:id="@+id/btn_envia"
+                    android:onClick="enviar"
+                    style="@style/BotaoDash"
+                    android:drawableTop="@drawable/btn_enviar_fichas"
+                    android:text="@string/msg_btn_envia"  />
+
+                <Button
+                    android:padding="@dimen/padding_medium"
+                    android:onClick="config"
+                    android:id="@+id/btn_config"
+                    style="@style/BotaoDash"
+                    android:text="@string/msg_btn_config"
+                    android:drawableTop="@drawable/btn_config"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:padding="@dimen/padding_extra_large"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                    <Button
+                        android:padding="@dimen/padding_medium"
+                        android:onClick="importar"
+                        android:id="@+id/btn_importacao"
+                        style="@style/BotaoDash"
+                        android:drawableTop="@drawable/img_importacao"
+                        android:text="@string/msg_btn_importar"/>
+
+                    <Button
+                        android:padding="@dimen/padding_medium"
+                        android:onClick="admin"
+                        android:id="@+id/btn_admin"
+                        style="@style/BotaoDash"
+                        android:drawableTop="@drawable/btn_admin"
+                        android:text="@string/msg_btn_admin"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>
+
+
+
+
+
+
+
+

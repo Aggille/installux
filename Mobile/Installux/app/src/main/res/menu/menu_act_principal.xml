@@ -1,0 +1,23 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools" tools:context=".actPrincipal">
+
+    <item android:id="@+id/act_fichas" android:title="@string/msg_btn_fichas"
+        android:orderInCategory="100" app:showAsAction="never" />
+
+    <item android:id="@+id/act_importacao" android:title="@string/act_importacao"
+        android:orderInCategory="100" app:showAsAction="never" />
+
+    <item android:id="@+id/act_config" android:title="@string/action_settings"
+        android:orderInCategory="100" app:showAsAction="never" />
+
+    <item android:id="@+id/act_sobre" android:title="@string/act_sobre"
+        android:orderInCategory="100" app:showAsAction="never" />
+
+
+    <item android:id="@+id/act_sair" android:title="@string/action_sair"
+        android:orderInCategory="100" app:showAsAction="never" />
+
+
+
+</menu>

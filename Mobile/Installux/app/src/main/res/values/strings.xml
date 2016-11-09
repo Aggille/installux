@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Installux</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Configurações</string>
+    <string name="action_sair">Sair</string>
+    <string name="act_sobre">"Sobre..."</string>
+    <string name="versao">0.01 - Beta</string>
+    <string name="act_importacao">Importação</string>
+
+    <!-- |Mensagens de erro -->
+    <string name="err_produto_obrigatorio">Informe o produto</string>
+    <string name="err_local_obrigatorio">Informe o local</string>
+    <string name="err_quantidade_obrigatorio">Informe a quantidade</string>
+    <string name="err_ambiente_obrigatorio">Informe o ambiente</string>
+    <string name="err_cliente_obrigatorio">Informe o cliente</string>
+    <string name="err_arquiteto_nao_cadastrado">Arquiteto não cadastrado</string>
+    <string name="err_funcionario_obrigatorio">Informe o funcionário</string>
+    <string name="err_informe_item">Informe pelo menos um item</string>
+
+    <!-- |Mensagens Padrão -->
+
+    <string name="msg_sobre">"Sistema Mobile Installux\n (c) 2015 KoutoSoft Sistema"</string>
+    <string name="msg_nao_implementado">"Não implementado"</string>
+    <string name="msg_btn_fichas">"Lançar Fichas"</string>
+    <string name="msg_btn_consulta">"Consultar Fichas"</string>
+    <string name="msg_btn_envia">"Enviar Fichas"</string>
+    <string name="msg_btn_config">"Configuração"</string>
+    <string name="msg_btn_importar">Importar</string>
+    <string name="msg_btn_admin">Administrador</string>
+    <string name="msg_enviando_fichas">Enviando fichas</string>
+    <string name="msg_consultando_fichas">Consultando fichas</string>
+    <string name="msg_importando">Importando</string>
+    <string name="msg_importando_clientes">Importando clientes</string>
+    <string name="msg_importando_produtos">Importando produtos</string>
+    <string name="msg_importando_funcionarios">Importando funcionários</string>
+    <string name="msg_importando_locais">Importando locais</string>
+    <string name="msg_importando_ambientes">Importando ambientes</string>
+    <string name="msg_importando_arquitetos">Importando arquitetos</string>
+    <string name="msg_excluido_com_sucesso">Excluído com sucesso</string>
+    <string name="msg_importacao_concluida">Importação concluída com sucesso</string>
+    <string name="msg_configuracao_salva">Configuração salva com sucesso</string>
+    <string name="msg_aguarde">Aguarde...</string>
+
+    <!-- Questions -->
+    <string name="msg_que_sair">Deseja sair do Sistema ?</string>
+    <string name="msg_que_exclusao_item">Excluir esse item ?</string>
+    <string name="title_activity_act_config">Configuração</string>
+    <string name="title_activity_act_importacao">Importação</string>
+    <string name="title_activity_act_ficha">Digitação da ficha</string>
+    <string name="title_activity_act_envia">Envio das fichas</string>
+    <string name="title_activity_act_consulta_fichas">Consultar Fichas</string>
+    <string name="title_activity_act_admin">Administrador</string>
+
+</resources>
