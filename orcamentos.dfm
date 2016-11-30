@@ -1,7 +1,7 @@
 object frmOrcamentos: TfrmOrcamentos
   Left = 17
   Top = 50
-  ActiveControl = edtNumeroPesquisa
+  ActiveControl = edtEmissao
   BorderStyle = bsToolWindow
   Caption = 'Or'#231'amentos'
   ClientHeight = 523
@@ -23,7 +23,7 @@ object frmOrcamentos: TfrmOrcamentos
     Top = 0
     Width = 794
     Height = 523
-    ActivePage = tabPesquisa
+    ActivePage = tabOrcamento
     Align = alClient
     TabOrder = 0
     TabStop = False
@@ -1045,6 +1045,7 @@ object frmOrcamentos: TfrmOrcamentos
     end
   end
   object trnOrcamentos: TIBTransaction
+    Active = True
     DefaultDatabase = frmPrincipal.idbInstalLux
     Params.Strings = (
       'concurrency'
@@ -1186,6 +1187,7 @@ object frmOrcamentos: TfrmOrcamentos
     object tblOrcamentosCLIENTE: TIntegerField
       FieldName = 'CLIENTE'
       Origin = 'ORCAMENTOS.CLIENTE'
+      OnValidate = tblOrcamentosCLIENTEValidate
     end
     object tblOrcamentosARQUITETO: TIntegerField
       FieldName = 'ARQUITETO'
@@ -2426,6 +2428,7 @@ object frmOrcamentos: TfrmOrcamentos
   object tblAmbCli: TIBDataSet
     Database = frmPrincipal.idbInstalLux
     Transaction = trnOrcamentos
+    ForcedRefresh = True
     BufferChunks = 1000
     CachedUpdates = False
     DeleteSQL.Strings = (
@@ -2460,7 +2463,6 @@ object frmOrcamentos: TfrmOrcamentos
     UniDirectional = False
     GeneratorField.Field = 'ID'
     GeneratorField.Generator = 'GEN_AMB_CLIENTES_ID'
-    DataSource = dtsOrcamentos
     Left = 708
     Top = 16
     object fldIBDataSet1ID: TIntegerField

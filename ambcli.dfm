@@ -4,7 +4,7 @@ object frmAmbcli: TfrmAmbcli
   BorderStyle = bsDialog
   Caption = 'Ambientes por cliente'
   ClientHeight = 501
-  ClientWidth = 592
+  ClientWidth = 604
   Color = clMoneyGreen
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -20,7 +20,7 @@ object frmAmbcli: TfrmAmbcli
   object DBText1: TDBText
     Left = 0
     Top = 0
-    Width = 592
+    Width = 604
     Height = 17
     Align = alTop
     DataField = 'NOME'
@@ -31,6 +31,7 @@ object frmAmbcli: TfrmAmbcli
     Font.Name = 'MS Sans Serif'
     Font.Style = [fsBold]
     ParentFont = False
+    ExplicitWidth = 592
   end
   object Label1: TLabel
     Left = 5
@@ -109,14 +110,15 @@ object frmAmbcli: TfrmAmbcli
     OnClick = btnDeleteClick
   end
   object grdAmbCli: TwwDBGrid
-    Left = 345
-    Top = 50
-    Width = 241
+    Left = 353
+    Top = 47
+    Width = 240
     Height = 446
-    DisableThemes = False
     Selected.Strings = (
       'NOMEDOAMBIENTE'#9'40'#9'NOMEDOAMBIENTE'#9#9)
+    IniAttributes.FileName = 'SGVWINDOWS.ini'
     IniAttributes.Delimiter = ';;'
+    IniAttributes.UnicodeIniFile = False
     TitleColor = clBtnFace
     FixedCols = 0
     ShowHorzScrollBar = False
@@ -124,7 +126,7 @@ object frmAmbcli: TfrmAmbcli
     KeyOptions = []
     Options = [dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit, dgWordWrap]
     ReadOnly = True
-    TabOrder = 0
+    TabOrder = 1
     TitleAlignment = taLeftJustify
     TitleFont.Charset = DEFAULT_CHARSET
     TitleFont.Color = clWindowText
@@ -153,7 +155,7 @@ object frmAmbcli: TfrmAmbcli
     GridLines = True
     HotTrack = True
     HotTrackStyles = [htHandPoint, htUnderlineCold, htUnderlineHot]
-    TabOrder = 1
+    TabOrder = 0
     ViewStyle = vsReport
     OnDblClick = grdAmbientesDblClick
   end
@@ -163,8 +165,6 @@ object frmAmbcli: TfrmAmbcli
     Width = 75
     Height = 25
     Caption = 'OK'
-    ModalResult = 1
-    TabOrder = 2
     Glyph.Data = {
       DE010000424DDE01000000000000760000002800000024000000120000000100
       0400000000006801000000000000000000001000000000000000000000000000
@@ -182,11 +182,13 @@ object frmAmbcli: TfrmAmbcli
       3338F38F000033333333333333A223333333333333338F830000333333333333
       333A333333333333333338330000333333333333333333333333333333333333
       0000}
+    ModalResult = 1
     NumGlyphs = 2
+    TabOrder = 2
   end
   object tblAmbcli: TIBDataSet
     Database = frmPrincipal.idbInstalLux
-    Transaction = frmClientes.trnClientes
+    Transaction = frmOrcamentos.trnOrcamentos
     BufferChunks = 1000
     CachedUpdates = False
     DeleteSQL.Strings = (
@@ -199,7 +201,16 @@ object frmAmbcli: TfrmAmbcli
       'values'
       '  (:ID, :CLIENTE, :AMBIENTE)')
     SelectSQL.Strings = (
-      'SELECT * FROM amb_clientes WHERE CLIENTE = :codigo')
+      'SELECT *'
+      ''
+      'FROM amb_clientes'
+      ''
+      'INNER JOIN AMBIENTES A ON A.CODIGO = AMB_CLIENTES.AMBIENTE'
+      ''
+      'WHERE CLIENTE = :codigo'
+      ''
+      ''
+      'ORDER BY A.descricao')
     ModifySQL.Strings = (
       'update amb_clientes'
       'set'
@@ -208,6 +219,8 @@ object frmAmbcli: TfrmAmbcli
       '  AMBIENTE = :AMBIENTE'
       'where'
       '  ID = :OLD_ID')
+    ParamCheck = True
+    UniDirectional = False
     DataSource = frmClientes.dtsClientes
     Left = 80
     object tblAmbcliNOMEDOAMBIENTE: TStringField
@@ -220,6 +233,12 @@ object frmAmbcli: TfrmAmbcli
       KeyFields = 'AMBIENTE'
       Size = 40
       Lookup = True
+    end
+    object tblAmbcliAMBIENTE: TSmallintField
+      DisplayWidth = 10
+      FieldName = 'AMBIENTE'
+      Origin = '"AMB_CLIENTES"."AMBIENTE"'
+      Visible = False
     end
     object tblAmbcliID: TIntegerField
       DefaultExpression = '0'
@@ -234,19 +253,16 @@ object frmAmbcli: TfrmAmbcli
       Origin = '"AMB_CLIENTES"."CLIENTE"'
       Visible = False
     end
-    object tblAmbcliAMBIENTE: TSmallintField
-      FieldName = 'AMBIENTE'
-      Origin = '"AMB_CLIENTES"."AMBIENTE"'
-      Visible = False
-    end
   end
   object tblAmbientes: TIBDataSet
     Database = frmPrincipal.idbInstalLux
-    Transaction = frmClientes.trnClientes
+    Transaction = frmOrcamentos.trnOrcamentos
     BufferChunks = 1000
     CachedUpdates = False
     SelectSQL.Strings = (
       'SELECT * FROM AMBIENTES ORDER BY DESCRICAO')
+    ParamCheck = True
+    UniDirectional = False
     Active = True
     Left = 125
     object tblAmbientesDESCRICAO: TIBStringField

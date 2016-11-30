@@ -11,7 +11,7 @@ uses
   cxClasses, cxControls, cxGridCustomView, cxGrid, cxDropDownEdit,vcl.imaging.jpeg,
   cxCurrencyEdit, cxCheckGroup, ComCtrls, Spin, IBQuery, ExtDlgs, DBCtrls,
   wwdbedit, Wwdotdot, Wwdbcomb, rxToolEdit, rxCurrEdit, RXDBCtrl, Mask, DBSBtn,
-  Buttons, wwdblook, wwdbdatetimepicker;
+  Buttons, wwdblook, wwdbdatetimepicker, Vcl.DBGrids;
 
 type
   TfrmOrcamentos = class(TForm)
@@ -256,6 +256,7 @@ type
     procedure btnPesquisaClick(Sender: TObject);
     procedure tabOrcamentoShow(Sender: TObject);
     procedure tblOrcamentosAfterInsert(DataSet: TDataSet);
+    procedure tblOrcamentosCLIENTEValidate(Sender: TField);
   private
     { Private declarations }
     function abre_tabelas :boolean;
@@ -347,8 +348,7 @@ begin
       // Verifica se o ambiente existe para esse cliente..
       // se não existe, grava..
 
-      if not ( tblAmbCli.Locate( 'cliente;ambiente' , varArrayOf( [tblOrcamentos.fieldbyname( 'cliente' ).asInteger,
-                                                                   tblItems.fieldbyname( 'local' ).asInteger] ), [] ) ) then
+      if not ( tblAmbCli.Locate( 'ambiente' , varArrayOf( [tblItems.fieldbyname( 'local' ).asInteger] ), [] ) ) then
         begin
           tblAmbCli.Insert;
           tblAmbCli.fieldbyname( 'cliente' ).asInteger := tblOrcamentos.fieldbyname( 'cliente' ).asInteger ;
@@ -475,12 +475,26 @@ begin
       fieldByName('ValorCobradoMaoDeObra').ascurrency;
 end;
 
+procedure TfrmOrcamentos.tblOrcamentosCLIENTEValidate(Sender: TField);
+begin
+
+  with tblAmbCli do
+  begin
+      Close;
+      Parambyname( 'cliente' ).asInteger := tblOrcamentos.fieldbyname( 'cliente' ).asInteger;
+      Open;
+      Last;
+      first;
+  end;
+end;
+
 procedure TfrmOrcamentos.edtClienteExit(Sender: TObject);
 begin
   if tblOrcamentos.state in [dsInsert] then
     tblOrcamentos.FieldByName('Arquiteto').asInteger :=
       tblClientes.fieldByName('Arquiteto').asInteger;
 end;
+
 
 procedure TfrmOrcamentos.edtArquitetoExit(Sender: TObject);
 begin

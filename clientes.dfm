@@ -1224,7 +1224,7 @@ object frmClientes: TfrmClientes
       end>
     Properties.ListOptions.SyncMode = True
     Properties.ListSource = dtsClientes
-    TabOrder = 1
+    TabOrder = 0
     Width = 167
   end
   object dtsClientes: TDataSource
