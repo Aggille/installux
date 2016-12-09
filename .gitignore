@@ -71,3 +71,4 @@ Server/Win32/
 Server/js/
 Mobile/Installux/gradle/
 Mobile/Installux/projectFilesBackup/.idea/workspace.xml
+*.GDB
