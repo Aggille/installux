@@ -23,7 +23,9 @@ uses
   dxSkinSpringTime, dxSkinStardust, dxSkinSummer2008, dxSkinTheAsphaltWorld,
   dxSkinsDefaultPainters, dxSkinValentine, dxSkinVS2010, dxSkinWhiteprint,
   dxSkinXmas2008Blue, cxTextEdit, cxMaskEdit, cxDropDownEdit, cxLookupEdit,
-  cxDBLookupEdit, cxDBLookupComboBox;
+  cxDBLookupEdit, cxDBLookupComboBox, dxSkinOffice2016Colorful,
+  dxSkinOffice2016Dark, dxSkinVisualStudio2013Blue, dxSkinVisualStudio2013Dark,
+  dxSkinVisualStudio2013Light;
 type
   TfrmClientes = class(TForm)
     dtsClientes: TDataSource;
@@ -194,6 +196,12 @@ end;
 
 procedure TfrmClientes.wwDBNavigator1Button4Click(Sender: TObject);
 begin
+   if not ( tblClientes.State in [dsInsert, dsEdit] ) then
+    begin
+      erro( 'Você deve estar alterando ou incluindo' );
+      exit;
+    end;
+
    application.Createform( TfrmAmbcli, frmAmbCli );
    frmAmbcli.ShowModal;
 end;

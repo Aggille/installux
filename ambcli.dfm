@@ -188,7 +188,7 @@ object frmAmbcli: TfrmAmbcli
   end
   object tblAmbcli: TIBDataSet
     Database = frmPrincipal.idbInstalLux
-    Transaction = frmOrcamentos.trnOrcamentos
+    Transaction = frmClientes.trnClientes
     BufferChunks = 1000
     CachedUpdates = False
     DeleteSQL.Strings = (
@@ -256,14 +256,13 @@ object frmAmbcli: TfrmAmbcli
   end
   object tblAmbientes: TIBDataSet
     Database = frmPrincipal.idbInstalLux
-    Transaction = frmOrcamentos.trnOrcamentos
+    Transaction = frmClientes.trnClientes
     BufferChunks = 1000
     CachedUpdates = False
     SelectSQL.Strings = (
       'SELECT * FROM AMBIENTES ORDER BY DESCRICAO')
     ParamCheck = True
     UniDirectional = False
-    Active = True
     Left = 125
     object tblAmbientesDESCRICAO: TIBStringField
       DisplayWidth = 40
