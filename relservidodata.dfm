@@ -3,8 +3,8 @@ object frmRelServicosData: TfrmRelServicosData
   Top = 160
   BorderStyle = bsToolWindow
   Caption = 'Relat'#243'rio de servi'#231'os'
-  ClientHeight = 97
-  ClientWidth = 266
+  ClientHeight = 91
+  ClientWidth = 269
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -61,7 +61,7 @@ object frmRelServicosData: TfrmRelServicosData
   end
   object BitBtn1: TBitBtn
     Left = 100
-    Top = 56
+    Top = 51
     Width = 75
     Height = 25
     Caption = 'Imprimir'
@@ -79,7 +79,7 @@ object frmRelServicosData: TfrmRelServicosData
   end
   object BitBtn2: TBitBtn
     Left = 182
-    Top = 56
+    Top = 51
     Width = 75
     Height = 25
     Caption = 'Sair'
@@ -101,8 +101,8 @@ object frmRelServicosData: TfrmRelServicosData
     OnClick = BitBtn2Click
   end
   object qrServicos: TQuickRep
-    Left = 29
-    Top = 121
+    Left = 69
+    Top = 153
     Width = 1123
     Height = 794
     DataSet = sqlServico
@@ -156,6 +156,8 @@ object frmRelServicosData: TfrmRelServicosData
     Zoom = 100
     PrevFormStyle = fsNormal
     PreviewInitialState = wsMaximized
+    PreviewWidth = 500
+    PreviewHeight = 500
     PrevShowThumbs = False
     PrevShowSearch = False
     PrevInitialZoom = qrZoomToWidth
@@ -169,7 +171,6 @@ object frmRelServicosData: TfrmRelServicosData
       Height = 15
       AlignToBottom = False
       BeforePrint = DetailBand1BeforePrint
-      Color = clWhite
       TransparentBand = False
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
@@ -447,6 +448,30 @@ object frmRelServicosData: TfrmRelServicosData
         MaxBreakChars = 0
         FontSize = 8
       end
+      object QRDBText5: TQRDBText
+        Left = 851
+        Top = 0
+        Width = 35
+        Height = 15
+        Size.Values = (
+          39.687500000000000000
+          2251.604166666667000000
+          0.000000000000000000
+          92.604166666666670000)
+        XLColumn = 0
+        Alignment = taRightJustify
+        AlignToBand = False
+        AutoSize = False
+        Color = clWhite
+        DataSet = sqlServico
+        DataField = 'RECIBO'
+        Transparent = True
+        ExportAs = exptText
+        WrapStyle = BreakOnSpaces
+        FullJustify = False
+        MaxBreakChars = 0
+        FontSize = 8
+      end
     end
     object PageHeaderBand1: TQRBand
       Left = 38
@@ -455,7 +480,6 @@ object frmRelServicosData: TfrmRelServicosData
       Height = 59
       Frame.DrawBottom = True
       AlignToBottom = False
-      Color = clWhite
       TransparentBand = False
       ForceNewColumn = False
       ForceNewPage = False
@@ -592,7 +616,6 @@ object frmRelServicosData: TfrmRelServicosData
       Width = 1047
       Height = 40
       AlignToBottom = False
-      Color = clWhite
       TransparentBand = False
       ForceNewColumn = False
       ForceNewPage = False
@@ -642,7 +665,6 @@ object frmRelServicosData: TfrmRelServicosData
       Height = 33
       AlignToBottom = False
       BeforePrint = QRBand1BeforePrint
-      Color = clWhite
       TransparentBand = False
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
@@ -782,7 +804,6 @@ object frmRelServicosData: TfrmRelServicosData
       Height = 33
       AlignToBottom = False
       BeforePrint = SummaryBand1BeforePrint
-      Color = clWhite
       TransparentBand = False
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
@@ -922,7 +943,6 @@ object frmRelServicosData: TfrmRelServicosData
       Height = 51
       Frame.DrawBottom = True
       AlignToBottom = False
-      Color = clWhite
       TransparentBand = False
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
@@ -1198,12 +1218,33 @@ object frmRelServicosData: TfrmRelServicosData
         WrapStyle = BreakOnSpaces
         FontSize = 8
       end
+      object QRLabel15: TQRLabel
+        Left = 851
+        Top = 32
+        Width = 34
+        Height = 17
+        Size.Values = (
+          44.979166666666670000
+          2251.604166666667000000
+          84.666666666666670000
+          89.958333333333330000)
+        XLColumn = 0
+        Alignment = taLeftJustify
+        AlignToBand = False
+        Caption = 'Recibo'
+        Color = clWhite
+        Transparent = False
+        ExportAs = exptText
+        WrapStyle = BreakOnSpaces
+        FontSize = 8
+      end
     end
   end
   object IBTransaction1: TIBTransaction
+    Active = True
     DefaultDatabase = frmPrincipal.idbInstalLux
-    Left = 8
-    Top = 48
+    Left = 16
+    Top = 40
   end
   object sqlServico: TIBQuery
     Database = frmPrincipal.idbInstalLux
@@ -1220,7 +1261,7 @@ object frmRelServicosData: TfrmRelServicosData
       
         'O.VALORCOBRADOSERVICOS,O.DATA, O.SAIDA, O.CHEGADA, O.VALORCOBRAD' +
         'O,O.VALOR,'
-      'R.PAGAMENTO,'
+      'R.PAGAMENTO,O.RECIBO,'
       'C.NOME,'
       'F.QUANTIDADE AS QT,'
       'F.NOME AS NOMEFUNCIONARIO,'
@@ -1234,11 +1275,11 @@ object frmRelServicosData: TfrmRelServicosData
       ''
       'WHERE '
       'O.DATA BETWEEN :INICIO AND :FINAL'
-      'AND COALESCE( RECIBO,0) =0'
+      '--AND COALESCE( RECIBO , 0) = 0'
       ''
       'ORDER BY O.DATA, O.OS, F.NOME')
-    Left = 40
-    Top = 48
+    Left = 48
+    Top = 40
     ParamData = <
       item
         DataType = ftDate
@@ -1362,6 +1403,10 @@ object frmRelServicosData: TfrmRelServicosData
       FieldKind = fkCalculated
       FieldName = 'DH_ENVIO'
       Calculated = True
+    end
+    object sqlServicoRECIBO: TIntegerField
+      FieldName = 'RECIBO'
+      Origin = '"OS"."RECIBO"'
     end
   end
 end

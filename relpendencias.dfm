@@ -381,7 +381,7 @@ object frmRelPendencias: TfrmRelPendencias
       'S.OS,  P.NOME, A.DESCRICAO, P.TIPO'
       ''
       'ORDER BY '
-      'P.TIPO, P.NOME')
+      'P.TIPO DESC, P.NOME')
     Left = 169
     Top = 5
     ParamData = <
@@ -593,12 +593,12 @@ object frmRelPendencias: TfrmRelPendencias
       end
       object GroupFooter1: TfrxGroupFooter
         FillType = ftBrush
-        Height = 109.606370000000000000
+        Height = 166.299320000000000000
         Top = 506.457020000000000000
         Width = 718.110700000000000000
         object Memo2: TfrxMemoView
           Left = 3.779530000000000000
-          Top = 15.118120000000000000
+          Top = 86.929190000000000000
           Width = 147.401670000000000000
           Height = 18.897650000000000000
           Font.Charset = DEFAULT_CHARSET
@@ -612,7 +612,7 @@ object frmRelPendencias: TfrmRelPendencias
         end
         object Memo3: TfrxMemoView
           Left = 3.779530000000000000
-          Top = 37.795300000000000000
+          Top = 64.252010000000000000
           Width = 147.401670000000000000
           Height = 18.897650000000000000
           Font.Charset = DEFAULT_CHARSET
@@ -626,14 +626,14 @@ object frmRelPendencias: TfrmRelPendencias
         end
         object Line1: TfrxLineView
           Left = 7.559060000000000000
-          Top = 68.031540000000000000
+          Top = 113.385900000000000000
           Width = 253.228510000000000000
           Color = clBlack
           Frame.Typ = [ftTop]
         end
         object Memo4: TfrxMemoView
           Left = 7.559060000000000000
-          Top = 75.590600000000000000
+          Top = 120.944960000000000000
           Width = 143.622140000000000000
           Height = 18.897650000000000000
           Font.Charset = DEFAULT_CHARSET
@@ -647,7 +647,7 @@ object frmRelPendencias: TfrmRelPendencias
         end
         object Memo5: TfrxMemoView
           Left = 283.464750000000000000
-          Top = 11.338590000000000000
+          Top = 56.692950000000000000
           Width = 430.866420000000000000
           Height = 83.149660000000000000
           Font.Charset = DEFAULT_CHARSET
@@ -665,7 +665,7 @@ object frmRelPendencias: TfrmRelPendencias
         end
         object Memo15: TfrxMemoView
           Left = 158.740260000000000000
-          Top = 15.118120000000000000
+          Top = 86.929190000000000000
           Width = 94.488250000000000000
           Height = 18.897650000000000000
           DisplayFormat.FormatStr = '%2.2n'
@@ -682,7 +682,7 @@ object frmRelPendencias: TfrmRelPendencias
         end
         object Memo16: TfrxMemoView
           Left = 158.740260000000000000
-          Top = 37.795300000000000000
+          Top = 64.252010000000000000
           Width = 94.488250000000000000
           Height = 18.897650000000000000
           DisplayFormat.FormatStr = '%2.2n'
@@ -699,7 +699,7 @@ object frmRelPendencias: TfrmRelPendencias
         end
         object Memo17: TfrxMemoView
           Left = 158.740260000000000000
-          Top = 75.590600000000000000
+          Top = 120.944960000000000000
           Width = 94.488250000000000000
           Height = 18.897650000000000000
           DisplayFormat.FormatStr = '%2.2n'
@@ -712,6 +712,21 @@ object frmRelPendencias: TfrmRelPendencias
           HAlign = haRight
           Memo.UTF8W = (
             '[totalcliente]')
+          ParentFont = False
+        end
+        object Memo18: TfrxMemoView
+          Left = 445.984540000000000000
+          Top = 3.779530000000000000
+          Width = 128.504020000000000000
+          Height = 18.897650000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -16
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
+          HAlign = haRight
+          Memo.UTF8W = (
+            '[tothorasgeral]')
           ParentFont = False
         end
       end
@@ -4726,7 +4741,7 @@ object frmRelPendencias: TfrmRelPendencias
       object PageFooter1: TfrxPageFooter
         FillType = ftBrush
         Height = 41.574830000000000000
-        Top = 676.535870000000000000
+        Top = 733.228820000000000000
         Width = 718.110700000000000000
         object Line2: TfrxLineView
           Align = baWidth

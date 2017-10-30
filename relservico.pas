@@ -6,7 +6,7 @@ uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, StdCtrls, Buttons, wwdbdatetimepicker, DB, IBCustomDataSet,
   IBQuery, IBDatabase,  Grids, DBGrids,
-  QuickRpt, ExtCtrls, QRCtrls;
+  QuickRpt, ExtCtrls, QRCtrls, vcl.wwdblook;
 
 type
   TfrmRelServicos = class(TForm)
@@ -73,6 +73,13 @@ type
     sqlServicoQT: TSmallintField;
     QRLabel12: TQRLabel;
     QRDBText11: TQRDBText;
+    qryClientes: TIBQuery;
+    qryClientesNOME: TIBStringField;
+    qryClientesCODIGO: TIntegerField;
+    qryClientesFANTASIA: TIBStringField;
+    dtsClientes: TDataSource;
+    Label3: TLabel;
+    edtCliente: TwwDBLookupCombo;
     procedure BitBtn2Click(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure BitBtn1Click(Sender: TObject);
@@ -83,6 +90,7 @@ type
       BandPrinted: Boolean);
     procedure QRBand1BeforePrint(Sender: TQRCustomBand;
       var PrintBand: Boolean);
+    procedure FormShow(Sender: TObject);
   private
     { Private declarations }
   public
@@ -110,6 +118,11 @@ begin
   action := caFree;
 end;
 
+procedure TfrmRelServicos.FormShow(Sender: TObject);
+begin
+  qryClientes.Open;
+end;
+
 procedure TfrmRelServicos.BitBtn1Click(Sender: TObject);
 begin
 
@@ -129,6 +142,18 @@ begin
         close;
         paramByName('inicio').asDateTime := edtInicio.Date;
         paramByName('final').asDateTime := edtFinal.Date;
+
+        if( edtCliente.text = '' ) then
+          begin
+            parambyname( 'cinicial' ).asInteger :=0;
+            parambyname( 'cfinal' ).asInteger := 999999;
+          end
+        else
+          begin
+            parambyname( 'cinicial' ).asInteger := qryClientes.fieldbyname( 'codigo' ).asInteger;
+            parambyname( 'cfinal' ).asInteger := qryClientes.fieldbyname( 'codigo' ).asInteger;
+          end;
+
         lblPeriodo.Caption := 'de ' + edtInicio.Text + ' até  ' + edtFinal.Text;
         abre( [sqlServico] );
 

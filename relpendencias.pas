@@ -63,8 +63,6 @@ type
     procedure qryServicoCalcFields(DataSet: TDataSet);
     procedure qryServicoAfterScroll(DataSet: TDataSet);
     procedure qryServicoAfterOpen(DataSet: TDataSet);
-    procedure rvServicosPendenciasValidateRow(
-      Connection: TRvCustomConnection; var ValidRow: Boolean);
     procedure BitBtn3Click(Sender: TObject);
     procedure frxReport1GetValue(const VarName: string; var Value: Variant);
   private
@@ -201,29 +199,56 @@ begin
 
       with qryServico do begin
 
-      DecodeTime( fieldByName('horas').asDateTime , Hora, Minuto, Segundo, MSeg);
+        DecodeTime( fieldByName('horas').asDateTime , Hora, Minuto, Segundo, MSeg);
 
-      horas    := hora     * fieldbyname( 'quantidade' ).asInteger;
-      minutos  := minuto   * fieldbyname( 'quantidade' ).asInteger;
+        horas    := hora     * fieldbyname( 'quantidade' ).asInteger;
+        minutos  := minuto   * fieldbyname( 'quantidade' ).asInteger;
 
-      if minutos = 60 then
-      begin
-         minutos := 0;
-         Inc( horas );
-      end
-      else
-      begin
-         horas    := horas + ( trunc( minutos / 60 ) );
-         minutos  := minutos mod 60;
-      end;
+        if minutos = 60 then
+        begin
+           minutos := 0;
+           Inc( horas );
+        end
+        else
+        begin
+           horas    := horas + ( trunc( minutos / 60 ) );
+           minutos  := minutos mod 60;
+        end;
 
-      h := Format('%d:%d', [horas, minutos]);
+        h := Format('%d:%d', [horas, minutos]);
+
+        tHora     := tHora + horas;
+        tMinuto   := tMinuto + minutos;
 
       end;
 
        value := h;
 
     end;
+
+    if( varname = 'tothorasgeral' ) then
+    begin
+
+        horas    := tHora;
+        minutos  := tMinuto;
+
+        if minutos = 60 then
+        begin
+           minutos := 0;
+           Inc( horas );
+        end
+        else
+        begin
+           horas    := horas + ( trunc( minutos / 60 ) );
+           minutos  := minutos mod 60;
+        end;
+
+        h := Format('%d:%d', [horas, minutos]);
+
+        value := h;
+
+    end;
+
 end;
 
 procedure TfrmRelPendencias.qryServicoCalcFields(DataSet: TDataSet);
@@ -282,22 +307,12 @@ end;
 
 procedure TfrmRelPendencias.qryServicoAfterOpen(DataSet: TDataSet);
 begin
-{  tHora := 0;
+  tHora := 0;
   tMinuto := 0;
   tSegundo := 0;
   tHoraDia := 0;
   tMinutoDia := 0;
-  tSegundoDia := 0;}
-
-end;
-
-procedure TfrmRelPendencias.rvServicosPendenciasValidateRow(
-  Connection: TRvCustomConnection; var ValidRow: Boolean);
-begin
-      tHora     := tHora + qryservico.fieldByName('totHoras').asInteger;
-      tMinuto   := tMinuto + qryservico.fieldByName('totMinutos').asInteger;
-      tHoraDia  := tHoraDia + qryservico.fieldByName('totHoras').asInteger;
-      tMinutoDia:= tMinutoDia + qryservico.fieldByName('totMinutos').asInteger;
+  tSegundoDia := 0;
 end;
 
 procedure TfrmRelPendencias.BitBtn3Click(Sender: TObject);
@@ -337,16 +352,6 @@ try
     end;
 
     open;
-
-    {
-    first;
-    while not eof do
-    begin
-       servicos    := servicos + fieldByName( 'Servicos' ).asCurrency;
-       materiais   := materiais + fieldByName( 'Materiais' ).asCurrency;
-       next;
-    end;
-    }
 
     servicos    := fieldByName( 'Servicos' ).asCurrency;
     materiais   := fieldByName( 'Materiais' ).asCurrency;

@@ -3,8 +3,8 @@ object frmRelServicos: TfrmRelServicos
   Top = 149
   BorderStyle = bsToolWindow
   Caption = 'Relat'#243'rio de servi'#231'os'
-  ClientHeight = 99
-  ClientWidth = 280
+  ClientHeight = 124
+  ClientWidth = 273
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -15,6 +15,7 @@ object frmRelServicos: TfrmRelServicos
   Position = poScreenCenter
   Scaled = False
   OnClose = FormClose
+  OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
   object Label1: TLabel
@@ -30,6 +31,13 @@ object frmRelServicos: TfrmRelServicos
     Width = 22
     Height = 13
     Caption = 'Final'
+  end
+  object Label3: TLabel
+    Left = 8
+    Top = 48
+    Width = 32
+    Height = 13
+    Caption = 'Cliente'
   end
   object edtInicio: TwwDBDateTimePicker
     Left = 8
@@ -60,8 +68,8 @@ object frmRelServicos: TfrmRelServicos
     TabOrder = 1
   end
   object BitBtn1: TBitBtn
-    Left = 100
-    Top = 56
+    Left = 95
+    Top = 91
     Width = 75
     Height = 25
     Caption = 'Imprimir'
@@ -74,13 +82,13 @@ object frmRelServicos: TfrmRelServicos
       0002088888877788080200000000000008800888888888808080200000000008
       0800220FFFFFFFF080802220F00000F000022220FFFFFFFF022222220F00000F
       022222220FFFFFFFF02222222000000000222222222222222222}
-    TabOrder = 2
+    TabOrder = 4
     OnClick = BitBtn1Click
   end
   object BitBtn2: TBitBtn
-    Left = 187
-    Top = 56
-    Width = 75
+    Left = 176
+    Top = 91
+    Width = 81
     Height = 25
     Caption = 'Sair'
     Glyph.Data = {
@@ -97,7 +105,7 @@ object frmRelServicos: TfrmRelServicos
       0333337F3F7F33337F333301E10BBBBB0333337F7F7F33337F333301EE0BBBBB
       0333337F777FFFFF7F3333000000000003333377777777777333}
     NumGlyphs = 2
-    TabOrder = 3
+    TabOrder = 5
     OnClick = BitBtn2Click
   end
   object qrServicos: TQuickRep
@@ -156,6 +164,8 @@ object frmRelServicos: TfrmRelServicos
     Zoom = 100
     PrevFormStyle = fsNormal
     PreviewInitialState = wsMaximized
+    PreviewWidth = 500
+    PreviewHeight = 500
     PrevShowThumbs = False
     PrevShowSearch = False
     PrevInitialZoom = qrZoomToWidth
@@ -169,7 +179,6 @@ object frmRelServicos: TfrmRelServicos
       Height = 20
       Frame.DrawBottom = True
       AlignToBottom = False
-      Color = clWhite
       TransparentBand = False
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
@@ -252,7 +261,6 @@ object frmRelServicos: TfrmRelServicos
       Width = 718
       Height = 16
       AlignToBottom = False
-      Color = clWhite
       TransparentBand = False
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
@@ -348,7 +356,6 @@ object frmRelServicos: TfrmRelServicos
       Height = 48
       Frame.DrawBottom = True
       AlignToBottom = False
-      Color = clWhite
       TransparentBand = False
       ForceNewColumn = False
       ForceNewPage = False
@@ -486,7 +493,6 @@ object frmRelServicos: TfrmRelServicos
       Height = 30
       AlignToBottom = False
       BeforePrint = SummaryBand1BeforePrint
-      Color = clWhite
       TransparentBand = False
       ForceNewColumn = False
       ForceNewPage = False
@@ -523,7 +529,6 @@ object frmRelServicos: TfrmRelServicos
       Width = 718
       Height = 40
       AlignToBottom = False
-      Color = clWhite
       TransparentBand = False
       ForceNewColumn = False
       ForceNewPage = False
@@ -573,7 +578,6 @@ object frmRelServicos: TfrmRelServicos
       Height = 65
       AfterPrint = QRGroup2AfterPrint
       AlignToBottom = False
-      Color = clWhite
       TransparentBand = False
       ForceNewColumn = False
       ForceNewPage = False
@@ -1000,7 +1004,6 @@ object frmRelServicos: TfrmRelServicos
       Frame.DrawBottom = True
       AlignToBottom = False
       BeforePrint = QRBand1BeforePrint
-      Color = clWhite
       TransparentBand = False
       ForceNewColumn = False
       ForceNewPage = False
@@ -1032,10 +1035,28 @@ object frmRelServicos: TfrmRelServicos
       end
     end
   end
+  object edtCliente: TwwDBLookupCombo
+    Left = 8
+    Top = 64
+    Width = 249
+    Height = 21
+    DropDownAlignment = taLeftJustify
+    Selected.Strings = (
+      'FANTASIA'#9'20'#9'FANTASIA'#9'F')
+    LookupTable = qryClientes
+    LookupField = 'CODIGO'
+    Options = [loColLines, loRowLines, loTitles, loFixedDropDownHeight]
+    TabOrder = 3
+    AutoDropDown = True
+    ShowButton = True
+    PreciseEditRegion = False
+    AllowClearKey = False
+    ShowMatchText = True
+  end
   object IBTransaction1: TIBTransaction
     DefaultDatabase = frmPrincipal.idbInstalLux
-    Left = 8
-    Top = 48
+    Left = 32
+    Top = 40
   end
   object sqlServico: TIBQuery
     Database = frmPrincipal.idbInstalLux
@@ -1066,12 +1087,14 @@ object frmRelServicos: TfrmRelServicos
       ''
       'WHERE '
       'O.DATA BETWEEN :INICIO AND :FINAL'
+      'AND'
+      'O.CLIENTE BETWEEN :CINICIAL AND :CFINAL'
       ''
       ''
       'ORDER BY '
       'O.DATA,O.OS, O.CLIENTE,O.FUNCIONARIO')
-    Left = 40
-    Top = 48
+    Left = 67
+    Top = 42
     ParamData = <
       item
         DataType = ftDate
@@ -1084,6 +1107,16 @@ object frmRelServicos: TfrmRelServicos
         Name = 'FINAL'
         ParamType = ptUnknown
         Value = '31/12/2003'
+      end
+      item
+        DataType = ftUnknown
+        Name = 'CINICIAL'
+        ParamType = ptUnknown
+      end
+      item
+        DataType = ftUnknown
+        Name = 'CFINAL'
+        ParamType = ptUnknown
       end>
     object sqlServicoDATA: TDateField
       FieldName = 'DATA'
@@ -1170,5 +1203,47 @@ object frmRelServicos: TfrmRelServicos
       FieldName = 'QT'
       Origin = '"FUNCIONARIOS"."QUANTIDADE"'
     end
+  end
+  object qryClientes: TIBQuery
+    Database = frmPrincipal.idbInstalLux
+    Transaction = IBTransaction1
+    BufferChunks = 1000
+    CachedUpdates = False
+    ParamCheck = True
+    SQL.Strings = (
+      'SELECT'
+      'CODIGO,NOME, FANTASIA'
+      ''
+      'FROM '
+      'CLIENTES'
+      ''
+      'ORDER BY'
+      'FANTASIA')
+    Left = 96
+    Top = 40
+    object qryClientesNOME: TIBStringField
+      DisplayWidth = 50
+      FieldName = 'NOME'
+      Origin = 'CLIENTES.NOME'
+      Required = True
+      Visible = False
+      Size = 50
+    end
+    object qryClientesCODIGO: TIntegerField
+      FieldName = 'CODIGO'
+      Origin = 'CLIENTES.CODIGO'
+      Required = True
+      Visible = False
+    end
+    object qryClientesFANTASIA: TIBStringField
+      FieldName = 'FANTASIA'
+      Origin = 'CLIENTES.FANTASIA'
+      Size = 50
+    end
+  end
+  object dtsClientes: TDataSource
+    DataSet = qryClientes
+    Left = 97
+    Top = 61
   end
 end

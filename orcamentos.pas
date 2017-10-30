@@ -437,15 +437,28 @@ begin
     while not tblItems.eof do
     begin
 
-    qryItems.Insert;
-    qryItems.FieldByName( 'quantidade' ).asFloat      := tblItems.fieldbyname( 'quantidade' ).asFloat;
-    qryItems.fieldbyname( 'nome' ).asString           := tblItems.fieldbyname( 'nomedoproduto' ).asString;
-    qryItems.fieldbyname( 'tipo' ).asString           := tblItems.fieldbyname( 'tipo' ).asString;
-    qryItems.fieldbyname( 'nomedoambiente' ).asString := tblItems.fieldbyname( 'nomedoambiente' ).asString;
-    qryItems.fieldbyname( 'produto' ).asString        := tblItems.fieldbyname( 'produto' ).asString;
-    qryItems.fieldbyname( 'local' ).asInteger         := tblItems.fieldbyname( 'local' ).asInteger;
+    if( qryItems.Locate('nomedoambiente;produto;local' ,varArrayOf(  [ tblitems.fieldbyname( 'nomedoambiente' ).asString,
+                                                             tblitems.fieldbyname( 'produto' ).asString,
+                                                             tblItems.fieldbyname( 'local' ).asString ] ), []  ) ) then
+      begin
+        qryItems.Edit;
+        qryItems.FieldByName( 'quantidade' ).asFloat      := qryItems.fieldbyname( 'quantidade' ).asFloat + tblItems.fieldbyname( 'quantidade' ).asFloat;
+      end
+    else
+      begin
+        qryItems.Insert;
+        qryItems.FieldByName( 'quantidade' ).asFloat      := tblItems.fieldbyname( 'quantidade' ).asFloat;
+        qryItems.fieldbyname( 'nome' ).asString           := tblItems.fieldbyname( 'nomedoproduto' ).asString;
+        qryItems.fieldbyname( 'tipo' ).asString           := tblItems.fieldbyname( 'tipo' ).asString;
+        qryItems.fieldbyname( 'nomedoambiente' ).asString := tblItems.fieldbyname( 'nomedoambiente' ).asString;
+        qryItems.fieldbyname( 'produto' ).asString        := tblItems.fieldbyname( 'produto' ).asString;
+        qryItems.fieldbyname( 'local' ).asInteger         := tblItems.fieldbyname( 'local' ).asInteger;
+      end;
+
     qryItems.Post;
+
     tblItems.Next;
+
     end;
 
      PreviewModal;
@@ -461,7 +474,7 @@ procedure TfrmOrcamentos.tblOrcamentosAfterPost(DataSet: TDataSet);
 var
 orcamento:Integer;
 begin
-//  trnOrcamentos.CommitRetaining;;
+
   if Confirma('Deseja imprimir este orçamento ?') then   wwDBNavigator1Button1Click(nil);
   gravaTransacao;
 

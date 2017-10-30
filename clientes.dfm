@@ -892,7 +892,6 @@ object frmClientes: TfrmClientes
     BevelOuter = bvRaised
     ParentShowHint = False
     Transparent = True
-    ExplicitTop = -3
     object wwDBNavigator1First: TwwNavButton
       Left = 2
       Top = 2

@@ -86,6 +86,9 @@ type
     QRLabel11: TQRLabel;
     sqlServicoDH_ENVIO: TStringField;
     QRDBText4: TQRDBText;
+    sqlServicoRECIBO: TIntegerField;
+    QRLabel15: TQRLabel;
+    QRDBText5: TQRDBText;
     procedure BitBtn2Click(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure BitBtn1Click(Sender: TObject);

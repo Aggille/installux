@@ -2,8 +2,8 @@ object frmPrincipal: TfrmPrincipal
   Left = 91
   Top = 121
   Caption = 'Sistema administrativo'
-  ClientHeight = 412
-  ClientWidth = 947
+  ClientHeight = 478
+  ClientWidth = 1007
   Color = clWhite
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -20,8 +20,8 @@ object frmPrincipal: TfrmPrincipal
   TextHeight = 13
   object Bar: TRzStatusBar
     Left = 0
-    Top = 387
-    Width = 947
+    Top = 453
+    Width = 1007
     Height = 25
     AutoStyle = False
     BorderInner = fsBump
@@ -29,8 +29,9 @@ object frmPrincipal: TfrmPrincipal
     BorderSides = [sdLeft, sdTop, sdRight, sdBottom]
     BorderWidth = 0
     TabOrder = 2
+    ExplicitWidth = 947
     object RzClockStatus: TRzClockStatus
-      Left = 815
+      Left = 875
       Top = 2
       Width = 130
       Height = 21
@@ -39,7 +40,7 @@ object frmPrincipal: TfrmPrincipal
       ExplicitLeft = 622
     end
     object RzKeyStatus: TRzKeyStatus
-      Left = 770
+      Left = 830
       Top = 2
       Height = 21
       Align = alRight
@@ -49,7 +50,7 @@ object frmPrincipal: TfrmPrincipal
       ExplicitLeft = 577
     end
     object RzKeyStatus1: TRzKeyStatus
-      Left = 725
+      Left = 785
       Top = 2
       Height = 21
       Align = alRight
@@ -58,7 +59,7 @@ object frmPrincipal: TfrmPrincipal
       ExplicitLeft = 532
     end
     object RzKeyStatus2: TRzKeyStatus
-      Left = 680
+      Left = 740
       Top = 2
       Height = 21
       Align = alRight
@@ -67,7 +68,7 @@ object frmPrincipal: TfrmPrincipal
       ExplicitLeft = 487
     end
     object gauge: TRzProgressBar
-      Left = 502
+      Left = 562
       Top = 2
       Width = 178
       Height = 21
@@ -85,7 +86,7 @@ object frmPrincipal: TfrmPrincipal
     object pnlHint: TRzGlyphStatus
       Left = 2
       Top = 2
-      Width = 500
+      Width = 560
       Height = 21
       Align = alClient
       Font.Charset = DEFAULT_CHARSET
@@ -111,7 +112,7 @@ object frmPrincipal: TfrmPrincipal
   object CoolBar1: TCoolBar
     Left = 0
     Top = 0
-    Width = 947
+    Width = 1007
     Height = 26
     AutoSize = True
     Bands = <
@@ -119,7 +120,7 @@ object frmPrincipal: TfrmPrincipal
         Control = ToolBar1
         ImageIndex = -1
         MinHeight = 26
-        Width = 945
+        Width = 1005
       end>
     EdgeBorders = []
     Bitmap.Data = {
@@ -672,7 +673,7 @@ object frmPrincipal: TfrmPrincipal
     object ToolBar1: TToolBar
       Left = 11
       Top = 0
-      Width = 936
+      Width = 996
       Height = 26
       AutoSize = True
       Caption = 'ToolBar1'
@@ -740,16 +741,17 @@ object frmPrincipal: TfrmPrincipal
   object Panel1: TPanel
     Left = 0
     Top = 26
-    Width = 947
-    Height = 361
+    Width = 1007
+    Height = 427
     Align = alClient
     ParentColor = True
-    TabOrder = 1
+    TabOrder = 0
+    ExplicitWidth = 947
     object Image2: TImage
       Left = 1
       Top = 1
-      Width = 945
-      Height = 166
+      Width = 1005
+      Height = 232
       Align = alClient
       AutoSize = True
       Center = True
@@ -5153,14 +5155,15 @@ object frmPrincipal: TfrmPrincipal
     end
     object Panel2: TPanel
       Left = 1
-      Top = 167
-      Width = 945
+      Top = 233
+      Width = 1005
       Height = 193
       Align = alBottom
       ParentColor = True
       TabOrder = 0
+      ExplicitWidth = 945
       object Image1: TImage
-        Left = 740
+        Left = 800
         Top = 1
         Width = 204
         Height = 191
@@ -8822,6 +8825,7 @@ object frmPrincipal: TfrmPrincipal
           8C8CBE5889FC7FF46454AE9C343FD20000000049454E44AE426082}
         Proportional = True
         Stretch = True
+        ExplicitLeft = 740
       end
     end
   end
@@ -8829,7 +8833,7 @@ object frmPrincipal: TfrmPrincipal
     Left = 124
     Top = 119
     Bitmap = {
-      494C010112001300440010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C0101120013004C0010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000400000005000000001002000000000000050
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
@@ -9798,7 +9802,9 @@ object frmPrincipal: TfrmPrincipal
     Top = 119
   end
   object idbInstalLux: TIBDatabase
-    DatabaseName = '192.168.0.100:c:\KoutoSoft\INSTALLUX\INSTALLUX.GDB'
+    DatabaseName = 
+      'localhost/3051:d:\KoutoSoft\sistemas\Delphi XE6\INSTALLUX\INSTAL' +
+      'LUX.GDB'
     Params.Strings = (
       'user_name=sysdba'
       'password=031073'

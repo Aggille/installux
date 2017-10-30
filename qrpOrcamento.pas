@@ -39,7 +39,6 @@ type
     QRDBText10: TQRDBText;
     QRShape2: TQRShape;
     QRSysData1: TQRSysData;
-    QRImage1: TQRImage;
     qrResponsavel: TQRLabel;
     QRDBText1: TQRDBText;
     QRLabel29: TQRLabel;
@@ -74,6 +73,7 @@ type
     qryItemsNOMEDOAMBIENTE: TStringField;
     qryItemsPRODUTO: TIntegerField;
     qryItemsTIPO: TStringField;
+    QRImage1: TQRImage;
     procedure QRLabel21Print(sender: TObject; var Value: string);
     procedure ChildBand2BeforePrint(Sender: TQRCustomBand;
       var PrintBand: Boolean);
@@ -120,10 +120,8 @@ begin
   with qryItems do
   begin
 
-    if ((fieldByName('Tipo').asString = '1') and (not
-      frmImporc.edtPecas.Checked)) or
-      ((fieldByName('Tipo').asString = '2') and (not
-        frmImporc.edtServicos.Checked)) then
+    if ((fieldByName('Tipo').asString = '1') and (not frmImporc.edtPecas.Checked)) or
+      ((fieldByName('Tipo').asString = '2') and (not frmImporc.edtServicos.Checked)) then
       PrintBand := false;
 
   end;
@@ -172,7 +170,7 @@ end;
 procedure TqrpOrcto.QRDBText3Print(sender: TObject; var Value: String);
 begin
    with frmPrincipal.sqlEmpresa do
-      Value := fieldbyName( 'Endereco' ).asString + ' - ' + fieldbyname( 'Bairro' ).asString;  
+      Value := fieldbyName( 'Endereco' ).asString + ' - ' + fieldbyname( 'Bairro' ).asString;
 end;
 
 procedure TqrpOrcto.QRDBText12Print(sender: TObject; var Value: String);
