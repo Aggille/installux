@@ -47,7 +47,7 @@ type
     qryUltimoRecibo: TIBQuery;
     dlgRecibo: TwwRecordViewDialog;
     edtCliente: TwwDBLookupCombo;
-    wwDBRichEdit1: TwwDBRichEdit;
+    edtObs: TwwDBRichEdit;
     tblRecibosSALDO: TIBBCDField;
     wwDBNavigator1Button2: TwwNavButton;
     wwDBNavigator1Button3: TwwNavButton;
@@ -313,6 +313,8 @@ begin
 end;
 
 procedure TfrmRecibos.wwDBNavigator1Button6Click(Sender: TObject);
+var
+x:Integer;
 begin
    Application.CreateForm( TfrmImpFichaRecibo, frmImpfichaRecibo );
    with frmImpFichaRecibo do
@@ -331,8 +333,13 @@ begin
          qrServicos.Caption         := FloatToStrF( qryValores.fieldbyname( 'Servicos' ).asCurrency, ffCurrency , 16 , 2 );
          qrMateriais.Caption        := FloatToStrF( qryValores.fieldbyname( 'Materiais' ).asCurrency, ffcurrency, 16 , 2 );
          qrTotal.Caption            := FloatToStrF( qryValores.fieldbyname( 'Valor' ).asCurrency , ffCurrency , 16 , 2 );
-         qrObs.Lines.Clear;
-         qrObs.Lines.Text           := tblRecibos.fieldbyname( 'obs' ).asString;
+
+//         edtObs.Text := tblRecibos.fieldbyname( 'obs' ).asString;
+//         edtObs.PlainText           := true;
+  //       qrObs.Lines.Clear;
+  //       qrObs.Lines.Add( edtObs.Text);
+  //       edtObs.PlainText := false;
+
          lblNumero.Caption          := 'Número da ficha :'+IntToStr( tblRecibos.fieldByName( 'ID' ).asInteger )
 
       end;

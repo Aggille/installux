@@ -134,6 +134,7 @@ uses
     frxRTFExport1: TfrxRTFExport;
     frxDBDEmpresa: TfrxDBDataset;
     frxPDFExport1: TfrxPDFExport;
+    QRPDFFilter1: TQRPDFFilter;
     procedure actSaiExecute(Sender: TObject);
     procedure actArquitetosExecute(Sender: TObject);
     procedure FormShow(Sender: TObject);

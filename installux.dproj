@@ -7,7 +7,7 @@
         <DCC_DependencyCheckOutputName>installux.exe</DCC_DependencyCheckOutputName>
         <ProjectVersion>15.4</ProjectVersion>
         <Base>True</Base>
-        <Config Condition="'$(Config)'==''">Release</Config>
+        <Config Condition="'$(Config)'==''">Debug</Config>
         <AppType>Application</AppType>
         <FrameworkType>VCL</FrameworkType>
         <TargetedPlatforms>1</TargetedPlatforms>

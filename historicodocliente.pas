@@ -301,8 +301,8 @@ begin
          qrServicos.Caption         := FloatToStrF( tblOs.fieldbyname( 'Servicos_cobrado' ).asCurrency, ffCurrency , 16 , 2 );
          qrMateriais.Caption        := FloatToStrF( tblOs.fieldbyname( 'Materiais_cobrado' ).asCurrency, ffcurrency, 16 , 2 );
          qrTotal.Caption            := FloatToStrF( tblOs.fieldbyname( 'Valor_Recibo' ).asCurrency , ffCurrency , 16 , 2 );
-         qrObs.Lines.Clear;
-         qrObs.Lines.Text           := tblOs.fieldbyname( 'obs' ).asString;
+         qrObs.DataSet              := tblOs;//.Lines.Clear;
+         //qrObs.Lines.Text           := tblOs.fieldbyname( 'obs' ).asString;
          lblNumero.Caption          := 'Número da ficha :'+IntToStr( tblOs.fieldByName( 'Recibo' ).asInteger )
 
       end;

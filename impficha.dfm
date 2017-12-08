@@ -3,7 +3,7 @@ object frmImpficha: TfrmImpficha
   Top = 45
   BorderStyle = bsDialog
   Caption = 'Impress'#227'o da ficha do cliente'
-  ClientHeight = 337
+  ClientHeight = 329
   ClientWidth = 770
   Color = clMoneyGreen
   Font.Charset = DEFAULT_CHARSET

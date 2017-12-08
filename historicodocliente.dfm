@@ -107,6 +107,7 @@ object frmHistorico: TfrmHistorico
       'NOMEDOFUNCIONARIO'#9'40'#9'Funcion'#225'rio'#9'F')
     IniAttributes.FileName = 'SGVWINDOWS.ini'
     IniAttributes.Delimiter = ';;'
+    IniAttributes.UnicodeIniFile = False
     TitleColor = clBtnFace
     FixedCols = 0
     ShowHorzScrollBar = True
@@ -147,6 +148,7 @@ object frmHistorico: TfrmHistorico
       'AMBIENTE'#9'30'#9'Ambiente'#9'F')
     IniAttributes.FileName = 'SGVWINDOWS.ini'
     IniAttributes.Delimiter = ';;'
+    IniAttributes.UnicodeIniFile = False
     TitleColor = clBtnFace
     FixedCols = 0
     ShowHorzScrollBar = True
@@ -182,9 +184,6 @@ object frmHistorico: TfrmHistorico
     Width = 75
     Height = 25
     Caption = 'Sair'
-    ModalResult = 1
-    TabOrder = 3
-    OnClick = btnSairClick
     Glyph.Data = {
       76010000424D7601000000000000760000002800000020000000100000000100
       04000000000000010000120B0000120B00001000000000000000000000000000
@@ -198,7 +197,10 @@ object frmHistorico: TfrmHistorico
       0333337F337733337F333301110BBBBB0333337F337F33337F333301110BBBBB
       0333337F3F7F33337F333301E10BBBBB0333337F7F7F33337F333301EE0BBBBB
       0333337F777FFFFF7F3333000000000003333377777777777333}
+    ModalResult = 1
     NumGlyphs = 2
+    TabOrder = 3
+    OnClick = btnSairClick
   end
   object btnImprime: TBitBtn
     Left = 546
@@ -206,9 +208,6 @@ object frmHistorico: TfrmHistorico
     Width = 75
     Height = 25
     Caption = 'Imprimir'
-    ModalResult = 1
-    TabOrder = 2
-    OnClick = btnImprimeClick
     Glyph.Data = {
       F6000000424DF600000000000000760000002800000010000000100000000100
       04000000000080000000CE0E0000D80E00001000000000000000000000000000
@@ -218,6 +217,9 @@ object frmHistorico: TfrmHistorico
       0002088888877788080200000000000008800888888888808080200000000008
       0800220FFFFFFFF080802220F00000F000022220FFFFFFFF022222220F00000F
       022222220FFFFFFFF02222222000000000222222222222222222}
+    ModalResult = 1
+    TabOrder = 2
+    OnClick = btnImprimeClick
   end
   object DBEdit1: TDBEdit
     Left = 275
@@ -236,11 +238,6 @@ object frmHistorico: TfrmHistorico
     Top = 440
     Width = 794
     Height = 1123
-    Frame.Color = clBlack
-    Frame.DrawTop = False
-    Frame.DrawBottom = False
-    Frame.DrawLeft = False
-    Frame.DrawRight = False
     DataSet = tblFicha
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
@@ -259,6 +256,7 @@ object frmHistorico: TfrmHistorico
     Page.Columns = 1
     Page.Orientation = poPortrait
     Page.PaperSize = A4
+    Page.Continuous = False
     Page.Values = (
       100.000000000000000000
       2970.000000000000000000
@@ -288,21 +286,20 @@ object frmHistorico: TfrmHistorico
     Zoom = 100
     PrevFormStyle = fsNormal
     PreviewInitialState = wsMaximized
+    PreviewWidth = 500
+    PreviewHeight = 500
     PrevShowThumbs = False
     PrevShowSearch = False
     PrevInitialZoom = qrZoomToWidth
+    PreviewDefaultSaveType = stQRP
+    PreviewLeft = 0
+    PreviewTop = 0
     object DetailBand1: TQRBand
       Left = 38
       Top = 423
       Width = 718
       Height = 20
-      Frame.Color = clBlack
-      Frame.DrawTop = False
-      Frame.DrawBottom = False
-      Frame.DrawLeft = False
-      Frame.DrawRight = False
       AlignToBottom = False
-      Color = clWhite
       TransparentBand = False
       ForceNewColumn = False
       ForceNewPage = False
@@ -317,25 +314,23 @@ object frmHistorico: TfrmHistorico
         Top = 3
         Width = 494
         Height = 17
-        Frame.Color = clBlack
-        Frame.DrawTop = False
-        Frame.DrawBottom = False
-        Frame.DrawLeft = False
-        Frame.DrawRight = False
         Size.Values = (
           44.979166666666670000
           145.520833333333300000
           7.937500000000000000
           1307.041666666667000000)
+        XLColumn = 0
         Alignment = taLeftJustify
         AlignToBand = False
         AutoSize = False
-        AutoStretch = False
         Color = clWhite
         DataSet = tblFicha
         DataField = 'PRODUTO'
         Transparent = False
-        WordWrap = True
+        ExportAs = exptText
+        WrapStyle = BreakOnSpaces
+        FullJustify = False
+        MaxBreakChars = 0
         FontSize = 8
       end
       object QRDBText3: TQRDBText
@@ -343,25 +338,23 @@ object frmHistorico: TfrmHistorico
         Top = 3
         Width = 80
         Height = 17
-        Frame.Color = clBlack
-        Frame.DrawTop = False
-        Frame.DrawBottom = False
-        Frame.DrawLeft = False
-        Frame.DrawRight = False
         Size.Values = (
           44.979166666666670000
           1518.708333333333000000
           7.937500000000000000
           211.666666666666700000)
+        XLColumn = 0
         Alignment = taRightJustify
         AlignToBand = False
         AutoSize = False
-        AutoStretch = False
         Color = clWhite
         DataSet = tblFicha
         DataField = 'QUANTIDADE'
         Transparent = False
-        WordWrap = True
+        ExportAs = exptText
+        WrapStyle = BreakOnSpaces
+        FullJustify = False
+        MaxBreakChars = 0
         FontSize = 8
       end
     end
@@ -370,13 +363,7 @@ object frmHistorico: TfrmHistorico
       Top = 38
       Width = 718
       Height = 299
-      Frame.Color = clBlack
-      Frame.DrawTop = False
-      Frame.DrawBottom = False
-      Frame.DrawLeft = False
-      Frame.DrawRight = False
       AlignToBottom = False
-      Color = clWhite
       TransparentBand = False
       ForceNewColumn = False
       ForceNewPage = False
@@ -391,16 +378,12 @@ object frmHistorico: TfrmHistorico
         Top = 10
         Width = 252
         Height = 94
-        Frame.Color = clBlack
-        Frame.DrawTop = False
-        Frame.DrawBottom = False
-        Frame.DrawLeft = False
-        Frame.DrawRight = False
         Size.Values = (
           248.708333333333300000
           13.229166666666670000
           26.458333333333330000
           666.750000000000000000)
+        XLColumn = 0
         AutoSize = True
         Center = True
         Picture.Data = {
@@ -644,20 +627,14 @@ object frmHistorico: TfrmHistorico
         Top = 8
         Width = 155
         Height = 19
-        Frame.Color = clBlack
-        Frame.DrawTop = False
-        Frame.DrawBottom = False
-        Frame.DrawLeft = False
-        Frame.DrawRight = False
         Size.Values = (
           50.270833333333330000
           743.479166666666700000
           21.166666666666670000
           410.104166666666700000)
+        XLColumn = 0
         Alignment = taCenter
         AlignToBand = True
-        AutoSize = True
-        AutoStretch = False
         Caption = 'Sprenger & Lima Ltda'
         Color = clWhite
         Font.Charset = DEFAULT_CHARSET
@@ -667,7 +644,8 @@ object frmHistorico: TfrmHistorico
         Font.Style = [fsBold]
         ParentFont = False
         Transparent = False
-        WordWrap = True
+        ExportAs = exptText
+        WrapStyle = BreakOnSpaces
         FontSize = 11
       end
       object QRLabel6: TQRLabel
@@ -675,20 +653,14 @@ object frmHistorico: TfrmHistorico
         Top = 33
         Width = 197
         Height = 17
-        Frame.Color = clBlack
-        Frame.DrawTop = False
-        Frame.DrawBottom = False
-        Frame.DrawLeft = False
-        Frame.DrawRight = False
         Size.Values = (
           44.979166666666670000
           687.916666666666700000
           87.312500000000000000
           521.229166666666700000)
+        XLColumn = 0
         Alignment = taCenter
         AlignToBand = True
-        AutoSize = True
-        AutoStretch = False
         Caption = 'Rua Mariano de Mattos, 24 sala 3'
         Color = clWhite
         Font.Charset = DEFAULT_CHARSET
@@ -698,7 +670,8 @@ object frmHistorico: TfrmHistorico
         Font.Style = []
         ParentFont = False
         Transparent = False
-        WordWrap = True
+        ExportAs = exptText
+        WrapStyle = BreakOnSpaces
         FontSize = 10
       end
       object QRLabel7: TQRLabel
@@ -706,20 +679,14 @@ object frmHistorico: TfrmHistorico
         Top = 53
         Width = 188
         Height = 17
-        Frame.Color = clBlack
-        Frame.DrawTop = False
-        Frame.DrawBottom = False
-        Frame.DrawLeft = False
-        Frame.DrawRight = False
         Size.Values = (
           44.979166666666670000
           701.145833333333300000
           140.229166666666700000
           497.416666666666700000)
+        XLColumn = 0
         Alignment = taCenter
         AlignToBand = True
-        AutoSize = True
-        AutoStretch = False
         Caption = 'Bairro Centro - CEP : 93510-340'
         Color = clWhite
         Font.Charset = DEFAULT_CHARSET
@@ -729,7 +696,8 @@ object frmHistorico: TfrmHistorico
         Font.Style = []
         ParentFont = False
         Transparent = False
-        WordWrap = True
+        ExportAs = exptText
+        WrapStyle = BreakOnSpaces
         FontSize = 10
       end
       object QRLabel19: TQRLabel
@@ -737,20 +705,14 @@ object frmHistorico: TfrmHistorico
         Top = 73
         Width = 122
         Height = 17
-        Frame.Color = clBlack
-        Frame.DrawTop = False
-        Frame.DrawBottom = False
-        Frame.DrawLeft = False
-        Frame.DrawRight = False
         Size.Values = (
           44.979166666666670000
           788.458333333333300000
           193.145833333333300000
           322.791666666666700000)
+        XLColumn = 0
         Alignment = taCenter
         AlignToBand = True
-        AutoSize = True
-        AutoStretch = False
         Caption = 'Novo Hamburgo - RS'
         Color = clWhite
         Font.Charset = DEFAULT_CHARSET
@@ -760,7 +722,8 @@ object frmHistorico: TfrmHistorico
         Font.Style = []
         ParentFont = False
         Transparent = False
-        WordWrap = True
+        ExportAs = exptText
+        WrapStyle = BreakOnSpaces
         FontSize = 10
       end
       object QRLabel20: TQRLabel
@@ -768,20 +731,14 @@ object frmHistorico: TfrmHistorico
         Top = 93
         Width = 129
         Height = 17
-        Frame.Color = clBlack
-        Frame.DrawTop = False
-        Frame.DrawBottom = False
-        Frame.DrawLeft = False
-        Frame.DrawRight = False
         Size.Values = (
           44.979166666666670000
           777.875000000000000000
           246.062500000000000000
           341.312500000000000000)
+        XLColumn = 0
         Alignment = taCenter
         AlignToBand = True
-        AutoSize = True
-        AutoStretch = False
         Caption = 'Fone / Fax : 582-2922'
         Color = clWhite
         Font.Charset = DEFAULT_CHARSET
@@ -791,7 +748,8 @@ object frmHistorico: TfrmHistorico
         Font.Style = []
         ParentFont = False
         Transparent = False
-        WordWrap = True
+        ExportAs = exptText
+        WrapStyle = BreakOnSpaces
         FontSize = 10
       end
       object QRLabel23: TQRLabel
@@ -799,20 +757,14 @@ object frmHistorico: TfrmHistorico
         Top = 113
         Width = 173
         Height = 17
-        Frame.Color = clBlack
-        Frame.DrawTop = False
-        Frame.DrawBottom = False
-        Frame.DrawLeft = False
-        Frame.DrawRight = False
         Size.Values = (
           44.979166666666670000
           719.666666666666700000
           298.979166666666700000
           457.729166666666700000)
+        XLColumn = 0
         Alignment = taCenter
         AlignToBand = True
-        AutoSize = True
-        AutoStretch = False
         Caption = 'Email: installux@terra.com.br'
         Color = clWhite
         Font.Charset = DEFAULT_CHARSET
@@ -822,7 +774,8 @@ object frmHistorico: TfrmHistorico
         Font.Style = []
         ParentFont = False
         Transparent = False
-        WordWrap = True
+        ExportAs = exptText
+        WrapStyle = BreakOnSpaces
         FontSize = 10
       end
       object QRLabel22: TQRLabel
@@ -830,20 +783,14 @@ object frmHistorico: TfrmHistorico
         Top = 132
         Width = 95
         Height = 17
-        Frame.Color = clBlack
-        Frame.DrawTop = False
-        Frame.DrawBottom = False
-        Frame.DrawLeft = False
-        Frame.DrawRight = False
         Size.Values = (
           44.979166666666670000
           650.875000000000000000
           349.250000000000000000
           251.354166666666700000)
+        XLColumn = 0
         Alignment = taLeftJustify
         AlignToBand = False
-        AutoSize = True
-        AutoStretch = False
         Caption = 'Renan R. Lima'
         Color = clWhite
         Font.Charset = DEFAULT_CHARSET
@@ -853,7 +800,8 @@ object frmHistorico: TfrmHistorico
         Font.Style = [fsBold]
         ParentFont = False
         Transparent = False
-        WordWrap = True
+        ExportAs = exptText
+        WrapStyle = BreakOnSpaces
         FontSize = 10
       end
       object QRLabel26: TQRLabel
@@ -861,20 +809,14 @@ object frmHistorico: TfrmHistorico
         Top = 132
         Width = 130
         Height = 17
-        Frame.Color = clBlack
-        Frame.DrawTop = False
-        Frame.DrawBottom = False
-        Frame.DrawLeft = False
-        Frame.DrawRight = False
         Size.Values = (
           44.979166666666670000
           968.375000000000000000
           349.250000000000000000
           343.958333333333400000)
+        XLColumn = 0
         Alignment = taLeftJustify
         AlignToBand = False
-        AutoSize = True
-        AutoStretch = False
         Caption = 'Alexandre Sprenger'
         Color = clWhite
         Font.Charset = DEFAULT_CHARSET
@@ -884,7 +826,8 @@ object frmHistorico: TfrmHistorico
         Font.Style = [fsBold]
         ParentFont = False
         Transparent = False
-        WordWrap = True
+        ExportAs = exptText
+        WrapStyle = BreakOnSpaces
         FontSize = 10
       end
       object QRLabel27: TQRLabel
@@ -892,20 +835,14 @@ object frmHistorico: TfrmHistorico
         Top = 152
         Width = 84
         Height = 17
-        Frame.Color = clBlack
-        Frame.DrawTop = False
-        Frame.DrawBottom = False
-        Frame.DrawLeft = False
-        Frame.DrawRight = False
         Size.Values = (
           44.979166666666670000
           1010.708333333333000000
           402.166666666666600000
           222.250000000000000000)
+        XLColumn = 0
         Alignment = taLeftJustify
         AlignToBand = False
-        AutoSize = True
-        AutoStretch = False
         Caption = 'CREA : 75136'
         Color = clWhite
         Font.Charset = DEFAULT_CHARSET
@@ -915,7 +852,8 @@ object frmHistorico: TfrmHistorico
         Font.Style = []
         ParentFont = False
         Transparent = False
-        WordWrap = True
+        ExportAs = exptText
+        WrapStyle = BreakOnSpaces
         FontSize = 10
       end
       object QRLabel24: TQRLabel
@@ -923,20 +861,14 @@ object frmHistorico: TfrmHistorico
         Top = 152
         Width = 84
         Height = 17
-        Frame.Color = clBlack
-        Frame.DrawTop = False
-        Frame.DrawBottom = False
-        Frame.DrawLeft = False
-        Frame.DrawRight = False
         Size.Values = (
           44.979166666666670000
           661.458333333333400000
           402.166666666666600000
           222.250000000000000000)
+        XLColumn = 0
         Alignment = taLeftJustify
         AlignToBand = False
-        AutoSize = True
-        AutoStretch = False
         Caption = 'CREA : 75138'
         Color = clWhite
         Font.Charset = DEFAULT_CHARSET
@@ -946,7 +878,8 @@ object frmHistorico: TfrmHistorico
         Font.Style = []
         ParentFont = False
         Transparent = False
-        WordWrap = True
+        ExportAs = exptText
+        WrapStyle = BreakOnSpaces
         FontSize = 10
       end
       object QRLabel25: TQRLabel
@@ -954,20 +887,14 @@ object frmHistorico: TfrmHistorico
         Top = 172
         Width = 88
         Height = 17
-        Frame.Color = clBlack
-        Frame.DrawTop = False
-        Frame.DrawBottom = False
-        Frame.DrawLeft = False
-        Frame.DrawRight = False
         Size.Values = (
           44.979166666666670000
           661.458333333333400000
           455.083333333333300000
           232.833333333333400000)
+        XLColumn = 0
         Alignment = taLeftJustify
         AlignToBand = False
-        AutoSize = True
-        AutoStretch = False
         Caption = 'Cel: 9994-9999'
         Color = clWhite
         Font.Charset = DEFAULT_CHARSET
@@ -977,7 +904,8 @@ object frmHistorico: TfrmHistorico
         Font.Style = []
         ParentFont = False
         Transparent = False
-        WordWrap = True
+        ExportAs = exptText
+        WrapStyle = BreakOnSpaces
         FontSize = 10
       end
       object QRLabel28: TQRLabel
@@ -985,20 +913,14 @@ object frmHistorico: TfrmHistorico
         Top = 172
         Width = 88
         Height = 17
-        Frame.Color = clBlack
-        Frame.DrawTop = False
-        Frame.DrawBottom = False
-        Frame.DrawLeft = False
-        Frame.DrawRight = False
         Size.Values = (
           44.979166666666670000
           1008.062500000000000000
           455.083333333333300000
           232.833333333333400000)
+        XLColumn = 0
         Alignment = taLeftJustify
         AlignToBand = False
-        AutoSize = True
-        AutoStretch = False
         Caption = 'Cel: 9989-2257'
         Color = clWhite
         Font.Charset = DEFAULT_CHARSET
@@ -1008,7 +930,8 @@ object frmHistorico: TfrmHistorico
         Font.Style = []
         ParentFont = False
         Transparent = False
-        WordWrap = True
+        ExportAs = exptText
+        WrapStyle = BreakOnSpaces
         FontSize = 10
       end
       object QRSysData1: TQRSysData
@@ -1016,19 +939,14 @@ object frmHistorico: TfrmHistorico
         Top = 166
         Width = 71
         Height = 17
-        Frame.Color = clBlack
-        Frame.DrawTop = False
-        Frame.DrawBottom = False
-        Frame.DrawLeft = False
-        Frame.DrawRight = False
         Size.Values = (
           44.979166666666670000
           1711.854166666667000000
           439.208333333333300000
           187.854166666666700000)
+        XLColumn = 0
         Alignment = taRightJustify
         AlignToBand = True
-        AutoSize = True
         Color = clWhite
         Data = qrsDate
         Font.Charset = DEFAULT_CHARSET
@@ -1039,6 +957,7 @@ object frmHistorico: TfrmHistorico
         ParentFont = False
         Text = 'Data: '
         Transparent = False
+        ExportAs = exptText
         FontSize = 10
       end
       object QRLabel5: TQRLabel
@@ -1046,20 +965,14 @@ object frmHistorico: TfrmHistorico
         Top = 240
         Width = 46
         Height = 17
-        Frame.Color = clBlack
-        Frame.DrawTop = False
-        Frame.DrawBottom = False
-        Frame.DrawLeft = False
-        Frame.DrawRight = False
         Size.Values = (
           44.979166666666670000
           42.333333333333340000
           635.000000000000000000
           121.708333333333400000)
+        XLColumn = 0
         Alignment = taLeftJustify
         AlignToBand = False
-        AutoSize = True
-        AutoStretch = False
         Caption = 'Cliente'
         Color = clWhite
         Font.Charset = DEFAULT_CHARSET
@@ -1069,7 +982,8 @@ object frmHistorico: TfrmHistorico
         Font.Style = [fsBold]
         ParentFont = False
         Transparent = False
-        WordWrap = True
+        ExportAs = exptText
+        WrapStyle = BreakOnSpaces
         FontSize = 10
       end
       object QRLabel11: TQRLabel
@@ -1077,20 +991,14 @@ object frmHistorico: TfrmHistorico
         Top = 264
         Width = 33
         Height = 17
-        Frame.Color = clBlack
-        Frame.DrawTop = False
-        Frame.DrawBottom = False
-        Frame.DrawLeft = False
-        Frame.DrawRight = False
         Size.Values = (
           44.979166666666670000
           42.333333333333340000
           698.500000000000000000
           87.312500000000000000)
+        XLColumn = 0
         Alignment = taLeftJustify
         AlignToBand = False
-        AutoSize = True
-        AutoStretch = False
         Caption = 'Fone'
         Color = clWhite
         Font.Charset = DEFAULT_CHARSET
@@ -1100,7 +1008,8 @@ object frmHistorico: TfrmHistorico
         Font.Style = [fsBold]
         ParentFont = False
         Transparent = False
-        WordWrap = True
+        ExportAs = exptText
+        WrapStyle = BreakOnSpaces
         FontSize = 10
       end
       object QRDBText5: TQRDBText
@@ -1108,20 +1017,15 @@ object frmHistorico: TfrmHistorico
         Top = 240
         Width = 273
         Height = 17
-        Frame.Color = clBlack
-        Frame.DrawTop = False
-        Frame.DrawBottom = False
-        Frame.DrawLeft = False
-        Frame.DrawRight = False
         Size.Values = (
           44.979166666666670000
           211.666666666666700000
           635.000000000000000000
           722.312500000000000000)
+        XLColumn = 0
         Alignment = taLeftJustify
         AlignToBand = False
         AutoSize = False
-        AutoStretch = False
         Color = clWhite
         DataSet = tblFicha
         DataField = 'NOMEDOCLIENTE'
@@ -1132,7 +1036,10 @@ object frmHistorico: TfrmHistorico
         Font.Style = [fsBold]
         ParentFont = False
         Transparent = False
-        WordWrap = True
+        ExportAs = exptText
+        WrapStyle = BreakOnSpaces
+        FullJustify = False
+        MaxBreakChars = 0
         FontSize = 10
       end
       object QRDBText10: TQRDBText
@@ -1140,20 +1047,15 @@ object frmHistorico: TfrmHistorico
         Top = 264
         Width = 161
         Height = 17
-        Frame.Color = clBlack
-        Frame.DrawTop = False
-        Frame.DrawBottom = False
-        Frame.DrawLeft = False
-        Frame.DrawRight = False
         Size.Values = (
           44.979166666666670000
           211.666666666666700000
           698.500000000000000000
           425.979166666666700000)
+        XLColumn = 0
         Alignment = taLeftJustify
         AlignToBand = False
         AutoSize = False
-        AutoStretch = False
         Color = clWhite
         DataSet = tblFicha
         DataField = 'TELEFONE'
@@ -1164,7 +1066,10 @@ object frmHistorico: TfrmHistorico
         Font.Style = [fsBold]
         ParentFont = False
         Transparent = False
-        WordWrap = True
+        ExportAs = exptText
+        WrapStyle = BreakOnSpaces
+        FullJustify = False
+        MaxBreakChars = 0
         FontSize = 10
       end
       object QRShape1: TQRShape
@@ -1172,16 +1077,12 @@ object frmHistorico: TfrmHistorico
         Top = 216
         Width = 697
         Height = 17
-        Frame.Color = clBlack
-        Frame.DrawTop = False
-        Frame.DrawBottom = False
-        Frame.DrawLeft = False
-        Frame.DrawRight = False
         Size.Values = (
           44.979166666666670000
           42.333333333333340000
           571.500000000000000000
           1844.145833333333000000)
+        XLColumn = 0
         Shape = qrsHorLine
         VertAdjust = 0
       end
@@ -1190,20 +1091,14 @@ object frmHistorico: TfrmHistorico
         Top = 264
         Width = 79
         Height = 17
-        Frame.Color = clBlack
-        Frame.DrawTop = False
-        Frame.DrawBottom = False
-        Frame.DrawLeft = False
-        Frame.DrawRight = False
         Size.Values = (
           44.979166666666670000
           672.041666666666800000
           698.500000000000000000
           209.020833333333300000)
+        XLColumn = 0
         Alignment = taLeftJustify
         AlignToBand = False
-        AutoSize = True
-        AutoStretch = False
         Caption = 'Arquiteto (a)'
         Color = clWhite
         Font.Charset = DEFAULT_CHARSET
@@ -1213,7 +1108,8 @@ object frmHistorico: TfrmHistorico
         Font.Style = [fsBold]
         ParentFont = False
         Transparent = False
-        WordWrap = True
+        ExportAs = exptText
+        WrapStyle = BreakOnSpaces
         FontSize = 10
       end
       object QRDBText6: TQRDBText
@@ -1221,20 +1117,15 @@ object frmHistorico: TfrmHistorico
         Top = 264
         Width = 299
         Height = 17
-        Frame.Color = clBlack
-        Frame.DrawTop = False
-        Frame.DrawBottom = False
-        Frame.DrawLeft = False
-        Frame.DrawRight = False
         Size.Values = (
           44.979166666666670000
           904.875000000000000000
           698.500000000000000000
           791.104166666666800000)
+        XLColumn = 0
         Alignment = taLeftJustify
         AlignToBand = False
         AutoSize = False
-        AutoStretch = False
         Color = clWhite
         DataSet = tblFicha
         DataField = 'NOMEDOARQUITETO'
@@ -1245,7 +1136,10 @@ object frmHistorico: TfrmHistorico
         Font.Style = [fsBold]
         ParentFont = False
         Transparent = False
-        WordWrap = True
+        ExportAs = exptText
+        WrapStyle = BreakOnSpaces
+        FullJustify = False
+        MaxBreakChars = 0
         FontSize = 10
       end
       object QRSysData2: TQRSysData
@@ -1253,19 +1147,14 @@ object frmHistorico: TfrmHistorico
         Top = 190
         Width = 98
         Height = 17
-        Frame.Color = clBlack
-        Frame.DrawTop = False
-        Frame.DrawBottom = False
-        Frame.DrawLeft = False
-        Frame.DrawRight = False
         Size.Values = (
           44.979166666666670000
           1640.416666666667000000
           502.708333333333300000
           259.291666666666700000)
+        XLColumn = 0
         Alignment = taRightJustify
         AlignToBand = True
-        AutoSize = True
         Color = clWhite
         Data = qrsPageNumber
         Font.Charset = DEFAULT_CHARSET
@@ -1276,6 +1165,7 @@ object frmHistorico: TfrmHistorico
         ParentFont = False
         Text = 'P'#225'gina : '
         Transparent = False
+        ExportAs = exptText
         FontSize = 10
       end
       object QRLabel1: TQRLabel
@@ -1283,20 +1173,14 @@ object frmHistorico: TfrmHistorico
         Top = 197
         Width = 123
         Height = 17
-        Frame.Color = clBlack
-        Frame.DrawTop = False
-        Frame.DrawBottom = False
-        Frame.DrawLeft = False
-        Frame.DrawRight = False
         Size.Values = (
           44.979166666666670000
           785.812500000000000000
           521.229166666666700000
           325.437500000000000000)
+        XLColumn = 0
         Alignment = taCenter
         AlignToBand = True
-        AutoSize = True
-        AutoStretch = False
         Caption = 'Hist'#243'rico do cliente'
         Color = clWhite
         Font.Charset = DEFAULT_CHARSET
@@ -1306,7 +1190,8 @@ object frmHistorico: TfrmHistorico
         Font.Style = [fsBold]
         ParentFont = False
         Transparent = False
-        WordWrap = True
+        ExportAs = exptText
+        WrapStyle = BreakOnSpaces
         FontSize = 10
       end
     end
@@ -1315,13 +1200,7 @@ object frmHistorico: TfrmHistorico
       Top = 460
       Width = 718
       Height = 102
-      Frame.Color = clBlack
-      Frame.DrawTop = False
-      Frame.DrawBottom = False
-      Frame.DrawLeft = False
-      Frame.DrawRight = False
       AlignToBottom = False
-      Color = clWhite
       TransparentBand = False
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
@@ -1342,20 +1221,14 @@ object frmHistorico: TfrmHistorico
         Top = 8
         Width = 161
         Height = 20
-        Frame.Color = clBlack
-        Frame.DrawTop = False
-        Frame.DrawBottom = False
-        Frame.DrawLeft = False
-        Frame.DrawRight = False
         Size.Values = (
           52.916666666666660000
           21.166666666666670000
           21.166666666666670000
           425.979166666666700000)
+        XLColumn = 0
         Alignment = taLeftJustify
         AlignToBand = False
-        AutoSize = True
-        AutoStretch = False
         Caption = 'Total dos Servi'#231'os em R$'
         Color = clWhite
         Font.Charset = DEFAULT_CHARSET
@@ -1365,7 +1238,8 @@ object frmHistorico: TfrmHistorico
         Font.Style = [fsBold]
         ParentFont = False
         Transparent = False
-        WordWrap = True
+        ExportAs = exptText
+        WrapStyle = BreakOnSpaces
         FontSize = 10
       end
       object lbl2: TQRLabel
@@ -1373,20 +1247,14 @@ object frmHistorico: TfrmHistorico
         Top = 32
         Width = 165
         Height = 20
-        Frame.Color = clBlack
-        Frame.DrawTop = False
-        Frame.DrawBottom = False
-        Frame.DrawLeft = False
-        Frame.DrawRight = False
         Size.Values = (
           52.916666666666660000
           21.166666666666670000
           84.666666666666680000
           436.562499999999900000)
+        XLColumn = 0
         Alignment = taLeftJustify
         AlignToBand = False
-        AutoSize = True
-        AutoStretch = False
         Caption = 'Total dos Materiais em R$'
         Color = clWhite
         Font.Charset = DEFAULT_CHARSET
@@ -1396,7 +1264,8 @@ object frmHistorico: TfrmHistorico
         Font.Style = [fsBold]
         ParentFont = False
         Transparent = False
-        WordWrap = True
+        ExportAs = exptText
+        WrapStyle = BreakOnSpaces
         FontSize = 10
       end
       object lbl3: TQRLabel
@@ -1404,20 +1273,14 @@ object frmHistorico: TfrmHistorico
         Top = 64
         Width = 114
         Height = 20
-        Frame.Color = clBlack
-        Frame.DrawTop = False
-        Frame.DrawBottom = False
-        Frame.DrawLeft = False
-        Frame.DrawRight = False
         Size.Values = (
           52.916666666666660000
           21.166666666666670000
           169.333333333333300000
           301.625000000000000000)
+        XLColumn = 0
         Alignment = taLeftJustify
         AlignToBand = False
-        AutoSize = True
-        AutoStretch = False
         Caption = 'Total geral em R$'
         Color = clWhite
         Font.Charset = DEFAULT_CHARSET
@@ -1427,7 +1290,8 @@ object frmHistorico: TfrmHistorico
         Font.Style = [fsBold]
         ParentFont = False
         Transparent = False
-        WordWrap = True
+        ExportAs = exptText
+        WrapStyle = BreakOnSpaces
         FontSize = 10
       end
       object QRShape2: TQRShape
@@ -1435,16 +1299,12 @@ object frmHistorico: TfrmHistorico
         Top = 48
         Width = 297
         Height = 17
-        Frame.Color = clBlack
-        Frame.DrawTop = False
-        Frame.DrawBottom = False
-        Frame.DrawLeft = False
-        Frame.DrawRight = False
         Size.Values = (
           44.979166666666670000
           21.166666666666670000
           127.000000000000000000
           785.812500000000000000)
+        XLColumn = 0
         Shape = qrsHorLine
         VertAdjust = 0
       end
@@ -1453,20 +1313,15 @@ object frmHistorico: TfrmHistorico
         Top = 5
         Width = 96
         Height = 20
-        Frame.Color = clBlack
-        Frame.DrawTop = False
-        Frame.DrawBottom = False
-        Frame.DrawLeft = False
-        Frame.DrawRight = False
         Size.Values = (
           52.916666666666660000
           555.625000000000000000
           13.229166666666670000
           254.000000000000000000)
+        XLColumn = 0
         Alignment = taRightJustify
         AlignToBand = False
         AutoSize = False
-        AutoStretch = False
         Color = clWhite
         DataSet = qryValor
         DataField = 'VALORSERVICOS'
@@ -1477,7 +1332,10 @@ object frmHistorico: TfrmHistorico
         Font.Style = [fsBold]
         ParentFont = False
         Transparent = False
-        WordWrap = True
+        ExportAs = exptText
+        WrapStyle = BreakOnSpaces
+        FullJustify = False
+        MaxBreakChars = 0
         FontSize = 10
       end
       object QRDBText11: TQRDBText
@@ -1485,20 +1343,15 @@ object frmHistorico: TfrmHistorico
         Top = 30
         Width = 101
         Height = 20
-        Frame.Color = clBlack
-        Frame.DrawTop = False
-        Frame.DrawBottom = False
-        Frame.DrawLeft = False
-        Frame.DrawRight = False
         Size.Values = (
           52.916666666666660000
           542.395833333333400000
           79.375000000000000000
           267.229166666666700000)
+        XLColumn = 0
         Alignment = taRightJustify
         AlignToBand = False
         AutoSize = False
-        AutoStretch = False
         Color = clWhite
         DataSet = qryValor
         DataField = 'VALORMATERIAIS'
@@ -1509,7 +1362,10 @@ object frmHistorico: TfrmHistorico
         Font.Style = [fsBold]
         ParentFont = False
         Transparent = False
-        WordWrap = True
+        ExportAs = exptText
+        WrapStyle = BreakOnSpaces
+        FullJustify = False
+        MaxBreakChars = 0
         FontSize = 10
       end
       object QRDBText12: TQRDBText
@@ -1517,20 +1373,15 @@ object frmHistorico: TfrmHistorico
         Top = 65
         Width = 101
         Height = 20
-        Frame.Color = clBlack
-        Frame.DrawTop = False
-        Frame.DrawBottom = False
-        Frame.DrawLeft = False
-        Frame.DrawRight = False
         Size.Values = (
           52.916666666666660000
           542.395833333333400000
           171.979166666666700000
           267.229166666666700000)
+        XLColumn = 0
         Alignment = taRightJustify
         AlignToBand = False
         AutoSize = False
-        AutoStretch = False
         Color = clWhite
         DataSet = qryValor
         DataField = 'TOTAL'
@@ -1541,7 +1392,10 @@ object frmHistorico: TfrmHistorico
         Font.Style = [fsBold]
         ParentFont = False
         Transparent = False
-        WordWrap = True
+        ExportAs = exptText
+        WrapStyle = BreakOnSpaces
+        FullJustify = False
+        MaxBreakChars = 0
         FontSize = 10
       end
     end
@@ -1550,13 +1404,7 @@ object frmHistorico: TfrmHistorico
       Top = 337
       Width = 718
       Height = 21
-      Frame.Color = clBlack
-      Frame.DrawTop = False
-      Frame.DrawBottom = False
-      Frame.DrawLeft = False
-      Frame.DrawRight = False
       AlignToBottom = False
-      Color = clWhite
       TransparentBand = False
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
@@ -1577,20 +1425,15 @@ object frmHistorico: TfrmHistorico
         Top = 2
         Width = 534
         Height = 17
-        Frame.Color = clBlack
-        Frame.DrawTop = False
-        Frame.DrawBottom = False
-        Frame.DrawLeft = False
-        Frame.DrawRight = False
         Size.Values = (
           44.979166666666670000
           18.520833333333330000
           5.291666666666667000
           1412.875000000000000000)
+        XLColumn = 0
         Alignment = taCenter
         AlignToBand = False
         AutoSize = False
-        AutoStretch = False
         Caption = 'Descri'#231#227'o'
         Color = clTeal
         Font.Charset = DEFAULT_CHARSET
@@ -1600,7 +1443,8 @@ object frmHistorico: TfrmHistorico
         Font.Style = []
         ParentFont = False
         Transparent = False
-        WordWrap = True
+        ExportAs = exptText
+        WrapStyle = BreakOnSpaces
         FontSize = 10
       end
       object QRLabel4: TQRLabel
@@ -1608,20 +1452,15 @@ object frmHistorico: TfrmHistorico
         Top = 2
         Width = 97
         Height = 17
-        Frame.Color = clBlack
-        Frame.DrawTop = False
-        Frame.DrawBottom = False
-        Frame.DrawLeft = False
-        Frame.DrawRight = False
         Size.Values = (
           44.979166666666670000
           1441.979166666667000000
           5.291666666666667000
           256.645833333333400000)
+        XLColumn = 0
         Alignment = taCenter
         AlignToBand = False
         AutoSize = False
-        AutoStretch = False
         Caption = 'Quantidade'
         Color = clTeal
         Font.Charset = DEFAULT_CHARSET
@@ -1631,7 +1470,8 @@ object frmHistorico: TfrmHistorico
         Font.Style = []
         ParentFont = False
         Transparent = False
-        WordWrap = True
+        ExportAs = exptText
+        WrapStyle = BreakOnSpaces
         FontSize = 10
       end
     end
@@ -1640,13 +1480,7 @@ object frmHistorico: TfrmHistorico
       Top = 358
       Width = 718
       Height = 53
-      Frame.Color = clBlack
-      Frame.DrawTop = False
-      Frame.DrawBottom = False
-      Frame.DrawLeft = False
-      Frame.DrawRight = False
       AlignToBottom = False
-      Color = clWhite
       TransparentBand = False
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
@@ -1669,25 +1503,22 @@ object frmHistorico: TfrmHistorico
         Top = 13
         Width = 157
         Height = 23
-        Frame.Color = clBlack
-        Frame.DrawTop = False
-        Frame.DrawBottom = False
-        Frame.DrawLeft = False
-        Frame.DrawRight = False
         Size.Values = (
           60.854166666666680000
           124.354166666666700000
           34.395833333333340000
           415.395833333333400000)
+        XLColumn = 0
         Alignment = taLeftJustify
         AlignToBand = False
-        AutoSize = True
-        AutoStretch = False
         Color = clWhite
         DataSet = tblFicha
         DataField = 'NOMEDOAMBIENTE'
         Transparent = False
-        WordWrap = True
+        ExportAs = exptText
+        WrapStyle = BreakOnSpaces
+        FullJustify = False
+        MaxBreakChars = 0
         FontSize = 12
       end
       object QRShape3: TQRShape
@@ -1695,16 +1526,12 @@ object frmHistorico: TfrmHistorico
         Top = 30
         Width = 626
         Height = 16
-        Frame.Color = clBlack
-        Frame.DrawTop = False
-        Frame.DrawBottom = False
-        Frame.DrawLeft = False
-        Frame.DrawRight = False
         Size.Values = (
           42.333333333333340000
           132.291666666666700000
           79.375000000000000000
           1656.291666666667000000)
+        XLColumn = 0
         Shape = qrsHorLine
         VertAdjust = 0
       end
@@ -1714,13 +1541,7 @@ object frmHistorico: TfrmHistorico
       Top = 411
       Width = 718
       Height = 12
-      Frame.Color = clBlack
-      Frame.DrawTop = False
-      Frame.DrawBottom = False
-      Frame.DrawLeft = False
-      Frame.DrawRight = False
       AlignToBottom = False
-      Color = clWhite
       TransparentBand = False
       ForceNewColumn = False
       ForceNewPage = False
@@ -1739,13 +1560,7 @@ object frmHistorico: TfrmHistorico
       Top = 443
       Width = 718
       Height = 17
-      Frame.Color = clBlack
-      Frame.DrawTop = False
-      Frame.DrawBottom = False
-      Frame.DrawLeft = False
-      Frame.DrawRight = False
       AlignToBottom = False
-      Color = clWhite
       TransparentBand = False
       ForceNewColumn = False
       ForceNewPage = False
@@ -1760,25 +1575,23 @@ object frmHistorico: TfrmHistorico
         Top = 3
         Width = 494
         Height = 17
-        Frame.Color = clBlack
-        Frame.DrawTop = False
-        Frame.DrawBottom = False
-        Frame.DrawLeft = False
-        Frame.DrawRight = False
         Size.Values = (
           44.979166666666670000
           145.520833333333300000
           7.937500000000000000
           1307.041666666667000000)
+        XLColumn = 0
         Alignment = taLeftJustify
         AlignToBand = False
         AutoSize = False
-        AutoStretch = False
         Color = clWhite
         DataSet = tblFicha
         DataField = 'PRODUTO'
         Transparent = False
-        WordWrap = True
+        ExportAs = exptText
+        WrapStyle = BreakOnSpaces
+        FullJustify = False
+        MaxBreakChars = 0
         FontSize = 8
       end
       object QRExpr1: TQRExpr
@@ -1786,25 +1599,21 @@ object frmHistorico: TfrmHistorico
         Top = 3
         Width = 80
         Height = 15
-        Frame.Color = clBlack
-        Frame.DrawTop = False
-        Frame.DrawBottom = False
-        Frame.DrawLeft = False
-        Frame.DrawRight = False
         Size.Values = (
           39.687500000000000000
           1518.708333333333000000
           7.937500000000000000
           211.666666666666700000)
+        XLColumn = 0
         Alignment = taRightJustify
         AlignToBand = False
         AutoSize = False
-        AutoStretch = False
         Color = clWhite
         ResetAfterPrint = True
         Transparent = False
-        WordWrap = True
         Expression = 'SUM(tblFicha.QUANTIDADE)'
+        ExportAs = exptText
+        WrapStyle = BreakOnSpaces
         FontSize = 8
       end
     end
@@ -1839,8 +1648,6 @@ object frmHistorico: TfrmHistorico
     Width = 75
     Height = 25
     Caption = 'Ficha'
-    TabOrder = 8
-    OnClick = BitBtn1Click
     Glyph.Data = {
       F6000000424DF600000000000000760000002800000010000000100000000100
       04000000000080000000120B0000120B00001000000010000000000000000000
@@ -1850,10 +1657,14 @@ object frmHistorico: TfrmHistorico
       000A0F88870007A000AD0F8800FFF0000ADA0F807FFFF070ADAD0F70E000F080
       7ADA0F0EFEFEF0880DAD0F0F0000F0880ADA000EFEFFF0880DADDA7000000080
       7ADAADA008888870ADADDADA0088800ADADAADADA70007ADADAD}
+    TabOrder = 8
+    OnClick = BitBtn1Click
   end
   object tblServicos: TIBDataSet
     Database = frmPrincipal.idbInstalLux
     Transaction = dmInstallux.ibtPrincipal
+    BufferChunks = 1000
+    CachedUpdates = False
     SelectSQL.Strings = (
       'SELECT'
       'S.PRECO, S.TOTAL, S.QUANTIDADE,'
@@ -1870,6 +1681,8 @@ object frmHistorico: TfrmHistorico
       'S.OS = :OS'
       ''
       'ORDER BY AMBIENTE')
+    ParamCheck = True
+    UniDirectional = False
     DataSource = dtsOS
     Left = 120
     object tblServicosPRODUTO: TIBStringField
@@ -1921,7 +1734,10 @@ object frmHistorico: TfrmHistorico
   object qryValor: TIBQuery
     Database = frmPrincipal.idbInstalLux
     Transaction = dmInstallux.ibtPrincipal
+    BufferChunks = 1000
+    CachedUpdates = False
     DataSource = frmClientes.dtsClientes
+    ParamCheck = True
     SQL.Strings = (
       
         'SELECT sum( ValorCobrado ) as total , sum( ValorCobradoServicos ' +
@@ -1976,6 +1792,8 @@ object frmHistorico: TfrmHistorico
     Transaction = dmInstallux.ibtPrincipal
     AfterOpen = tblOSAfterOpen
     OnCalcFields = tblOSCalcFields
+    BufferChunks = 1000
+    CachedUpdates = False
     RefreshSQL.Strings = (
       'Select '
       '  SERVICO,'
@@ -2028,6 +1846,8 @@ object frmHistorico: TfrmHistorico
       '  DATADEPAGAMENTO = :DATADEPAGAMENTO'
       'where'
       '  OS = :OLD_OS')
+    ParamCheck = True
+    UniDirectional = False
     Left = 210
     object tblOSOS: TIntegerField
       DisplayLabel = 'O.S.'
@@ -2188,6 +2008,8 @@ object frmHistorico: TfrmHistorico
   object tblFicha: TIBDataSet
     Database = frmPrincipal.idbInstalLux
     Transaction = dmInstallux.ibtPrincipal
+    BufferChunks = 1000
+    CachedUpdates = False
     SelectSQL.Strings = (
       'SELECT'
       
@@ -2213,6 +2035,8 @@ object frmHistorico: TfrmHistorico
       ''
       ''
       'ORDER BY A.DESCRICAO, PRODUTO')
+    ParamCheck = True
+    UniDirectional = False
     DataSource = frmClientes.dtsClientes
     Left = 275
     object IBStringField1: TIBStringField

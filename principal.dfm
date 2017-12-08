@@ -29,7 +29,6 @@ object frmPrincipal: TfrmPrincipal
     BorderSides = [sdLeft, sdTop, sdRight, sdBottom]
     BorderWidth = 0
     TabOrder = 2
-    ExplicitWidth = 947
     object RzClockStatus: TRzClockStatus
       Left = 875
       Top = 2
@@ -746,7 +745,6 @@ object frmPrincipal: TfrmPrincipal
     Align = alClient
     ParentColor = True
     TabOrder = 0
-    ExplicitWidth = 947
     object Image2: TImage
       Left = 1
       Top = 1
@@ -5161,7 +5159,6 @@ object frmPrincipal: TfrmPrincipal
       Align = alBottom
       ParentColor = True
       TabOrder = 0
-      ExplicitWidth = 945
       object Image1: TImage
         Left = 800
         Top = 1
@@ -8833,7 +8830,7 @@ object frmPrincipal: TfrmPrincipal
     Left = 124
     Top = 119
     Bitmap = {
-      494C0101120013004C0010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C010112001300500010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000400000005000000001002000000000000050
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
@@ -10364,5 +10361,13 @@ object frmPrincipal: TfrmPrincipal
     PrintScaling = False
     Left = 640
     Top = 40
+  end
+  object QRPDFFilter1: TQRPDFFilter
+    CompressionOn = False
+    TextEncoding = AnsiEncoding
+    Codepage = '1252'
+    SuppressDateTime = False
+    Left = 456
+    Top = 128
   end
 end

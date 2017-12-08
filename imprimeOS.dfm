@@ -3,7 +3,7 @@ object frmImprimeOS: TfrmImprimeOS
   Top = 128
   BorderStyle = bsDialog
   Caption = 'Ficha de Servi'#231'o'
-  ClientHeight = 195
+  ClientHeight = 207
   ClientWidth = 726
   Color = clMoneyGreen
   Font.Charset = DEFAULT_CHARSET
@@ -45,8 +45,6 @@ object frmImprimeOS: TfrmImprimeOS
     Width = 75
     Height = 25
     Caption = 'OK'
-    TabOrder = 2
-    OnClick = btnCalculaClick
     Glyph.Data = {
       DE010000424DDE01000000000000760000002800000024000000120000000100
       0400000000006801000000000000000000001000000000000000000000000000
@@ -65,6 +63,8 @@ object frmImprimeOS: TfrmImprimeOS
       333A333333333333333338330000333333333333333333333333333333333333
       0000}
     NumGlyphs = 2
+    TabOrder = 2
+    OnClick = btnCalculaClick
   end
   object edtCliente: TwwDBLookupCombo
     Left = 8
@@ -91,11 +91,6 @@ object frmImprimeOS: TfrmImprimeOS
     Top = 223
     Width = 794
     Height = 1123
-    Frame.Color = clBlack
-    Frame.DrawTop = False
-    Frame.DrawBottom = False
-    Frame.DrawLeft = False
-    Frame.DrawRight = False
     DataSet = qryItems
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
@@ -114,6 +109,7 @@ object frmImprimeOS: TfrmImprimeOS
     Page.Columns = 1
     Page.Orientation = poPortrait
     Page.PaperSize = A4
+    Page.Continuous = False
     Page.Values = (
       100.000000000000000000
       2970.000000000000000000
@@ -143,21 +139,20 @@ object frmImprimeOS: TfrmImprimeOS
     Zoom = 100
     PrevFormStyle = fsNormal
     PreviewInitialState = wsMaximized
+    PreviewWidth = 500
+    PreviewHeight = 500
     PrevShowThumbs = False
     PrevShowSearch = False
     PrevInitialZoom = qrZoomToWidth
+    PreviewDefaultSaveType = stQRP
+    PreviewLeft = 0
+    PreviewTop = 0
     object DetailBand1: TQRBand
       Left = 38
       Top = 406
       Width = 718
       Height = 20
-      Frame.Color = clBlack
-      Frame.DrawTop = False
-      Frame.DrawBottom = False
-      Frame.DrawLeft = False
-      Frame.DrawRight = False
       AlignToBottom = False
-      Color = clWhite
       TransparentBand = False
       ForceNewColumn = False
       ForceNewPage = False
@@ -172,25 +167,23 @@ object frmImprimeOS: TfrmImprimeOS
         Top = 3
         Width = 537
         Height = 17
-        Frame.Color = clBlack
-        Frame.DrawTop = False
-        Frame.DrawBottom = False
-        Frame.DrawLeft = False
-        Frame.DrawRight = False
         Size.Values = (
           44.979166666666670000
           190.500000000000000000
           7.937500000000000000
           1420.812500000000000000)
+        XLColumn = 0
         Alignment = taLeftJustify
         AlignToBand = False
         AutoSize = False
-        AutoStretch = False
         Color = clWhite
         DataSet = qryItems
         DataField = 'NOMEDOPRODUTO'
         Transparent = False
-        WordWrap = True
+        ExportAs = exptText
+        WrapStyle = BreakOnSpaces
+        FullJustify = False
+        MaxBreakChars = 0
         FontSize = 8
       end
       object QRDBText3: TQRDBText
@@ -198,25 +191,23 @@ object frmImprimeOS: TfrmImprimeOS
         Top = 3
         Width = 80
         Height = 17
-        Frame.Color = clBlack
-        Frame.DrawTop = False
-        Frame.DrawBottom = False
-        Frame.DrawLeft = False
-        Frame.DrawRight = False
         Size.Values = (
           44.979166666666670000
           1651.000000000000000000
           7.937500000000000000
           211.666666666666700000)
+        XLColumn = 0
         Alignment = taRightJustify
         AlignToBand = False
         AutoSize = False
-        AutoStretch = False
         Color = clWhite
         DataSet = qryItems
         DataField = 'QUANTIDADE'
         Transparent = False
-        WordWrap = True
+        ExportAs = exptText
+        WrapStyle = BreakOnSpaces
+        FullJustify = False
+        MaxBreakChars = 0
         FontSize = 8
       end
     end
@@ -225,13 +216,7 @@ object frmImprimeOS: TfrmImprimeOS
       Top = 449
       Width = 718
       Height = 260
-      Frame.Color = clBlack
-      Frame.DrawTop = False
-      Frame.DrawBottom = False
-      Frame.DrawLeft = False
-      Frame.DrawRight = False
       AlignToBottom = False
-      Color = clWhite
       TransparentBand = False
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
@@ -252,20 +237,14 @@ object frmImprimeOS: TfrmImprimeOS
         Top = 8
         Width = 161
         Height = 20
-        Frame.Color = clBlack
-        Frame.DrawTop = False
-        Frame.DrawBottom = False
-        Frame.DrawLeft = False
-        Frame.DrawRight = False
         Size.Values = (
           52.916666666666670000
           21.166666666666670000
           21.166666666666670000
           425.979166666666700000)
+        XLColumn = 0
         Alignment = taLeftJustify
         AlignToBand = False
-        AutoSize = True
-        AutoStretch = False
         Caption = 'Total dos Servi'#231'os em R$'
         Color = clWhite
         Font.Charset = DEFAULT_CHARSET
@@ -275,7 +254,8 @@ object frmImprimeOS: TfrmImprimeOS
         Font.Style = [fsBold]
         ParentFont = False
         Transparent = False
-        WordWrap = True
+        ExportAs = exptText
+        WrapStyle = BreakOnSpaces
         FontSize = 10
       end
       object lbl2: TQRLabel
@@ -283,20 +263,14 @@ object frmImprimeOS: TfrmImprimeOS
         Top = 32
         Width = 165
         Height = 20
-        Frame.Color = clBlack
-        Frame.DrawTop = False
-        Frame.DrawBottom = False
-        Frame.DrawLeft = False
-        Frame.DrawRight = False
         Size.Values = (
           52.916666666666670000
           21.166666666666670000
           84.666666666666670000
           436.562500000000000000)
+        XLColumn = 0
         Alignment = taLeftJustify
         AlignToBand = False
-        AutoSize = True
-        AutoStretch = False
         Caption = 'Total dos Materiais em R$'
         Color = clWhite
         Font.Charset = DEFAULT_CHARSET
@@ -306,7 +280,8 @@ object frmImprimeOS: TfrmImprimeOS
         Font.Style = [fsBold]
         ParentFont = False
         Transparent = False
-        WordWrap = True
+        ExportAs = exptText
+        WrapStyle = BreakOnSpaces
         FontSize = 10
       end
       object lbl3: TQRLabel
@@ -314,20 +289,14 @@ object frmImprimeOS: TfrmImprimeOS
         Top = 64
         Width = 114
         Height = 20
-        Frame.Color = clBlack
-        Frame.DrawTop = False
-        Frame.DrawBottom = False
-        Frame.DrawLeft = False
-        Frame.DrawRight = False
         Size.Values = (
           52.916666666666670000
           21.166666666666670000
           169.333333333333300000
           301.625000000000000000)
+        XLColumn = 0
         Alignment = taLeftJustify
         AlignToBand = False
-        AutoSize = True
-        AutoStretch = False
         Caption = 'Total geral em R$'
         Color = clWhite
         Font.Charset = DEFAULT_CHARSET
@@ -337,7 +306,8 @@ object frmImprimeOS: TfrmImprimeOS
         Font.Style = [fsBold]
         ParentFont = False
         Transparent = False
-        WordWrap = True
+        ExportAs = exptText
+        WrapStyle = BreakOnSpaces
         FontSize = 10
       end
       object lblTotServ: TQRLabel
@@ -345,20 +315,15 @@ object frmImprimeOS: TfrmImprimeOS
         Top = 8
         Width = 120
         Height = 20
-        Frame.Color = clBlack
-        Frame.DrawTop = False
-        Frame.DrawBottom = False
-        Frame.DrawLeft = False
-        Frame.DrawRight = False
         Size.Values = (
           52.916666666666660000
           486.833333333333400000
           21.166666666666670000
           317.500000000000000000)
+        XLColumn = 0
         Alignment = taRightJustify
         AlignToBand = False
         AutoSize = False
-        AutoStretch = False
         Caption = 'Total dos Servi'#231'os em R$'
         Color = clWhite
         Font.Charset = DEFAULT_CHARSET
@@ -368,7 +333,8 @@ object frmImprimeOS: TfrmImprimeOS
         Font.Style = [fsBold]
         ParentFont = False
         Transparent = False
-        WordWrap = True
+        ExportAs = exptText
+        WrapStyle = BreakOnSpaces
         FontSize = 10
       end
       object lblTotMat: TQRLabel
@@ -376,20 +342,15 @@ object frmImprimeOS: TfrmImprimeOS
         Top = 32
         Width = 120
         Height = 20
-        Frame.Color = clBlack
-        Frame.DrawTop = False
-        Frame.DrawBottom = False
-        Frame.DrawLeft = False
-        Frame.DrawRight = False
         Size.Values = (
           52.916666666666660000
           486.833333333333400000
           84.666666666666680000
           317.500000000000000000)
+        XLColumn = 0
         Alignment = taRightJustify
         AlignToBand = False
         AutoSize = False
-        AutoStretch = False
         Caption = 'Total dos Servi'#231'os em R$'
         Color = clWhite
         Font.Charset = DEFAULT_CHARSET
@@ -399,7 +360,8 @@ object frmImprimeOS: TfrmImprimeOS
         Font.Style = [fsBold]
         ParentFont = False
         Transparent = False
-        WordWrap = True
+        ExportAs = exptText
+        WrapStyle = BreakOnSpaces
         FontSize = 10
       end
       object lblTotal: TQRLabel
@@ -407,20 +369,15 @@ object frmImprimeOS: TfrmImprimeOS
         Top = 64
         Width = 120
         Height = 20
-        Frame.Color = clBlack
-        Frame.DrawTop = False
-        Frame.DrawBottom = False
-        Frame.DrawLeft = False
-        Frame.DrawRight = False
         Size.Values = (
           52.916666666666660000
           486.833333333333400000
           169.333333333333300000
           317.500000000000000000)
+        XLColumn = 0
         Alignment = taRightJustify
         AlignToBand = False
         AutoSize = False
-        AutoStretch = False
         Caption = 'Total dos Servi'#231'os em R$'
         Color = clWhite
         Font.Charset = DEFAULT_CHARSET
@@ -430,7 +387,8 @@ object frmImprimeOS: TfrmImprimeOS
         Font.Style = [fsBold]
         ParentFont = False
         Transparent = False
-        WordWrap = True
+        ExportAs = exptText
+        WrapStyle = BreakOnSpaces
         FontSize = 10
       end
       object QRShape2: TQRShape
@@ -438,16 +396,12 @@ object frmImprimeOS: TfrmImprimeOS
         Top = 48
         Width = 297
         Height = 17
-        Frame.Color = clBlack
-        Frame.DrawTop = False
-        Frame.DrawBottom = False
-        Frame.DrawLeft = False
-        Frame.DrawRight = False
         Size.Values = (
           44.979166666666670000
           21.166666666666670000
           127.000000000000000000
           785.812500000000000000)
+        XLColumn = 0
         Shape = qrsHorLine
         VertAdjust = 0
       end
@@ -456,20 +410,15 @@ object frmImprimeOS: TfrmImprimeOS
         Top = 64
         Width = 305
         Height = 20
-        Frame.Color = clBlack
-        Frame.DrawTop = False
-        Frame.DrawBottom = False
-        Frame.DrawLeft = False
-        Frame.DrawRight = False
         Size.Values = (
           52.916666666666660000
           994.833333333333400000
           169.333333333333300000
           806.979166666666800000)
+        XLColumn = 0
         Alignment = taCenter
         AlignToBand = False
         AutoSize = False
-        AutoStretch = False
         Caption = 'Total dos Servi'#231'os em R$'
         Color = clWhite
         Font.Charset = DEFAULT_CHARSET
@@ -480,7 +429,8 @@ object frmImprimeOS: TfrmImprimeOS
         OnPrint = QRLabel1Print
         ParentFont = False
         Transparent = False
-        WordWrap = True
+        ExportAs = exptText
+        WrapStyle = BreakOnSpaces
         FontSize = 10
       end
       object qrObs: TQRMemo
@@ -488,20 +438,15 @@ object frmImprimeOS: TfrmImprimeOS
         Top = 104
         Width = 665
         Height = 137
-        Frame.Color = clBlack
-        Frame.DrawTop = False
-        Frame.DrawBottom = False
-        Frame.DrawLeft = False
-        Frame.DrawRight = False
         Size.Values = (
           362.479166666666700000
           42.333333333333340000
           275.166666666666700000
           1759.479166666667000000)
+        XLColumn = 0
         Alignment = taLeftJustify
         AlignToBand = False
         AutoSize = False
-        AutoStretch = False
         Color = clWhite
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
@@ -510,7 +455,8 @@ object frmImprimeOS: TfrmImprimeOS
         Font.Style = []
         ParentFont = False
         Transparent = False
-        WordWrap = True
+        FullJustify = False
+        MaxBreakChars = 0
         FontSize = 10
       end
     end
@@ -519,13 +465,7 @@ object frmImprimeOS: TfrmImprimeOS
       Top = 337
       Width = 718
       Height = 21
-      Frame.Color = clBlack
-      Frame.DrawTop = False
-      Frame.DrawBottom = False
-      Frame.DrawLeft = False
-      Frame.DrawRight = False
       AlignToBottom = False
-      Color = clWhite
       TransparentBand = False
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
@@ -546,20 +486,15 @@ object frmImprimeOS: TfrmImprimeOS
         Top = 2
         Width = 58
         Height = 17
-        Frame.Color = clBlack
-        Frame.DrawTop = False
-        Frame.DrawBottom = False
-        Frame.DrawLeft = False
-        Frame.DrawRight = False
         Size.Values = (
           44.979166666666670000
           21.166666666666670000
           5.291666666666667000
           153.458333333333300000)
+        XLColumn = 0
         Alignment = taCenter
         AlignToBand = False
         AutoSize = False
-        AutoStretch = False
         Caption = 'Produto'
         Color = clTeal
         Font.Charset = DEFAULT_CHARSET
@@ -569,7 +504,8 @@ object frmImprimeOS: TfrmImprimeOS
         Font.Style = []
         ParentFont = False
         Transparent = False
-        WordWrap = True
+        ExportAs = exptText
+        WrapStyle = BreakOnSpaces
         FontSize = 10
       end
       object QRLabel3: TQRLabel
@@ -577,20 +513,15 @@ object frmImprimeOS: TfrmImprimeOS
         Top = 2
         Width = 537
         Height = 17
-        Frame.Color = clBlack
-        Frame.DrawTop = False
-        Frame.DrawBottom = False
-        Frame.DrawLeft = False
-        Frame.DrawRight = False
         Size.Values = (
           44.979166666666670000
           190.500000000000000000
           5.291666666666667000
           1420.812500000000000000)
+        XLColumn = 0
         Alignment = taCenter
         AlignToBand = False
         AutoSize = False
-        AutoStretch = False
         Caption = 'Descri'#231#227'o'
         Color = clTeal
         Font.Charset = DEFAULT_CHARSET
@@ -600,7 +531,8 @@ object frmImprimeOS: TfrmImprimeOS
         Font.Style = []
         ParentFont = False
         Transparent = False
-        WordWrap = True
+        ExportAs = exptText
+        WrapStyle = BreakOnSpaces
         FontSize = 10
       end
       object QRLabel4: TQRLabel
@@ -608,20 +540,15 @@ object frmImprimeOS: TfrmImprimeOS
         Top = 2
         Width = 97
         Height = 17
-        Frame.Color = clBlack
-        Frame.DrawTop = False
-        Frame.DrawBottom = False
-        Frame.DrawLeft = False
-        Frame.DrawRight = False
         Size.Values = (
           44.979166666666670000
           1627.187500000000000000
           5.291666666666667000
           256.645833333333400000)
+        XLColumn = 0
         Alignment = taCenter
         AlignToBand = False
         AutoSize = False
-        AutoStretch = False
         Caption = 'Quantidade'
         Color = clTeal
         Font.Charset = DEFAULT_CHARSET
@@ -631,7 +558,8 @@ object frmImprimeOS: TfrmImprimeOS
         Font.Style = []
         ParentFont = False
         Transparent = False
-        WordWrap = True
+        ExportAs = exptText
+        WrapStyle = BreakOnSpaces
         FontSize = 10
       end
     end
@@ -640,13 +568,7 @@ object frmImprimeOS: TfrmImprimeOS
       Top = 358
       Width = 718
       Height = 27
-      Frame.Color = clBlack
-      Frame.DrawTop = False
-      Frame.DrawBottom = False
-      Frame.DrawLeft = False
-      Frame.DrawRight = False
       AlignToBottom = False
-      Color = clWhite
       TransparentBand = False
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
@@ -669,25 +591,22 @@ object frmImprimeOS: TfrmImprimeOS
         Top = 3
         Width = 85
         Height = 23
-        Frame.Color = clBlack
-        Frame.DrawTop = False
-        Frame.DrawBottom = False
-        Frame.DrawLeft = False
-        Frame.DrawRight = False
         Size.Values = (
           60.854166666666670000
           190.500000000000000000
           7.937500000000000000
           224.895833333333300000)
+        XLColumn = 0
         Alignment = taLeftJustify
         AlignToBand = False
-        AutoSize = True
-        AutoStretch = False
         Color = clWhite
         DataSet = qryItems
         DataField = 'AMBIENTE'
         Transparent = False
-        WordWrap = True
+        ExportAs = exptText
+        WrapStyle = BreakOnSpaces
+        FullJustify = False
+        MaxBreakChars = 0
         FontSize = 12
       end
     end
@@ -696,13 +615,7 @@ object frmImprimeOS: TfrmImprimeOS
       Top = 385
       Width = 718
       Height = 21
-      Frame.Color = clBlack
-      Frame.DrawTop = False
-      Frame.DrawBottom = False
-      Frame.DrawLeft = False
-      Frame.DrawRight = False
       AlignToBottom = False
-      Color = clWhite
       TransparentBand = False
       ForceNewColumn = False
       ForceNewPage = False
@@ -721,13 +634,7 @@ object frmImprimeOS: TfrmImprimeOS
       Top = 426
       Width = 718
       Height = 23
-      Frame.Color = clBlack
-      Frame.DrawTop = False
-      Frame.DrawBottom = False
-      Frame.DrawLeft = False
-      Frame.DrawRight = False
       AlignToBottom = False
-      Color = clWhite
       TransparentBand = False
       ForceNewColumn = False
       ForceNewPage = False
@@ -742,25 +649,23 @@ object frmImprimeOS: TfrmImprimeOS
         Top = 3
         Width = 537
         Height = 17
-        Frame.Color = clBlack
-        Frame.DrawTop = False
-        Frame.DrawBottom = False
-        Frame.DrawLeft = False
-        Frame.DrawRight = False
         Size.Values = (
           44.979166666666670000
           190.500000000000000000
           7.937500000000000000
           1420.812500000000000000)
+        XLColumn = 0
         Alignment = taLeftJustify
         AlignToBand = False
         AutoSize = False
-        AutoStretch = False
         Color = clWhite
         DataSet = qryItems
         DataField = 'NOMEDOPRODUTO'
         Transparent = False
-        WordWrap = True
+        ExportAs = exptText
+        WrapStyle = BreakOnSpaces
+        FullJustify = False
+        MaxBreakChars = 0
         FontSize = 8
       end
       object QRExpr1: TQRExpr
@@ -768,25 +673,21 @@ object frmImprimeOS: TfrmImprimeOS
         Top = 3
         Width = 80
         Height = 15
-        Frame.Color = clBlack
-        Frame.DrawTop = False
-        Frame.DrawBottom = False
-        Frame.DrawLeft = False
-        Frame.DrawRight = False
         Size.Values = (
           39.687500000000000000
           1651.000000000000000000
           7.937500000000000000
           211.666666666666700000)
+        XLColumn = 0
         Alignment = taLeftJustify
         AlignToBand = False
         AutoSize = False
-        AutoStretch = False
         Color = clWhite
         ResetAfterPrint = True
         Transparent = False
-        WordWrap = True
         Expression = 'SUM(qryItems.QUANTIDADE)'
+        ExportAs = exptText
+        WrapStyle = BreakOnSpaces
         FontSize = 8
       end
     end
@@ -795,13 +696,7 @@ object frmImprimeOS: TfrmImprimeOS
       Top = 38
       Width = 718
       Height = 299
-      Frame.Color = clBlack
-      Frame.DrawTop = False
-      Frame.DrawBottom = False
-      Frame.DrawLeft = False
-      Frame.DrawRight = False
       AlignToBottom = False
-      Color = clWhite
       TransparentBand = False
       ForceNewColumn = False
       ForceNewPage = False
@@ -816,16 +711,12 @@ object frmImprimeOS: TfrmImprimeOS
         Top = 10
         Width = 252
         Height = 94
-        Frame.Color = clBlack
-        Frame.DrawTop = False
-        Frame.DrawBottom = False
-        Frame.DrawLeft = False
-        Frame.DrawRight = False
         Size.Values = (
           248.708333333333300000
           13.229166666666670000
           26.458333333333330000
           666.750000000000000000)
+        XLColumn = 0
         AutoSize = True
         Center = True
         Picture.Data = {
@@ -1069,19 +960,14 @@ object frmImprimeOS: TfrmImprimeOS
         Top = 166
         Width = 71
         Height = 17
-        Frame.Color = clBlack
-        Frame.DrawTop = False
-        Frame.DrawBottom = False
-        Frame.DrawLeft = False
-        Frame.DrawRight = False
         Size.Values = (
           44.979166666666670000
           1711.854166666667000000
           439.208333333333300000
           187.854166666666700000)
+        XLColumn = 0
         Alignment = taRightJustify
         AlignToBand = True
-        AutoSize = True
         Color = clWhite
         Data = qrsDate
         Font.Charset = DEFAULT_CHARSET
@@ -1092,6 +978,7 @@ object frmImprimeOS: TfrmImprimeOS
         ParentFont = False
         Text = 'Data: '
         Transparent = False
+        ExportAs = exptText
         FontSize = 10
       end
       object QRLabel5: TQRLabel
@@ -1099,20 +986,14 @@ object frmImprimeOS: TfrmImprimeOS
         Top = 240
         Width = 46
         Height = 17
-        Frame.Color = clBlack
-        Frame.DrawTop = False
-        Frame.DrawBottom = False
-        Frame.DrawLeft = False
-        Frame.DrawRight = False
         Size.Values = (
           44.979166666666670000
           42.333333333333330000
           635.000000000000000000
           121.708333333333300000)
+        XLColumn = 0
         Alignment = taLeftJustify
         AlignToBand = False
-        AutoSize = True
-        AutoStretch = False
         Caption = 'Cliente'
         Color = clWhite
         Font.Charset = DEFAULT_CHARSET
@@ -1122,7 +1003,8 @@ object frmImprimeOS: TfrmImprimeOS
         Font.Style = [fsBold]
         ParentFont = False
         Transparent = False
-        WordWrap = True
+        ExportAs = exptText
+        WrapStyle = BreakOnSpaces
         FontSize = 10
       end
       object QRLabel11: TQRLabel
@@ -1130,20 +1012,14 @@ object frmImprimeOS: TfrmImprimeOS
         Top = 264
         Width = 33
         Height = 17
-        Frame.Color = clBlack
-        Frame.DrawTop = False
-        Frame.DrawBottom = False
-        Frame.DrawLeft = False
-        Frame.DrawRight = False
         Size.Values = (
           44.979166666666670000
           42.333333333333330000
           698.500000000000000000
           87.312500000000000000)
+        XLColumn = 0
         Alignment = taLeftJustify
         AlignToBand = False
-        AutoSize = True
-        AutoStretch = False
         Caption = 'Fone'
         Color = clWhite
         Font.Charset = DEFAULT_CHARSET
@@ -1153,7 +1029,8 @@ object frmImprimeOS: TfrmImprimeOS
         Font.Style = [fsBold]
         ParentFont = False
         Transparent = False
-        WordWrap = True
+        ExportAs = exptText
+        WrapStyle = BreakOnSpaces
         FontSize = 10
       end
       object QRDBText5: TQRDBText
@@ -1161,20 +1038,15 @@ object frmImprimeOS: TfrmImprimeOS
         Top = 240
         Width = 273
         Height = 17
-        Frame.Color = clBlack
-        Frame.DrawTop = False
-        Frame.DrawBottom = False
-        Frame.DrawLeft = False
-        Frame.DrawRight = False
         Size.Values = (
           44.979166666666670000
           211.666666666666700000
           635.000000000000000000
           722.312500000000000000)
+        XLColumn = 0
         Alignment = taLeftJustify
         AlignToBand = False
         AutoSize = False
-        AutoStretch = False
         Color = clWhite
         DataSet = qryItems
         DataField = 'NOMEDOCLIENTE'
@@ -1185,7 +1057,10 @@ object frmImprimeOS: TfrmImprimeOS
         Font.Style = [fsBold]
         ParentFont = False
         Transparent = False
-        WordWrap = True
+        ExportAs = exptText
+        WrapStyle = BreakOnSpaces
+        FullJustify = False
+        MaxBreakChars = 0
         FontSize = 10
       end
       object QRDBText10: TQRDBText
@@ -1193,20 +1068,15 @@ object frmImprimeOS: TfrmImprimeOS
         Top = 264
         Width = 161
         Height = 17
-        Frame.Color = clBlack
-        Frame.DrawTop = False
-        Frame.DrawBottom = False
-        Frame.DrawLeft = False
-        Frame.DrawRight = False
         Size.Values = (
           44.979166666666670000
           211.666666666666700000
           698.500000000000000000
           425.979166666666700000)
+        XLColumn = 0
         Alignment = taLeftJustify
         AlignToBand = False
         AutoSize = False
-        AutoStretch = False
         Color = clWhite
         DataSet = tblClientes
         DataField = 'TELEFONE'
@@ -1217,7 +1087,10 @@ object frmImprimeOS: TfrmImprimeOS
         Font.Style = [fsBold]
         ParentFont = False
         Transparent = False
-        WordWrap = True
+        ExportAs = exptText
+        WrapStyle = BreakOnSpaces
+        FullJustify = False
+        MaxBreakChars = 0
         FontSize = 10
       end
       object QRShape1: TQRShape
@@ -1225,16 +1098,12 @@ object frmImprimeOS: TfrmImprimeOS
         Top = 216
         Width = 697
         Height = 17
-        Frame.Color = clBlack
-        Frame.DrawTop = False
-        Frame.DrawBottom = False
-        Frame.DrawLeft = False
-        Frame.DrawRight = False
         Size.Values = (
           44.979166666666670000
           42.333333333333340000
           571.500000000000000000
           1844.145833333333000000)
+        XLColumn = 0
         Shape = qrsHorLine
         VertAdjust = 0
       end
@@ -1243,20 +1112,14 @@ object frmImprimeOS: TfrmImprimeOS
         Top = 264
         Width = 79
         Height = 17
-        Frame.Color = clBlack
-        Frame.DrawTop = False
-        Frame.DrawBottom = False
-        Frame.DrawLeft = False
-        Frame.DrawRight = False
         Size.Values = (
           44.979166666666670000
           672.041666666666700000
           698.500000000000000000
           209.020833333333300000)
+        XLColumn = 0
         Alignment = taLeftJustify
         AlignToBand = False
-        AutoSize = True
-        AutoStretch = False
         Caption = 'Arquiteto (a)'
         Color = clWhite
         Font.Charset = DEFAULT_CHARSET
@@ -1266,7 +1129,8 @@ object frmImprimeOS: TfrmImprimeOS
         Font.Style = [fsBold]
         ParentFont = False
         Transparent = False
-        WordWrap = True
+        ExportAs = exptText
+        WrapStyle = BreakOnSpaces
         FontSize = 10
       end
       object QRDBText6: TQRDBText
@@ -1274,20 +1138,15 @@ object frmImprimeOS: TfrmImprimeOS
         Top = 264
         Width = 299
         Height = 17
-        Frame.Color = clBlack
-        Frame.DrawTop = False
-        Frame.DrawBottom = False
-        Frame.DrawLeft = False
-        Frame.DrawRight = False
         Size.Values = (
           44.979166666666670000
           904.875000000000000000
           698.500000000000000000
           791.104166666666800000)
+        XLColumn = 0
         Alignment = taLeftJustify
         AlignToBand = False
         AutoSize = False
-        AutoStretch = False
         Color = clWhite
         DataSet = tblClientes
         DataField = 'NOMEDOARQUITETO'
@@ -1298,7 +1157,10 @@ object frmImprimeOS: TfrmImprimeOS
         Font.Style = [fsBold]
         ParentFont = False
         Transparent = False
-        WordWrap = True
+        ExportAs = exptText
+        WrapStyle = BreakOnSpaces
+        FullJustify = False
+        MaxBreakChars = 0
         FontSize = 10
       end
       object QRSysData2: TQRSysData
@@ -1306,19 +1168,14 @@ object frmImprimeOS: TfrmImprimeOS
         Top = 190
         Width = 98
         Height = 17
-        Frame.Color = clBlack
-        Frame.DrawTop = False
-        Frame.DrawBottom = False
-        Frame.DrawLeft = False
-        Frame.DrawRight = False
         Size.Values = (
           44.979166666666670000
           1640.416666666667000000
           502.708333333333300000
           259.291666666666700000)
+        XLColumn = 0
         Alignment = taRightJustify
         AlignToBand = True
-        AutoSize = True
         Color = clWhite
         Data = qrsPageNumber
         Font.Charset = DEFAULT_CHARSET
@@ -1329,6 +1186,7 @@ object frmImprimeOS: TfrmImprimeOS
         ParentFont = False
         Text = 'P'#225'gina : '
         Transparent = False
+        ExportAs = exptText
         FontSize = 10
       end
       object QRDBText1: TQRDBText
@@ -1336,20 +1194,14 @@ object frmImprimeOS: TfrmImprimeOS
         Top = 8
         Width = 39
         Height = 17
-        Frame.Color = clBlack
-        Frame.DrawTop = False
-        Frame.DrawBottom = False
-        Frame.DrawLeft = False
-        Frame.DrawRight = False
         Size.Values = (
           44.979166666666670000
           735.541666666666700000
           21.166666666666670000
           103.187500000000000000)
+        XLColumn = 0
         Alignment = taLeftJustify
         AlignToBand = False
-        AutoSize = True
-        AutoStretch = False
         Color = clWhite
         DataSet = frmPrincipal.sqlEmpresa
         DataField = 'NOME'
@@ -1360,7 +1212,10 @@ object frmImprimeOS: TfrmImprimeOS
         Font.Style = [fsBold]
         ParentFont = False
         Transparent = False
-        WordWrap = True
+        ExportAs = exptText
+        WrapStyle = BreakOnSpaces
+        FullJustify = False
+        MaxBreakChars = 0
         FontSize = 10
       end
       object QRDBText7: TQRDBText
@@ -1368,20 +1223,14 @@ object frmImprimeOS: TfrmImprimeOS
         Top = 32
         Width = 74
         Height = 17
-        Frame.Color = clBlack
-        Frame.DrawTop = False
-        Frame.DrawBottom = False
-        Frame.DrawLeft = False
-        Frame.DrawRight = False
         Size.Values = (
           44.979166666666670000
           735.541666666666700000
           84.666666666666670000
           195.791666666666700000)
+        XLColumn = 0
         Alignment = taLeftJustify
         AlignToBand = False
-        AutoSize = True
-        AutoStretch = False
         Color = clWhite
         DataSet = frmPrincipal.sqlEmpresa
         DataField = 'ENDERECO'
@@ -1392,7 +1241,10 @@ object frmImprimeOS: TfrmImprimeOS
         Font.Style = []
         ParentFont = False
         Transparent = False
-        WordWrap = True
+        ExportAs = exptText
+        WrapStyle = BreakOnSpaces
+        FullJustify = False
+        MaxBreakChars = 0
         FontSize = 10
       end
       object QRDBText9: TQRDBText
@@ -1400,20 +1252,14 @@ object frmImprimeOS: TfrmImprimeOS
         Top = 56
         Width = 50
         Height = 17
-        Frame.Color = clBlack
-        Frame.DrawTop = False
-        Frame.DrawBottom = False
-        Frame.DrawLeft = False
-        Frame.DrawRight = False
         Size.Values = (
           44.979166666666670000
           878.416666666666700000
           148.166666666666700000
           132.291666666666700000)
+        XLColumn = 0
         Alignment = taLeftJustify
         AlignToBand = False
-        AutoSize = True
-        AutoStretch = False
         Color = clWhite
         DataSet = frmPrincipal.sqlEmpresa
         DataField = 'BAIRRO'
@@ -1424,7 +1270,10 @@ object frmImprimeOS: TfrmImprimeOS
         Font.Style = []
         ParentFont = False
         Transparent = False
-        WordWrap = True
+        ExportAs = exptText
+        WrapStyle = BreakOnSpaces
+        FullJustify = False
+        MaxBreakChars = 0
         FontSize = 10
       end
       object QRLabel6: TQRLabel
@@ -1432,20 +1281,14 @@ object frmImprimeOS: TfrmImprimeOS
         Top = 56
         Width = 39
         Height = 17
-        Frame.Color = clBlack
-        Frame.DrawTop = False
-        Frame.DrawBottom = False
-        Frame.DrawLeft = False
-        Frame.DrawRight = False
         Size.Values = (
           44.979166666666670000
           735.541666666666700000
           148.166666666666700000
           103.187500000000000000)
+        XLColumn = 0
         Alignment = taLeftJustify
         AlignToBand = False
-        AutoSize = True
-        AutoStretch = False
         Caption = 'Bairro:'
         Color = clWhite
         Font.Charset = DEFAULT_CHARSET
@@ -1455,7 +1298,8 @@ object frmImprimeOS: TfrmImprimeOS
         Font.Style = []
         ParentFont = False
         Transparent = False
-        WordWrap = True
+        ExportAs = exptText
+        WrapStyle = BreakOnSpaces
         FontSize = 10
       end
       object QRDBText11: TQRDBText
@@ -1463,20 +1307,14 @@ object frmImprimeOS: TfrmImprimeOS
         Top = 56
         Width = 28
         Height = 17
-        Frame.Color = clBlack
-        Frame.DrawTop = False
-        Frame.DrawBottom = False
-        Frame.DrawLeft = False
-        Frame.DrawRight = False
         Size.Values = (
           44.979166666666670000
           1307.041666666667000000
           148.166666666666700000
           74.083333333333330000)
+        XLColumn = 0
         Alignment = taLeftJustify
         AlignToBand = False
-        AutoSize = True
-        AutoStretch = False
         Color = clWhite
         DataSet = frmPrincipal.sqlEmpresa
         DataField = 'CEP'
@@ -1487,7 +1325,10 @@ object frmImprimeOS: TfrmImprimeOS
         Font.Style = []
         ParentFont = False
         Transparent = False
-        WordWrap = True
+        ExportAs = exptText
+        WrapStyle = BreakOnSpaces
+        FullJustify = False
+        MaxBreakChars = 0
         FontSize = 10
       end
       object QRDBText13: TQRDBText
@@ -1495,20 +1336,14 @@ object frmImprimeOS: TfrmImprimeOS
         Top = 80
         Width = 54
         Height = 17
-        Frame.Color = clBlack
-        Frame.DrawTop = False
-        Frame.DrawBottom = False
-        Frame.DrawLeft = False
-        Frame.DrawRight = False
         Size.Values = (
           44.979166666666670000
           1307.041666666667000000
           211.666666666666700000
           142.875000000000000000)
+        XLColumn = 0
         Alignment = taLeftJustify
         AlignToBand = False
-        AutoSize = True
-        AutoStretch = False
         Color = clWhite
         DataSet = frmPrincipal.sqlEmpresa
         DataField = 'ESTADO'
@@ -1519,7 +1354,10 @@ object frmImprimeOS: TfrmImprimeOS
         Font.Style = []
         ParentFont = False
         Transparent = False
-        WordWrap = True
+        ExportAs = exptText
+        WrapStyle = BreakOnSpaces
+        FullJustify = False
+        MaxBreakChars = 0
         FontSize = 10
       end
       object QRDBText12: TQRDBText
@@ -1527,20 +1365,14 @@ object frmImprimeOS: TfrmImprimeOS
         Top = 80
         Width = 49
         Height = 17
-        Frame.Color = clBlack
-        Frame.DrawTop = False
-        Frame.DrawBottom = False
-        Frame.DrawLeft = False
-        Frame.DrawRight = False
         Size.Values = (
           44.979166666666670000
           878.416666666666700000
           211.666666666666700000
           129.645833333333300000)
+        XLColumn = 0
         Alignment = taLeftJustify
         AlignToBand = False
-        AutoSize = True
-        AutoStretch = False
         Color = clWhite
         DataSet = frmPrincipal.sqlEmpresa
         DataField = 'CIDADE'
@@ -1551,7 +1383,10 @@ object frmImprimeOS: TfrmImprimeOS
         Font.Style = []
         ParentFont = False
         Transparent = False
-        WordWrap = True
+        ExportAs = exptText
+        WrapStyle = BreakOnSpaces
+        FullJustify = False
+        MaxBreakChars = 0
         FontSize = 10
       end
       object QRLabel7: TQRLabel
@@ -1559,20 +1394,14 @@ object frmImprimeOS: TfrmImprimeOS
         Top = 80
         Width = 45
         Height = 17
-        Frame.Color = clBlack
-        Frame.DrawTop = False
-        Frame.DrawBottom = False
-        Frame.DrawLeft = False
-        Frame.DrawRight = False
         Size.Values = (
           44.979166666666670000
           735.541666666666700000
           211.666666666666700000
           119.062500000000000000)
+        XLColumn = 0
         Alignment = taLeftJustify
         AlignToBand = False
-        AutoSize = True
-        AutoStretch = False
         Caption = 'Cidade:'
         Color = clWhite
         Font.Charset = DEFAULT_CHARSET
@@ -1582,7 +1411,8 @@ object frmImprimeOS: TfrmImprimeOS
         Font.Style = []
         ParentFont = False
         Transparent = False
-        WordWrap = True
+        ExportAs = exptText
+        WrapStyle = BreakOnSpaces
         FontSize = 10
       end
       object QRLabel9: TQRLabel
@@ -1590,20 +1420,14 @@ object frmImprimeOS: TfrmImprimeOS
         Top = 104
         Width = 42
         Height = 17
-        Frame.Color = clBlack
-        Frame.DrawTop = False
-        Frame.DrawBottom = False
-        Frame.DrawLeft = False
-        Frame.DrawRight = False
         Size.Values = (
           44.979166666666670000
           735.541666666666700000
           275.166666666666700000
           111.125000000000000000)
+        XLColumn = 0
         Alignment = taLeftJustify
         AlignToBand = False
-        AutoSize = True
-        AutoStretch = False
         Caption = 'Fone : '
         Color = clWhite
         Font.Charset = DEFAULT_CHARSET
@@ -1613,7 +1437,8 @@ object frmImprimeOS: TfrmImprimeOS
         Font.Style = []
         ParentFont = False
         Transparent = False
-        WordWrap = True
+        ExportAs = exptText
+        WrapStyle = BreakOnSpaces
         FontSize = 10
       end
       object QRDBText14: TQRDBText
@@ -1621,20 +1446,14 @@ object frmImprimeOS: TfrmImprimeOS
         Top = 104
         Width = 69
         Height = 17
-        Frame.Color = clBlack
-        Frame.DrawTop = False
-        Frame.DrawBottom = False
-        Frame.DrawLeft = False
-        Frame.DrawRight = False
         Size.Values = (
           44.979166666666670000
           878.416666666666700000
           275.166666666666700000
           182.562500000000000000)
+        XLColumn = 0
         Alignment = taLeftJustify
         AlignToBand = False
-        AutoSize = True
-        AutoStretch = False
         Color = clWhite
         DataSet = frmPrincipal.sqlEmpresa
         DataField = 'TELEFONE'
@@ -1645,7 +1464,10 @@ object frmImprimeOS: TfrmImprimeOS
         Font.Style = []
         ParentFont = False
         Transparent = False
-        WordWrap = True
+        ExportAs = exptText
+        WrapStyle = BreakOnSpaces
+        FullJustify = False
+        MaxBreakChars = 0
         FontSize = 10
       end
       object QRDBText15: TQRDBText
@@ -1653,20 +1475,14 @@ object frmImprimeOS: TfrmImprimeOS
         Top = 128
         Width = 40
         Height = 17
-        Frame.Color = clBlack
-        Frame.DrawTop = False
-        Frame.DrawBottom = False
-        Frame.DrawLeft = False
-        Frame.DrawRight = False
         Size.Values = (
           44.979166666666670000
           878.416666666666700000
           338.666666666666700000
           105.833333333333300000)
+        XLColumn = 0
         Alignment = taLeftJustify
         AlignToBand = False
-        AutoSize = True
-        AutoStretch = False
         Color = clWhite
         DataSet = frmPrincipal.sqlEmpresa
         DataField = 'EMAIL'
@@ -1677,7 +1493,10 @@ object frmImprimeOS: TfrmImprimeOS
         Font.Style = []
         ParentFont = False
         Transparent = False
-        WordWrap = True
+        ExportAs = exptText
+        WrapStyle = BreakOnSpaces
+        FullJustify = False
+        MaxBreakChars = 0
         FontSize = 10
       end
       object QRLabel23: TQRLabel
@@ -1685,20 +1504,14 @@ object frmImprimeOS: TfrmImprimeOS
         Top = 129
         Width = 42
         Height = 17
-        Frame.Color = clBlack
-        Frame.DrawTop = False
-        Frame.DrawBottom = False
-        Frame.DrawLeft = False
-        Frame.DrawRight = False
         Size.Values = (
           44.979166666666670000
           735.541666666666700000
           341.312500000000000000
           111.125000000000000000)
+        XLColumn = 0
         Alignment = taCenter
         AlignToBand = False
-        AutoSize = True
-        AutoStretch = False
         Caption = 'Email: '
         Color = clWhite
         Font.Charset = DEFAULT_CHARSET
@@ -1708,7 +1521,8 @@ object frmImprimeOS: TfrmImprimeOS
         Font.Style = []
         ParentFont = False
         Transparent = False
-        WordWrap = True
+        ExportAs = exptText
+        WrapStyle = BreakOnSpaces
         FontSize = 10
       end
       object QRDBText20: TQRDBText
@@ -1716,20 +1530,15 @@ object frmImprimeOS: TfrmImprimeOS
         Top = 156
         Width = 129
         Height = 17
-        Frame.Color = clBlack
-        Frame.DrawTop = False
-        Frame.DrawBottom = False
-        Frame.DrawLeft = False
-        Frame.DrawRight = False
         Size.Values = (
           44.979166666666670000
           740.833333333333400000
           412.750000000000100000
           341.312500000000000000)
+        XLColumn = 0
         Alignment = taLeftJustify
         AlignToBand = False
         AutoSize = False
-        AutoStretch = False
         Color = clWhite
         DataSet = frmPrincipal.sqlEmpresa
         DataField = 'RESPONSAVEL1'
@@ -1740,7 +1549,10 @@ object frmImprimeOS: TfrmImprimeOS
         Font.Style = [fsBold]
         ParentFont = False
         Transparent = False
-        WordWrap = True
+        ExportAs = exptText
+        WrapStyle = BreakOnSpaces
+        FullJustify = False
+        MaxBreakChars = 0
         FontSize = 10
       end
       object QRDBText21: TQRDBText
@@ -1748,20 +1560,15 @@ object frmImprimeOS: TfrmImprimeOS
         Top = 156
         Width = 209
         Height = 17
-        Frame.Color = clBlack
-        Frame.DrawTop = False
-        Frame.DrawBottom = False
-        Frame.DrawLeft = False
-        Frame.DrawRight = False
         Size.Values = (
           44.979166666666670000
           1143.000000000000000000
           412.750000000000100000
           552.979166666666800000)
+        XLColumn = 0
         Alignment = taLeftJustify
         AlignToBand = False
         AutoSize = False
-        AutoStretch = False
         Color = clWhite
         DataSet = frmPrincipal.sqlEmpresa
         DataField = 'RESPONSAVEL2'
@@ -1772,7 +1579,10 @@ object frmImprimeOS: TfrmImprimeOS
         Font.Style = [fsBold]
         ParentFont = False
         Transparent = False
-        WordWrap = True
+        ExportAs = exptText
+        WrapStyle = BreakOnSpaces
+        FullJustify = False
+        MaxBreakChars = 0
         FontSize = 10
       end
       object QRLabel15: TQRLabel
@@ -1780,20 +1590,14 @@ object frmImprimeOS: TfrmImprimeOS
         Top = 176
         Width = 41
         Height = 17
-        Frame.Color = clBlack
-        Frame.DrawTop = False
-        Frame.DrawBottom = False
-        Frame.DrawLeft = False
-        Frame.DrawRight = False
         Size.Values = (
           44.979166666666670000
           740.833333333333300000
           465.666666666666700000
           108.479166666666700000)
+        XLColumn = 0
         Alignment = taCenter
         AlignToBand = False
-        AutoSize = True
-        AutoStretch = False
         Caption = 'CREA:'
         Color = clWhite
         Font.Charset = DEFAULT_CHARSET
@@ -1803,7 +1607,8 @@ object frmImprimeOS: TfrmImprimeOS
         Font.Style = []
         ParentFont = False
         Transparent = False
-        WordWrap = True
+        ExportAs = exptText
+        WrapStyle = BreakOnSpaces
         FontSize = 10
       end
       object QRDBText22: TQRDBText
@@ -1811,20 +1616,15 @@ object frmImprimeOS: TfrmImprimeOS
         Top = 176
         Width = 93
         Height = 17
-        Frame.Color = clBlack
-        Frame.DrawTop = False
-        Frame.DrawBottom = False
-        Frame.DrawLeft = False
-        Frame.DrawRight = False
         Size.Values = (
           44.979166666666670000
           878.416666666666800000
           465.666666666666800000
           246.062500000000000000)
+        XLColumn = 0
         Alignment = taLeftJustify
         AlignToBand = False
         AutoSize = False
-        AutoStretch = False
         Color = clWhite
         DataSet = frmPrincipal.sqlEmpresa
         DataField = 'CREA1'
@@ -1835,7 +1635,10 @@ object frmImprimeOS: TfrmImprimeOS
         Font.Style = []
         ParentFont = False
         Transparent = False
-        WordWrap = True
+        ExportAs = exptText
+        WrapStyle = BreakOnSpaces
+        FullJustify = False
+        MaxBreakChars = 0
         FontSize = 10
       end
       object QRLabel16: TQRLabel
@@ -1843,20 +1646,14 @@ object frmImprimeOS: TfrmImprimeOS
         Top = 176
         Width = 41
         Height = 17
-        Frame.Color = clBlack
-        Frame.DrawTop = False
-        Frame.DrawBottom = False
-        Frame.DrawLeft = False
-        Frame.DrawRight = False
         Size.Values = (
           44.979166666666670000
           1143.000000000000000000
           465.666666666666700000
           108.479166666666700000)
+        XLColumn = 0
         Alignment = taCenter
         AlignToBand = False
-        AutoSize = True
-        AutoStretch = False
         Caption = 'CREA:'
         Color = clWhite
         Font.Charset = DEFAULT_CHARSET
@@ -1866,7 +1663,8 @@ object frmImprimeOS: TfrmImprimeOS
         Font.Style = []
         ParentFont = False
         Transparent = False
-        WordWrap = True
+        ExportAs = exptText
+        WrapStyle = BreakOnSpaces
         FontSize = 10
       end
       object QRDBText24: TQRDBText
@@ -1874,20 +1672,15 @@ object frmImprimeOS: TfrmImprimeOS
         Top = 176
         Width = 125
         Height = 17
-        Frame.Color = clBlack
-        Frame.DrawTop = False
-        Frame.DrawBottom = False
-        Frame.DrawLeft = False
-        Frame.DrawRight = False
         Size.Values = (
           44.979166666666670000
           1280.583333333333000000
           465.666666666666800000
           330.729166666666700000)
+        XLColumn = 0
         Alignment = taLeftJustify
         AlignToBand = False
         AutoSize = False
-        AutoStretch = False
         Color = clWhite
         DataSet = frmPrincipal.sqlEmpresa
         DataField = 'CREA2'
@@ -1898,7 +1691,10 @@ object frmImprimeOS: TfrmImprimeOS
         Font.Style = []
         ParentFont = False
         Transparent = False
-        WordWrap = True
+        ExportAs = exptText
+        WrapStyle = BreakOnSpaces
+        FullJustify = False
+        MaxBreakChars = 0
         FontSize = 10
       end
       object QRLabel17: TQRLabel
@@ -1906,20 +1702,14 @@ object frmImprimeOS: TfrmImprimeOS
         Top = 197
         Width = 45
         Height = 17
-        Frame.Color = clBlack
-        Frame.DrawTop = False
-        Frame.DrawBottom = False
-        Frame.DrawLeft = False
-        Frame.DrawRight = False
         Size.Values = (
           44.979166666666670000
           735.541666666666700000
           521.229166666666700000
           119.062500000000000000)
+        XLColumn = 0
         Alignment = taCenter
         AlignToBand = False
-        AutoSize = True
-        AutoStretch = False
         Caption = 'Celular:'
         Color = clWhite
         Font.Charset = DEFAULT_CHARSET
@@ -1929,7 +1719,8 @@ object frmImprimeOS: TfrmImprimeOS
         Font.Style = []
         ParentFont = False
         Transparent = False
-        WordWrap = True
+        ExportAs = exptText
+        WrapStyle = BreakOnSpaces
         FontSize = 10
       end
       object QRDBText25: TQRDBText
@@ -1937,20 +1728,15 @@ object frmImprimeOS: TfrmImprimeOS
         Top = 197
         Width = 93
         Height = 17
-        Frame.Color = clBlack
-        Frame.DrawTop = False
-        Frame.DrawBottom = False
-        Frame.DrawLeft = False
-        Frame.DrawRight = False
         Size.Values = (
           44.979166666666670000
           878.416666666666800000
           521.229166666666800000
           246.062500000000000000)
+        XLColumn = 0
         Alignment = taLeftJustify
         AlignToBand = False
         AutoSize = False
-        AutoStretch = False
         Color = clWhite
         DataSet = frmPrincipal.sqlEmpresa
         DataField = 'FONE_RESP1'
@@ -1961,7 +1747,10 @@ object frmImprimeOS: TfrmImprimeOS
         Font.Style = []
         ParentFont = False
         Transparent = False
-        WordWrap = True
+        ExportAs = exptText
+        WrapStyle = BreakOnSpaces
+        FullJustify = False
+        MaxBreakChars = 0
         FontSize = 10
       end
       object QRLabel18: TQRLabel
@@ -1969,20 +1758,14 @@ object frmImprimeOS: TfrmImprimeOS
         Top = 197
         Width = 45
         Height = 17
-        Frame.Color = clBlack
-        Frame.DrawTop = False
-        Frame.DrawBottom = False
-        Frame.DrawLeft = False
-        Frame.DrawRight = False
         Size.Values = (
           44.979166666666670000
           1137.708333333333000000
           521.229166666666700000
           119.062500000000000000)
+        XLColumn = 0
         Alignment = taCenter
         AlignToBand = False
-        AutoSize = True
-        AutoStretch = False
         Caption = 'Celular:'
         Color = clWhite
         Font.Charset = DEFAULT_CHARSET
@@ -1992,7 +1775,8 @@ object frmImprimeOS: TfrmImprimeOS
         Font.Style = []
         ParentFont = False
         Transparent = False
-        WordWrap = True
+        ExportAs = exptText
+        WrapStyle = BreakOnSpaces
         FontSize = 10
       end
       object QRDBText26: TQRDBText
@@ -2000,20 +1784,15 @@ object frmImprimeOS: TfrmImprimeOS
         Top = 197
         Width = 117
         Height = 17
-        Frame.Color = clBlack
-        Frame.DrawTop = False
-        Frame.DrawBottom = False
-        Frame.DrawLeft = False
-        Frame.DrawRight = False
         Size.Values = (
           44.979166666666670000
           1280.583333333333000000
           521.229166666666800000
           309.562500000000000000)
+        XLColumn = 0
         Alignment = taLeftJustify
         AlignToBand = False
         AutoSize = False
-        AutoStretch = False
         Color = clWhite
         DataSet = frmPrincipal.sqlEmpresa
         DataField = 'FONE_RESP2'
@@ -2024,7 +1803,10 @@ object frmImprimeOS: TfrmImprimeOS
         Font.Style = []
         ParentFont = False
         Transparent = False
-        WordWrap = True
+        ExportAs = exptText
+        WrapStyle = BreakOnSpaces
+        FullJustify = False
+        MaxBreakChars = 0
         FontSize = 10
       end
     end
@@ -2105,8 +1887,6 @@ object frmImprimeOS: TfrmImprimeOS
         Width = 75
         Height = 25
         Caption = 'Imprimir'
-        TabOrder = 2
-        OnClick = BitBtn1Click
         Glyph.Data = {
           F6000000424DF600000000000000760000002800000010000000100000000100
           04000000000080000000CE0E0000D80E00001000000000000000000000000000
@@ -2116,6 +1896,8 @@ object frmImprimeOS: TfrmImprimeOS
           0002088888877788080200000000000008800888888888808080200000000008
           0800220FFFFFFFF080802220F00000F000022220FFFFFFFF022222220F00000F
           022222220FFFFFFFF02222222000000000222222222222222222}
+        TabOrder = 2
+        OnClick = BitBtn1Click
       end
       object edtServicos: TJvValidateEdit
         Left = 8
@@ -2144,6 +1926,8 @@ object frmImprimeOS: TfrmImprimeOS
   object tblClientes: TIBDataSet
     Database = frmPrincipal.idbInstalLux
     Transaction = trnClientes
+    BufferChunks = 1000
+    CachedUpdates = False
     SelectSQL.Strings = (
       'SELECT'
       
@@ -2155,6 +1939,8 @@ object frmImprimeOS: TfrmImprimeOS
       'LEFT JOIN ARQUITETOS A  ON ( C.ARQUITETO = A.CODIGO )'
       ''
       'ORDER BY C.NOME')
+    ParamCheck = True
+    UniDirectional = False
     Left = 144
     Top = 72
   end
@@ -2171,6 +1957,8 @@ object frmImprimeOS: TfrmImprimeOS
   object qryItems: TIBDataSet
     Database = frmPrincipal.idbInstalLux
     Transaction = trnClientes
+    BufferChunks = 1000
+    CachedUpdates = False
     SelectSQL.Strings = (
       'SELECT'
       
@@ -2200,6 +1988,8 @@ object frmImprimeOS: TfrmImprimeOS
       'ORDER BY '
       'A.DESCRICAO, P.NOME,S.PRODUTO'
       '')
+    ParamCheck = True
+    UniDirectional = False
     Left = 77
     Top = 77
     object qryItemsDATA: TDateField
