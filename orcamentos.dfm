@@ -4,7 +4,7 @@ object frmOrcamentos: TfrmOrcamentos
   ActiveControl = edtEmissao
   BorderStyle = bsToolWindow
   Caption = 'Or'#231'amentos'
-  ClientHeight = 523
+  ClientHeight = 529
   ClientWidth = 794
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -22,7 +22,7 @@ object frmOrcamentos: TfrmOrcamentos
     Left = 0
     Top = 0
     Width = 794
-    Height = 523
+    Height = 529
     ActivePage = tabOrcamento
     Align = alClient
     TabOrder = 0
@@ -257,7 +257,7 @@ object frmOrcamentos: TfrmOrcamentos
         Left = 0
         Top = 271
         Width = 786
-        Height = 224
+        Height = 230
         ControlType.Strings = (
           'PRODUTO;CustomEdit;edtProduto;F'
           'LOCAL;CustomEdit;edtAmbiente;F'
@@ -456,7 +456,7 @@ object frmOrcamentos: TfrmOrcamentos
         Font.Name = 'MS Sans Serif'
         Font.Style = [fsBold]
         ParentFont = False
-        TabOrder = 0
+        TabOrder = 1
       end
       object edtEmissao: TwwDBDateTimePicker
         Left = 78
@@ -472,7 +472,7 @@ object frmOrcamentos: TfrmOrcamentos
         DataSource = dtsOrcamentos
         Epoch = 1950
         ShowButton = True
-        TabOrder = 1
+        TabOrder = 2
       end
       object edtCliente: TwwDBLookupCombo
         Left = 173
@@ -489,7 +489,7 @@ object frmOrcamentos: TfrmOrcamentos
         LookupTable = tblClientes
         LookupField = 'CODIGO'
         Options = [loColLines, loRowLines, loTitles, loFixedDropDownHeight, loSearchOnBackspace]
-        TabOrder = 2
+        TabOrder = 3
         AutoDropDown = False
         ShowButton = True
         PreciseEditRegion = False
@@ -511,7 +511,7 @@ object frmOrcamentos: TfrmOrcamentos
         DataSource = dtsOrcamentos
         Epoch = 1950
         ShowButton = True
-        TabOrder = 3
+        TabOrder = 4
         Visible = False
       end
       object GroupBox1: TGroupBox
@@ -526,7 +526,7 @@ object frmOrcamentos: TfrmOrcamentos
         Font.Name = 'MS Sans Serif'
         Font.Style = []
         ParentFont = False
-        TabOrder = 5
+        TabOrder = 6
         object Label6: TLabel
           Left = 10
           Top = 23
@@ -759,7 +759,7 @@ object frmOrcamentos: TfrmOrcamentos
         KeyOptions = [dgEnterToTab, dgAllowInsert]
         Options = [dgEditing, dgTitles, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgConfirmDelete, dgCancelOnExit, dgWordWrap]
         ParentFont = False
-        TabOrder = 6
+        TabOrder = 7
         TitleAlignment = taLeftJustify
         TitleFont.Charset = DEFAULT_CHARSET
         TitleFont.Color = clWindowText
@@ -792,7 +792,7 @@ object frmOrcamentos: TfrmOrcamentos
           '1-Materiais'#9'1'
           '2-M'#227'o de Obra'#9'2')
         Sorted = False
-        TabOrder = 8
+        TabOrder = 9
         UnboundDataType = wwDefault
       end
       object edtArquiteto: TwwDBLookupCombo
@@ -808,7 +808,7 @@ object frmOrcamentos: TfrmOrcamentos
         LookupTable = tblArquitetos
         LookupField = 'CODIGO'
         Options = [loColLines, loRowLines, loTitles]
-        TabOrder = 4
+        TabOrder = 5
         AutoDropDown = False
         ShowButton = True
         PreciseEditRegion = False
@@ -823,7 +823,7 @@ object frmOrcamentos: TfrmOrcamentos
         Height = 92
         DataField = 'OBS'
         DataSource = dtsOrcamentos
-        TabOrder = 12
+        TabOrder = 13
       end
       object BitBtn1: TBitBtn
         Left = 708
@@ -831,7 +831,7 @@ object frmOrcamentos: TfrmOrcamentos
         Width = 75
         Height = 25
         Caption = 'Incluir produto'
-        TabOrder = 11
+        TabOrder = 12
         OnClick = BitBtn1Click
       end
       object edtAmbiente: TwwDBLookupCombo
@@ -848,7 +848,7 @@ object frmOrcamentos: TfrmOrcamentos
         LookupField = 'CODIGO'
         Options = [loColLines, loRowLines, loTitles, loFixedDropDownHeight, loSearchOnBackspace]
         Color = 16776176
-        TabOrder = 9
+        TabOrder = 10
         AutoDropDown = True
         ShowButton = True
         UseTFields = False
@@ -897,7 +897,7 @@ object frmOrcamentos: TfrmOrcamentos
         LookupTable = tblProdutos
         LookupField = 'CODIGO'
         Options = [loColLines, loRowLines, loTitles, loFixedDropDownHeight, loSearchOnBackspace]
-        TabOrder = 7
+        TabOrder = 8
         AutoDropDown = True
         ShowButton = True
         PreciseEditRegion = False
@@ -916,7 +916,7 @@ object frmOrcamentos: TfrmOrcamentos
         LookupTable = tblObs
         LookupField = 'ID'
         Options = [loColLines, loRowLines, loTitles, loFixedDropDownHeight, loSearchOnBackspace]
-        TabOrder = 10
+        TabOrder = 11
         AutoDropDown = True
         ShowButton = True
         PreciseEditRegion = False

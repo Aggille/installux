@@ -11,7 +11,7 @@ uses
   ibTable, ibSQL, QRWebFilt, LMDGlobalHotKey, RpRender, RpRenderPDF,
   RpBase, LMDCustomComponent, LMDIniCtrl, IBDatabase, ComCtrls, ToolWin,
   System.Actions, QRXMLSFilt, QRPDFFilt, dxGDIPlusClasses, frxExportRTF,
-  frxExportHTML, frxClass, frxExportPDF, frxDBSet;
+  frxExportHTML, frxClass, frxExportPDF, frxDBSet, frxRich;
 
   type
   TfrmPrincipal = class(TForm)
@@ -135,6 +135,7 @@ uses
     frxDBDEmpresa: TfrxDBDataset;
     frxPDFExport1: TfrxPDFExport;
     QRPDFFilter1: TQRPDFFilter;
+    frxRichObject1: TfrxRichObject;
     procedure actSaiExecute(Sender: TObject);
     procedure actArquitetosExecute(Sender: TObject);
     procedure FormShow(Sender: TObject);

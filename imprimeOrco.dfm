@@ -3,8 +3,8 @@ object frmImporc: TfrmImporc
   Top = 41
   BorderStyle = bsDialog
   Caption = 'Or'#231'amento'
-  ClientHeight = 227
-  ClientWidth = 214
+  ClientHeight = 223
+  ClientWidth = 224
   Color = clMoneyGreen
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -49,8 +49,6 @@ object frmImporc: TfrmImporc
     Width = 75
     Height = 25
     Caption = 'OK'
-    ModalResult = 1
-    TabOrder = 4
     Glyph.Data = {
       DE010000424DDE01000000000000760000002800000024000000120000000100
       0400000000006801000000000000000000001000000000000000000000000000
@@ -68,7 +66,9 @@ object frmImporc: TfrmImporc
       3338F38F000033333333333333A223333333333333338F830000333333333333
       333A333333333333333338330000333333333333333333333333333333333333
       0000}
+    ModalResult = 1
     NumGlyphs = 2
+    TabOrder = 4
   end
   object edtTipo: TRadioGroup
     Left = 15

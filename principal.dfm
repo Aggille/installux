@@ -744,7 +744,7 @@ object frmPrincipal: TfrmPrincipal
     Height = 427
     Align = alClient
     ParentColor = True
-    TabOrder = 0
+    TabOrder = 1
     object Image2: TImage
       Left = 1
       Top = 1
@@ -8830,7 +8830,7 @@ object frmPrincipal: TfrmPrincipal
     Left = 124
     Top = 119
     Bitmap = {
-      494C010112001300500010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C010112001300540010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000400000005000000001002000000000000050
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
@@ -9799,6 +9799,7 @@ object frmPrincipal: TfrmPrincipal
     Top = 119
   end
   object idbInstalLux: TIBDatabase
+    Connected = True
     DatabaseName = 
       'localhost/3051:d:\KoutoSoft\sistemas\Delphi XE6\INSTALLUX\INSTAL' +
       'LUX.GDB'
@@ -10369,5 +10370,9 @@ object frmPrincipal: TfrmPrincipal
     SuppressDateTime = False
     Left = 456
     Top = 128
+  end
+  object frxRichObject1: TfrxRichObject
+    Left = 496
+    Top = 256
   end
 end

@@ -4,7 +4,7 @@ interface
 
 uses Windows, SysUtils, Messages, Classes, Graphics, Controls,
   StdCtrls, ExtCtrls, Forms, Db, IBCustomDataSet, jpeg, QuickRpt,
-  QRCtrls, DBClient, dxGDIPlusClasses;
+  QRCtrls, DBClient, dxGDIPlusClasses, frxClass, frxDBSet;
 
 type
   TqrpOrcto = class(TQuickRep)
@@ -14,8 +14,6 @@ type
     SummaryBand1: TQRBand;
     tblEmpresa: TIBDataSet;
     QRShape1: TQRShape;
-    QRDBText6: TQRDBText;
-    QRLabel1: TQRLabel;
     ChildBand1: TQRChildBand;
     QRLabel2: TQRLabel;
     QRDBText7: TQRDBText;
@@ -31,8 +29,6 @@ type
     QRDBText19: TQRDBText;
     QRGroup1: TQRGroup;
     QRLabel21: TQRLabel;
-    QRLabel12: TQRLabel;
-    QRDBText18: TQRDBText;
     QRLabel4: TQRLabel;
     QRLabel5: TQRLabel;
     QRDBText9: TQRDBText;
@@ -74,6 +70,17 @@ type
     qryItemsPRODUTO: TIntegerField;
     qryItemsTIPO: TStringField;
     QRImage1: TQRImage;
+    QRLabel1: TQRLabel;
+    QRDBText6: TQRDBText;
+    QRLabel12: TQRLabel;
+    QRDBText18: TQRDBText;
+    QRShape3: TQRShape;
+    frxOrcamento: TfrxReport;
+    frxDBDItems: TfrxDBDataset;
+    frxDBDEmpresa: TfrxDBDataset;
+    frxDBDOrcamento: TfrxDBDataset;
+    frxDBDClientes: TfrxDBDataset;
+    frxDBDArquitetos: TfrxDBDataset;
     procedure QRLabel21Print(sender: TObject; var Value: string);
     procedure ChildBand2BeforePrint(Sender: TQRCustomBand;
       var PrintBand: Boolean);

@@ -4,7 +4,8 @@ interface
 
 uses
   Windows, Messages, SysUtils, Classes, Graphics, Controls, Forms, Dialogs,
-  StdCtrls, Buttons, ExtCtrls, Mask, wwdbedit, Wwdotdot, Wwdbcomb;
+  StdCtrls, Buttons, ExtCtrls, Mask, wwdbedit, Wwdotdot, Wwdbcomb, frxClass,
+  frxDBSet, QuickRpt;
 
 type
   TfrmImporc = class(TForm)

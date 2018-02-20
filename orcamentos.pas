@@ -11,7 +11,8 @@ uses
   cxClasses, cxControls, cxGridCustomView, cxGrid, cxDropDownEdit,vcl.imaging.jpeg,
   cxCurrencyEdit, cxCheckGroup, ComCtrls, Spin, IBQuery, ExtDlgs, DBCtrls,
   wwdbedit, Wwdotdot, Wwdbcomb, rxToolEdit, rxCurrEdit, RXDBCtrl, Mask, DBSBtn,
-  Buttons, wwdblook, wwdbdatetimepicker, Vcl.DBGrids;
+  Buttons, wwdblook, wwdbdatetimepicker, Vcl.DBGrids, frxClass, frxDBSet,
+  QuickRpt;
 
 type
   TfrmOrcamentos = class(TForm)
@@ -275,7 +276,7 @@ var
 implementation
 
 uses principal, ValorCobrado, filtraorcamento, qrpOrcamento, imprimeOrco,
-  efetiva, produtos, procuraproduto;
+  efetiva, produtos, procuraproduto, RostoOrcamento;
 
 {$R *.DFM}
 
@@ -426,6 +427,7 @@ begin
 
   with qrpOrcto do
   begin
+
     tblEmpresa.Open;
     qrResponsavel.Caption := frmImporc.edtResponsavel.Text;
 
@@ -437,36 +439,49 @@ begin
     while not tblItems.eof do
     begin
 
-    if( qryItems.Locate('nomedoambiente;produto;local' ,varArrayOf(  [ tblitems.fieldbyname( 'nomedoambiente' ).asString,
-                                                             tblitems.fieldbyname( 'produto' ).asString,
-                                                             tblItems.fieldbyname( 'local' ).asString ] ), []  ) ) then
-      begin
-        qryItems.Edit;
-        qryItems.FieldByName( 'quantidade' ).asFloat      := qryItems.fieldbyname( 'quantidade' ).asFloat + tblItems.fieldbyname( 'quantidade' ).asFloat;
-      end
-    else
-      begin
-        qryItems.Insert;
-        qryItems.FieldByName( 'quantidade' ).asFloat      := tblItems.fieldbyname( 'quantidade' ).asFloat;
-        qryItems.fieldbyname( 'nome' ).asString           := tblItems.fieldbyname( 'nomedoproduto' ).asString;
-        qryItems.fieldbyname( 'tipo' ).asString           := tblItems.fieldbyname( 'tipo' ).asString;
-        qryItems.fieldbyname( 'nomedoambiente' ).asString := tblItems.fieldbyname( 'nomedoambiente' ).asString;
-        qryItems.fieldbyname( 'produto' ).asString        := tblItems.fieldbyname( 'produto' ).asString;
-        qryItems.fieldbyname( 'local' ).asInteger         := tblItems.fieldbyname( 'local' ).asInteger;
-      end;
+      if( qryItems.Locate('nomedoambiente;produto;local' ,varArrayOf(  [ tblitems.fieldbyname( 'nomedoambiente' ).asString,
+                                                               tblitems.fieldbyname( 'produto' ).asString,
+                                                               tblItems.fieldbyname( 'local' ).asString ] ), []  ) ) then
+        begin
+          qryItems.Edit;
+          qryItems.FieldByName( 'quantidade' ).asFloat      := qryItems.fieldbyname( 'quantidade' ).asFloat + tblItems.fieldbyname( 'quantidade' ).asFloat;
+        end
+      else
+        begin
+          qryItems.Insert;
+          qryItems.FieldByName( 'quantidade' ).asFloat      := tblItems.fieldbyname( 'quantidade' ).asFloat;
+          qryItems.fieldbyname( 'nome' ).asString           := tblItems.fieldbyname( 'nomedoproduto' ).asString;
+          qryItems.fieldbyname( 'tipo' ).asString           := tblItems.fieldbyname( 'tipo' ).asString;
+          qryItems.fieldbyname( 'nomedoambiente' ).asString := tblItems.fieldbyname( 'nomedoambiente' ).asString;
+          qryItems.fieldbyname( 'produto' ).asString        := tblItems.fieldbyname( 'produto' ).asString;
+          qryItems.fieldbyname( 'local' ).asInteger         := tblItems.fieldbyname( 'local' ).asInteger;
+        end;
 
-    qryItems.Post;
+      qryItems.Post;
 
-    tblItems.Next;
+      tblItems.Next;
 
     end;
 
-     PreviewModal;
-     qrPrinter := NIL;
-     qrPrinter.Free;
+    if( frmImporc.EdtTipo.ItemIndex = 1 ) then
+      begin
+        PreviewModal;
+        qrPrinter := NIL;
+        qrPrinter.Free;
+      end
+    else
+      begin
+        with frxOrcamento do
+        begin
+          Clear;
+          LoadFromFile( 'relOrcamento.fr3' );
+          ShowReport;
+        end;
+      end;
 
-    Free;
     frmImporc.Free;
+    qrpOrcto.Free;
+
   end;
 end;
 
@@ -729,10 +744,8 @@ begin
 
     with tblItems do
     begin
-      fieldbyName('Unidade').asString :=
-        tblprodutos.fieldByName('Unidade').asString;
-      fieldByName('PrecoUnitario').asCurrency :=
-        tblProdutos.fieldByName('Preco').asCurrency;
+      fieldbyName('Unidade').asString :=tblprodutos.fieldByName('Unidade').asString;
+      fieldByName('PrecoUnitario').asCurrency :=tblProdutos.fieldByName('Preco').asCurrency;
       fieldByName('Tipo').asString := tblProdutos.fieldByName('Tipo').asString;
     end;
 

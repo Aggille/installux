@@ -72,7 +72,8 @@ uses
   relSaldosLocal in 'relSaldosLocal.pas' {frmRelSaldosLocal},
   relAniv in 'relAniv.pas' {frmRelAniv},
   pesq_os in 'pesq_os.pas' {frmPesqOs},
-  Efuncoes in '..\Geral\Efuncoes.pas';
+  Efuncoes in '..\Geral\Efuncoes.pas',
+  RostoOrcamento in 'RostoOrcamento.pas' {qrpRostoorcamento};
 
 {$R *.RES}
 

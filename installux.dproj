@@ -345,6 +345,10 @@
             <Form>frmPesqOs</Form>
         </DCCReference>
         <DCCReference Include="..\Geral\Efuncoes.pas"/>
+        <DCCReference Include="RostoOrcamento.pas">
+            <Form>qrpRostoorcamento</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
         <None Include="installux.todo"/>
         <BuildConfiguration Include="Debug">
             <Key>Cfg_2</Key>
