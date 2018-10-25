@@ -3,7 +3,7 @@ object frmRelPendencias: TfrmRelPendencias
   Top = 86
   BorderStyle = bsToolWindow
   Caption = 'Relat'#243'rio de pend'#234'ncias'
-  ClientHeight = 187
+  ClientHeight = 217
   ClientWidth = 269
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -61,7 +61,7 @@ object frmRelPendencias: TfrmRelPendencias
   end
   object btnImprime: TBitBtn
     Left = 101
-    Top = 155
+    Top = 184
     Width = 75
     Height = 25
     Caption = 'Imprimir'
@@ -75,12 +75,12 @@ object frmRelPendencias: TfrmRelPendencias
       0002088888877788080200000000000008800888888888808080200000000008
       0800220FFFFFFFF080802220F00000F000022220FFFFFFFF022222220F00000F
       022222220FFFFFFFF02222222000000000222222222222222222}
-    TabOrder = 5
+    TabOrder = 6
     OnClick = btnImprimeClick
   end
   object BitBtn2: TBitBtn
-    Left = 181
-    Top = 155
+    Left = 182
+    Top = 184
     Width = 75
     Height = 25
     Caption = 'Sair'
@@ -98,7 +98,7 @@ object frmRelPendencias: TfrmRelPendencias
       0333337F3F7F33337F333301E10BBBBB0333337F7F7F33337F333301EE0BBBBB
       0333337F777FFFFF7F3333000000000003333377777777777333}
     NumGlyphs = 2
-    TabOrder = 6
+    TabOrder = 7
     OnClick = BitBtn2Click
   end
   object edtCliente: TwwDBLookupCombo
@@ -177,6 +177,17 @@ object frmRelPendencias: TfrmRelPendencias
       'Alexandre Sprenger'
       'Renan R. Lima')
   end
+  object edtPendencias: TCheckBox
+    Left = 8
+    Top = 161
+    Width = 248
+    Height = 17
+    TabStop = False
+    Caption = 'Somente pend'#234'ncias'
+    Checked = True
+    State = cbChecked
+    TabOrder = 5
+  end
   object IBTransaction1: TIBTransaction
     DefaultDatabase = frmPrincipal.idbInstalLux
     Left = 229
@@ -209,7 +220,8 @@ object frmRelPendencias: TfrmRelPendencias
       ''
       'WHERE '
       'O.CLIENTE BETWEEN :CLIENTEINICIAL AND :CLIENTEFINAL AND'
-      'VALORCOBRADO > 0 AND recibo IS NULL '
+      'VALORCOBRADO > :VALOR AND COALESCE( recibo,0 ) > :RECIBO'
+      '--VALORCOBRADO > 0 AND recibo IS NULL '
       ''
       ''
       'ORDER BY '
@@ -228,6 +240,16 @@ object frmRelPendencias: TfrmRelPendencias
         Name = 'CLIENTEFINAL'
         ParamType = ptUnknown
         Value = '99999'
+      end
+      item
+        DataType = ftUnknown
+        Name = 'VALOR'
+        ParamType = ptUnknown
+      end
+      item
+        DataType = ftUnknown
+        Name = 'RECIBO'
+        ParamType = ptUnknown
       end>
     object qryServicoDATA: TDateField
       FieldName = 'DATA'
@@ -4974,7 +4996,8 @@ object frmRelPendencias: TfrmRelPendencias
       ''
       'WHERE '
       'O.CLIENTE BETWEEN :CLIENTEINICIAL AND :CLIENTEFINAL AND'
-      'VALORCOBRADO > 0 AND recibo IS NULL ')
+      'VALORCOBRADO > :VALOR AND COALESCE( recibo ,0 ) > :RECIBO'
+      '--VALORCOBRADO > 0 AND recibo IS NULL ')
     Left = 72
     Top = 5
     ParamData = <
@@ -4989,6 +5012,16 @@ object frmRelPendencias: TfrmRelPendencias
         Name = 'CLIENTEFINAL'
         ParamType = ptUnknown
         Value = '99999'
+      end
+      item
+        DataType = ftUnknown
+        Name = 'VALOR'
+        ParamType = ptUnknown
+      end
+      item
+        DataType = ftUnknown
+        Name = 'RECIBO'
+        ParamType = ptUnknown
       end>
   end
 end

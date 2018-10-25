@@ -56,6 +56,7 @@ type
     frxDBDServico: TfrxDBDataset;
     frxReport1: TfrxReport;
     qryTotais: TIBQuery;
+    edtPendencias: TCheckBox;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure btnImprimeClick(Sender: TObject);
     procedure BitBtn2Click(Sender: TObject);
@@ -99,6 +100,17 @@ begin
   begin
 
     close;
+
+    if( edtPendencias.Checked ) then
+      begin
+        parambyname( 'valor' ).asFloat := 0;
+        parambyname( 'recibo' ).asInteger := 0;
+      end
+    else
+      begin
+        parambyname( 'valor' ).asFloat := -1;
+        parambyname( 'recibo' ).asInteger := -1;
+      end;
 
     if edtCliente.Text = '' then
     begin
@@ -339,6 +351,18 @@ try
   begin
 
     close;
+
+    if( edtPendencias.Checked ) then
+      begin
+        parambyname( 'valor' ).asFloat := 0;
+        parambyname( 'recibo' ).asInteger := 0;
+      end
+    else
+      begin
+        parambyname( 'valor' ).asFloat := -1;
+        parambyname( 'recibo' ).asInteger := -1;
+      end;
+
 
     if edtCliente.Text = '' then
     begin

@@ -7,7 +7,8 @@ uses
   IBDatabase, Db, IBCustomDataSet, wwSpeedButton, wwDBNavigator, ExtCtrls,
   wwclearpanel, Grids, Wwdbigrd, Wwdbgrid, StdCtrls, wwdblook, Mask,
   wwdbedit, Wwdotdot, Wwdbcomb, wwDialog, wwrcdvw, Variants,
-  LMDCustomComponent, LMDContainerComponent, LMDBaseDialog, LMDInputDlg;
+  LMDCustomComponent, LMDContainerComponent, LMDBaseDialog, LMDInputDlg,
+  ElComponent, ElInputDlg;
 
 type
   TfrmEstoque = class(TForm)
@@ -59,7 +60,7 @@ type
     edtLocal: TwwDBLookupCombo;
     tblEstoqueNOMEDOLOCAL: TStringField;
     wwDBNavigator1Button1: TwwNavButton;
-    edtSenha: TLMDInputDlg;
+    edtSenha: TElInputDialog;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormShow(Sender: TObject);
     procedure tblEstoqueBeforePost(DataSet: TDataSet);
@@ -131,6 +132,7 @@ begin
       if ( tblEstoque.fieldbyname( 'Tipo' ).asString = 'S' ) and ( senha <> Senha_Mestra ) then
       begin
          edtSenha.Execute;
+         senha := edtSenha.Value;
          if senha <> senha_Mestra then abort;
       end;
    end;

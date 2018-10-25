@@ -22,7 +22,6 @@ object frmEstoque: TfrmEstoque
     Top = 25
     Width = 851
     Height = 323
-    DisableThemes = False
     ControlType.Strings = (
       'PRODUTO;CustomEdit;edtProduto;F'
       'NOMEDOPRODUTO;CustomEdit;edtNomedoProduto;F'
@@ -38,7 +37,9 @@ object frmEstoque: TfrmEstoque
       'TOTAL'#9'10'#9'Total'
       'TIPO'#9'11'#9'E/S'
       'NOMEDOLOCAL'#9'30'#9'Local')
+    IniAttributes.FileName = 'SGVWINDOWS.ini'
     IniAttributes.Delimiter = ';;'
+    IniAttributes.UnicodeIniFile = False
     TitleColor = clBtnFace
     FixedCols = 0
     ShowHorzScrollBar = True
@@ -53,7 +54,7 @@ object frmEstoque: TfrmEstoque
     Options = [dgEditing, dgTitles, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit, dgWordWrap]
     ParentFont = False
     ReadOnly = True
-    TabOrder = 0
+    TabOrder = 1
     TitleAlignment = taLeftJustify
     TitleFont.Charset = DEFAULT_CHARSET
     TitleFont.Color = clWindowText
@@ -68,7 +69,7 @@ object frmEstoque: TfrmEstoque
   object wwDBNavigator1: TwwDBNavigator
     Left = 0
     Top = 0
-    Width = 350
+    Width = 851
     Height = 25
     DataSource = dtsEstoque
     ImageList = frmPrincipal.ImageList1
@@ -319,7 +320,6 @@ object frmEstoque: TfrmEstoque
     Top = 210
     Width = 121
     Height = 21
-    DisableThemes = False
     DropDownAlignment = taLeftJustify
     Selected.Strings = (
       'BARRAS'#9'20'#9'C'#243'digo de Barras'#9'F')
@@ -328,11 +328,11 @@ object frmEstoque: TfrmEstoque
     LookupTable = tblProdutos
     LookupField = 'CODIGO'
     Options = [loColLines, loRowLines, loTitles, loFixedDropDownHeight, loSearchOnBackspace]
-    Navigator = False
-    TabOrder = 2
+    TabOrder = 4
     Visible = False
     AutoDropDown = True
     ShowButton = True
+    PreciseEditRegion = False
     AllowClearKey = False
     ShowMatchText = True
     OnNotInList = edtProdutoNotInList
@@ -342,7 +342,6 @@ object frmEstoque: TfrmEstoque
     Top = 240
     Width = 121
     Height = 21
-    DisableThemes = False
     DropDownAlignment = taLeftJustify
     Selected.Strings = (
       'NOME'#9'50'#9'NOME'#9'F')
@@ -351,11 +350,11 @@ object frmEstoque: TfrmEstoque
     LookupTable = tblProdutos
     LookupField = 'CODIGO'
     Options = [loColLines, loRowLines, loTitles, loFixedDropDownHeight, loSearchOnBackspace]
-    Navigator = False
-    TabOrder = 3
+    TabOrder = 6
     Visible = False
     AutoDropDown = True
     ShowButton = True
+    PreciseEditRegion = False
     AllowClearKey = False
     ShowMatchText = True
     OnNotInList = edtProdutoNotInList
@@ -380,7 +379,7 @@ object frmEstoque: TfrmEstoque
       'E-Entrada'#9'E'
       'S-Sa'#237'da'#9'S')
     Sorted = False
-    TabOrder = 4
+    TabOrder = 5
     UnboundDataType = wwDefault
     Visible = False
     OnExit = edtTipoExit
@@ -390,7 +389,6 @@ object frmEstoque: TfrmEstoque
     Top = 178
     Width = 121
     Height = 21
-    DisableThemes = False
     DropDownAlignment = taLeftJustify
     Selected.Strings = (
       'NOME'#9'60'#9'Fornecedor'#9'F')
@@ -400,11 +398,11 @@ object frmEstoque: TfrmEstoque
     LookupField = 'CODIGO'
     Options = [loColLines, loRowLines, loTitles, loFixedDropDownHeight, loSearchOnBackspace]
     Enabled = False
-    Navigator = False
-    TabOrder = 5
+    TabOrder = 3
     Visible = False
     AutoDropDown = True
     ShowButton = True
+    PreciseEditRegion = False
     AllowClearKey = False
     ShowMatchText = True
     OnNotInList = edtProdutoNotInList
@@ -414,7 +412,6 @@ object frmEstoque: TfrmEstoque
     Top = 160
     Width = 121
     Height = 21
-    DisableThemes = False
     DropDownAlignment = taLeftJustify
     Selected.Strings = (
       'NOME'#9'30'#9'Nome'#9'F')
@@ -423,11 +420,11 @@ object frmEstoque: TfrmEstoque
     LookupTable = tblLocais
     LookupField = 'ID_LOCAL'
     Options = [loColLines, loRowLines, loTitles, loFixedDropDownHeight, loSearchOnBackspace]
-    Navigator = False
-    TabOrder = 6
+    TabOrder = 2
     Visible = False
     AutoDropDown = False
     ShowButton = True
+    PreciseEditRegion = False
     AllowClearKey = False
     ShowMatchText = True
   end
@@ -489,6 +486,8 @@ object frmEstoque: TfrmEstoque
       '  ID_LOCAL = :ID_LOCAL'
       'where'
       '  ESTOQUE = :OLD_ESTOQUE')
+    ParamCheck = True
+    UniDirectional = False
     Left = 15
     Top = 24
     object tblEstoqueDATA: TDateField
@@ -640,6 +639,8 @@ object frmEstoque: TfrmEstoque
       '  SALDO = :SALDO'
       'where'
       '  CODIGO = :OLD_CODIGO')
+    ParamCheck = True
+    UniDirectional = False
     Left = 40
     Top = 20
     object tblProdutosNOME: TIBStringField
@@ -680,9 +681,7 @@ object frmEstoque: TfrmEstoque
     Top = 30
   end
   object trnEstoque: TIBTransaction
-    Active = False
     DefaultDatabase = frmPrincipal.idbInstalLux
-    AutoStopAction = saNone
     Left = 64
     Top = 4
   end
@@ -738,6 +737,8 @@ object frmEstoque: TfrmEstoque
       'CODIGO, NOME '
       ''
       'FROM FORNECEDORES ORDER BY NOME')
+    ParamCheck = True
+    UniDirectional = False
     Left = 200
     Top = 24
   end
@@ -753,6 +754,8 @@ object frmEstoque: TfrmEstoque
     CachedUpdates = False
     SelectSQL.Strings = (
       'Select * from locais')
+    ParamCheck = True
+    UniDirectional = False
     Left = 240
     Top = 24
   end
@@ -761,13 +764,19 @@ object frmEstoque: TfrmEstoque
     Left = 240
     Top = 40
   end
-  object edtSenha: TLMDInputDlg
-    CaptionFill = True
-    CaptionTitle = 'Senha requrida'
-    Effect = deExplode
+  object edtSenha: TElInputDialog
+    Caption = 'Senha Mestra'
+    IsHTML = False
+    Position = poScreenCenter
+    Value = '13212313'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
     PasswordChar = '*'
-    Prompt = 'Digite a senha para essa opera'#231#227'o'
-    Left = 360
-    Top = 32
+    Left = 648
+    Top = 136
   end
 end
