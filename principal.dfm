@@ -8830,7 +8830,7 @@ object frmPrincipal: TfrmPrincipal
     Left = 124
     Top = 119
     Bitmap = {
-      494C0101120013005C0010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C010112001300600010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000400000005000000001002000000000000050
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
@@ -10373,5 +10373,19 @@ object frmPrincipal: TfrmPrincipal
   object frxRichObject1: TfrxRichObject
     Left = 496
     Top = 256
+  end
+  object fbInstallux: TpFIBDatabase
+    DBName = 
+      'localhost/3051:C:\KoutoSoft\Sistemas\Delphi XE6\Installux\INSTAL' +
+      'LUX.GDB'
+    DBParams.Strings = (
+      'user_name=SYSDBA'
+      'password=031073')
+    SQLDialect = 3
+    Timeout = 0
+    WaitForRestoreConnect = 0
+    BeforeConnect = fbInstalluxBeforeConnect
+    Left = 144
+    Top = 194
   end
 end

@@ -6,41 +6,26 @@ uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, DB, IBCustomDataSet, IBQuery,
   IBDatabase, StdCtrls, Buttons, wwdbdatetimepicker, wwdblook, RpDefine,
-  RpCon, RpConDS, Mask, RxToolEdit, RxCurrEdit, frxClass, frxDBSet;
+  RpCon, RpConDS, Mask, RxToolEdit, RxCurrEdit, frxClass, frxDBSet, FIBDatabase,
+  pFIBDatabase, FIBDataSet, pFIBDataSet;
 
 type
   TfrmRelPendencias = class(TForm)
     btnImprime: TBitBtn;
     BitBtn2: TBitBtn;
     IBTransaction1: TIBTransaction;
-    qryServico: TIBQuery;
     qryClientes: TIBQuery;
     dtsClientes: TDataSource;
     edtCliente: TwwDBLookupCombo;
     Label3: TLabel;
     qryClientesCODIGO: TIntegerField;
     qryClientesNOME: TIBStringField;
-    qryServicoDATA: TDateField;
-    qryServicoCHEGADA: TTimeField;
-    qryServicoSAIDA: TTimeField;
-    qryServicoDATADEPAGAMENTO: TDateField;
-    qryServicoMATERIAIS: TIBBCDField;
-    qryServicoSERVICOS: TIBBCDField;
-    qryServicoTOTAL: TIBBCDField;
-    qryServicoNOMEDOCLIENTE: TIBStringField;
-    qryServicoFUNCIONARIO: TIBStringField;
-    qryServicoOS: TIntegerField;
-    qryServicoHORAS: TTimeField;
-    qryServicoTOTHORAS: TIntegerField;
-    qryServicoTOTMINUTOS: TIntegerField;
     qryItems: TIBQuery;
     dtsServico: TDataSource;
     qryItemsOS: TIntegerField;
     qryItemsQUANTIDADE: TLargeintField;
     qryItemsNOMEDOPRODUTO: TIBStringField;
     qryItemsNOMEDOAMBIENTE: TIBStringField;
-    qryServicoCLIENTE: TIntegerField;
-    qryServicoQUANTIDADE: TSmallintField;
     qryItemsTIPO: TIBStringField;
     qryItemsTOTAL: TIBBCDField;
     BitBtn3: TBitBtn;
@@ -55,8 +40,42 @@ type
     frxDBDItens: TfrxDBDataset;
     frxDBDServico: TfrxDBDataset;
     frxReport1: TfrxReport;
-    qryTotais: TIBQuery;
     edtPendencias: TCheckBox;
+    IBQuery1: TIBQuery;
+    DateField1: TDateField;
+    TimeField1: TTimeField;
+    TimeField2: TTimeField;
+    DateField2: TDateField;
+    IBBCDField1: TIBBCDField;
+    IBBCDField2: TIBBCDField;
+    IBBCDField3: TIBBCDField;
+    IBStringField1: TIBStringField;
+    IBStringField2: TIBStringField;
+    intgrfld1: TIntegerField;
+    TimeField3: TTimeField;
+    intgrfld2: TIntegerField;
+    intgrfld3: TIntegerField;
+    intgrfld4: TIntegerField;
+    SmallintField1: TSmallintField;
+    IBQuery2: TIBQuery;
+    qryTotais: TpFIBDataSet;
+    pFIBTransaction1: TpFIBTransaction;
+    qryServico: TpFIBDataSet;
+    qryServicoOS: TFIBIntegerField;
+    qryServicoDATA: TFIBDateField;
+    qryServicoCHEGADA: TFIBTimeField;
+    qryServicoSAIDA: TFIBTimeField;
+    qryServicoDATADEPAGAMENTO: TFIBDateField;
+    qryServicoMATERIAIS: TFIBFloatField;
+    qryServicoCLIENTE: TFIBIntegerField;
+    qryServicoSERVICOS: TFIBFloatField;
+    qryServicoTOTAL: TFIBFloatField;
+    qryServicoNOMEDOCLIENTE: TFIBStringField;
+    qryServicoFUNCIONARIO: TFIBStringField;
+    qryServicoQUANTIDADE: TFIBIntegerField;
+    qryServicoHORAS: TTimeField;
+    intgrfldFIBDataSet1TOTHORAS: TIntegerField;
+    intgrfldFIBDataSet1TOTMINUTOS: TIntegerField;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure btnImprimeClick(Sender: TObject);
     procedure BitBtn2Click(Sender: TObject);
@@ -99,8 +118,7 @@ begin
  with qryServico do
   begin
 
-    close;
-
+  {
     if( edtPendencias.Checked ) then
       begin
         parambyname( 'valor' ).asFloat := 0;
@@ -111,6 +129,23 @@ begin
         parambyname( 'valor' ).asFloat := -1;
         parambyname( 'recibo' ).asInteger := -1;
       end;
+   }
+
+   {
+
+    if( edtPendencias.Checked ) then
+      begin
+        parambyname( 'rinicial' ).asInteger := 0;
+        parambyname( 'rfinal' ).asInteger := 0;
+        parambyname( 'aberto' ).asFloat := 0;
+      end
+    else
+      begin
+        parambyname( 'rinicial' ).asInteger := 1;
+        parambyname( 'rfinal' ).asInteger := 9999999;
+        parambyname( 'aberto' ).asFloat := 0.01;
+      end;
+
 
     if edtCliente.Text = '' then
     begin
@@ -122,6 +157,31 @@ begin
       paramByName('ClienteInicial').asInteger := qryClientes.fieldByName('Codigo').asInteger;
       paramByName('ClienteFinal').asInteger := qryClientes.fieldByName('Codigo').asInteger;
     end;
+
+   }
+
+    close;
+
+    Conditions.Clear;
+
+
+    if( edtCliente.Text <> '' ) then
+      Conditions.AddCondition( 'cliente' , 'o.cliente=' + qryClientes.fieldByName('Codigo').asString , true );
+
+    if( edtPendencias.Checked ) then
+    begin
+      Conditions.AddCondition( 'pendencias' , 'coalesce( o.recibo,0 ) = 0 ' , true );
+      Conditions.AddCondition( 'pendencias1' , '( select coalesce( sum( r.valor ),0 ) from recibos r where r.id = o.recibo and r.pagamento is not null ) >= 0' , true );
+    end
+    else
+    begin
+      Conditions.AddCondition( 'pendencias' , 'coalesce( o.recibo,0 ) between 1 and 9999999 ' , true );
+      Conditions.AddCondition( 'pendencias1' , '( select coalesce( sum( r.valor ),0 ) from recibos r where r.id = o.recibo and r.pagamento is not null ) >= 0.01' , true );
+
+    end;
+
+    ApplyConditions;
+
 
     open;
 
@@ -350,7 +410,9 @@ try
  with qryTotais do
   begin
 
-    close;
+
+
+    {
 
     if( edtPendencias.Checked ) then
       begin
@@ -361,6 +423,22 @@ try
       begin
         parambyname( 'valor' ).asFloat := -1;
         parambyname( 'recibo' ).asInteger := -1;
+      end;
+
+    }
+
+      {
+    if( edtPendencias.Checked ) then
+      begin
+        parambyname( 'rinicial' ).asInteger := 0;
+        parambyname( 'rfinal' ).asInteger := 0;
+        parambyname( 'aberto' ).asFloat := 0;
+      end
+    else
+      begin
+        parambyname( 'rinicial' ).asInteger := 1;
+        parambyname( 'rfinal' ).asInteger := 9999999;
+        parambyname( 'aberto' ).asFloat := 0.01;
       end;
 
 
@@ -374,7 +452,28 @@ try
       paramByName('ClienteInicial').asInteger := qryClientes.fieldByName('Codigo').asInteger;
       paramByName('ClienteFinal').asInteger := qryClientes.fieldByName('Codigo').asInteger;
     end;
+       }
 
+    close;
+
+    Conditions.Clear;
+
+
+    if( edtCliente.Text <> '' ) then
+      Conditions.AddCondition( 'cliente' , 'o.cliente=' + qryClientes.fieldByName('Codigo').asString , true );
+
+    if( edtPendencias.Checked ) then
+    begin
+      Conditions.AddCondition( 'pendencias' , 'coalesce( o.recibo,0 ) = 0 ' , true );
+      Conditions.AddCondition( 'pendencias1' , '( select coalesce( sum( r.valor ),0 ) from recibos r where r.id = o.recibo and r.pagamento is not null ) >= 0' , true );
+    end
+    else
+    begin
+      Conditions.AddCondition( 'pendencias' , 'coalesce( o.recibo,0 ) between 1 and 9999999 ' , true );
+      Conditions.AddCondition( 'pendencias1' , '( select coalesce( sum( r.valor ),0 ) from recibos r where r.id = o.recibo and r.pagamento is not null ) >= 0.01' , true );
+    end;
+
+    ApplyConditions;
     open;
 
     servicos    := fieldByName( 'Servicos' ).asCurrency;
@@ -382,6 +481,7 @@ try
 
     edtServicos.Value   := Servicos;
     edtMateriais.Value  := Materiais;
+
     btnImprime.Enabled := True;
     btnImprime.Setfocus;
 

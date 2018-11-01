@@ -193,148 +193,6 @@ object frmRelPendencias: TfrmRelPendencias
     Left = 229
     Top = 38
   end
-  object qryServico: TIBQuery
-    Database = frmPrincipal.idbInstalLux
-    Transaction = IBTransaction1
-    AfterOpen = qryServicoAfterOpen
-    AfterScroll = qryServicoAfterScroll
-    OnCalcFields = qryServicoCalcFields
-    BufferChunks = 1000
-    CachedUpdates = False
-    ParamCheck = True
-    SQL.Strings = (
-      'SELECT'
-      'O.OS, O.DATA,   O.CHEGADA, O.SAIDA, O.DATADEPAGAMENTO,'
-      
-        'CAST( O.VALORMATERIAIS AS NUMERIC( 9,2 ) ) AS MATERIAIS,O.CLIENT' +
-        'E,'
-      'CAST( O.VALORSERVICOS AS NUMERIC( 9,2 ) ) AS SERVICOS ,'
-      'CAST( O.VALOR AS NUMERIC( 9 , 2 ) ) AS TOTAL,'
-      'C.FANTASIA  AS NOMEDOCLIENTE,'
-      'F.NOME AS FUNCIONARIO, F.QUANTIDADE'
-      ''
-      'FROM'
-      'OS O'
-      'INNER JOIN CLIENTES C ON ( O.CLIENTE = C.CODIGO )'
-      'LEFT JOIN FUNCIONARIOS F ON ( O.FUNCIONARIO = F.CODIGO )'
-      ''
-      'WHERE '
-      'O.CLIENTE BETWEEN :CLIENTEINICIAL AND :CLIENTEFINAL AND'
-      'VALORCOBRADO > :VALOR AND COALESCE( recibo,0 ) > :RECIBO'
-      '--VALORCOBRADO > 0 AND recibo IS NULL '
-      ''
-      ''
-      'ORDER BY '
-      'C.NOME, O.DATA, O.FUNCIONARIO')
-    Left = 136
-    Top = 5
-    ParamData = <
-      item
-        DataType = ftInteger
-        Name = 'CLIENTEINICIAL'
-        ParamType = ptUnknown
-        Value = '0'
-      end
-      item
-        DataType = ftInteger
-        Name = 'CLIENTEFINAL'
-        ParamType = ptUnknown
-        Value = '99999'
-      end
-      item
-        DataType = ftUnknown
-        Name = 'VALOR'
-        ParamType = ptUnknown
-      end
-      item
-        DataType = ftUnknown
-        Name = 'RECIBO'
-        ParamType = ptUnknown
-      end>
-    object qryServicoDATA: TDateField
-      FieldName = 'DATA'
-      Origin = '"OS"."DATA"'
-    end
-    object qryServicoCHEGADA: TTimeField
-      FieldName = 'CHEGADA'
-      Origin = '"OS"."CHEGADA"'
-      DisplayFormat = 't'
-    end
-    object qryServicoSAIDA: TTimeField
-      FieldName = 'SAIDA'
-      Origin = '"OS"."SAIDA"'
-      DisplayFormat = 't'
-    end
-    object qryServicoDATADEPAGAMENTO: TDateField
-      FieldName = 'DATADEPAGAMENTO'
-      Origin = '"OS"."DATADEPAGAMENTO"'
-    end
-    object qryServicoMATERIAIS: TIBBCDField
-      FieldName = 'MATERIAIS'
-      ProviderFlags = []
-      DisplayFormat = '###,###,##0.00'
-      EditFormat = '###,###,##0.00'
-      Precision = 9
-      Size = 2
-    end
-    object qryServicoSERVICOS: TIBBCDField
-      FieldName = 'SERVICOS'
-      ProviderFlags = []
-      DisplayFormat = '###,###,##0.00'
-      EditFormat = '###,###,##0.00'
-      Precision = 9
-      Size = 2
-    end
-    object qryServicoTOTAL: TIBBCDField
-      FieldName = 'TOTAL'
-      ProviderFlags = []
-      DisplayFormat = '###,###,##0.00'
-      EditFormat = '###,###,##0.00'
-      Precision = 9
-      Size = 2
-    end
-    object qryServicoNOMEDOCLIENTE: TIBStringField
-      FieldName = 'NOMEDOCLIENTE'
-      Origin = '"CLIENTES"."FANTASIA"'
-      Required = True
-      Size = 50
-    end
-    object qryServicoFUNCIONARIO: TIBStringField
-      FieldName = 'FUNCIONARIO'
-      Origin = '"FUNCIONARIOS"."NOME"'
-      Size = 50
-    end
-    object qryServicoOS: TIntegerField
-      FieldName = 'OS'
-      Origin = '"OS"."OS"'
-      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
-      Required = True
-    end
-    object qryServicoHORAS: TTimeField
-      FieldKind = fkCalculated
-      FieldName = 'HORAS'
-      DisplayFormat = 't'
-      Calculated = True
-    end
-    object qryServicoTOTHORAS: TIntegerField
-      FieldKind = fkCalculated
-      FieldName = 'TOTHORAS'
-      Calculated = True
-    end
-    object qryServicoTOTMINUTOS: TIntegerField
-      FieldKind = fkCalculated
-      FieldName = 'TOTMINUTOS'
-      Calculated = True
-    end
-    object qryServicoCLIENTE: TIntegerField
-      FieldName = 'CLIENTE'
-      Origin = '"OS"."CLIENTE"'
-    end
-    object qryServicoQUANTIDADE: TSmallintField
-      FieldName = 'QUANTIDADE'
-      Origin = '"FUNCIONARIOS"."QUANTIDADE"'
-    end
-  end
   object qryClientes: TIBQuery
     Database = frmPrincipal.idbInstalLux
     Transaction = IBTransaction1
@@ -405,7 +263,7 @@ object frmRelPendencias: TfrmRelPendencias
       'ORDER BY '
       'P.TIPO DESC, P.NOME')
     Left = 169
-    Top = 5
+    Top = 13
     ParamData = <
       item
         DataType = ftInteger
@@ -448,8 +306,8 @@ object frmRelPendencias: TfrmRelPendencias
   end
   object dtsServico: TDataSource
     DataSet = qryServico
-    Left = 139
-    Top = 29
+    Left = 131
+    Top = 37
   end
   object frxDBDItens: TfrxDBDataset
     UserName = 'frxDBDItens'
@@ -462,7 +320,23 @@ object frmRelPendencias: TfrmRelPendencias
   object frxDBDServico: TfrxDBDataset
     UserName = 'frxDBDServico'
     CloseDataSource = False
-    DataSet = qryServico
+    FieldAliases.Strings = (
+      'HORAS=HORAS'
+      'TOTHORAS=TOTHORAS'
+      'TOTMINUTOS=TOTMINUTOS'
+      'OS=OS'
+      'DATA=DATA'
+      'CHEGADA=CHEGADA'
+      'SAIDA=SAIDA'
+      'DATADEPAGAMENTO=DATADEPAGAMENTO'
+      'MATERIAIS=MATERIAIS'
+      'CLIENTE=CLIENTE'
+      'SERVICOS=SERVICOS'
+      'TOTAL=TOTAL'
+      'NOMEDOCLIENTE=NOMEDOCLIENTE'
+      'FUNCIONARIO=FUNCIONARIO'
+      'QUANTIDADE=QUANTIDADE')
+    DataSource = dtsServico
     BCDToCurrency = False
     Left = 104
     Top = 80
@@ -4975,31 +4849,41 @@ object frmRelPendencias: TfrmRelPendencias
       end
     end
   end
-  object qryTotais: TIBQuery
+  object IBQuery1: TIBQuery
     Database = frmPrincipal.idbInstalLux
     Transaction = IBTransaction1
+    AfterOpen = qryServicoAfterOpen
+    AfterScroll = qryServicoAfterScroll
+    OnCalcFields = qryServicoCalcFields
     BufferChunks = 1000
     CachedUpdates = False
     ParamCheck = True
     SQL.Strings = (
       'SELECT'
-      ''
+      'O.OS, O.DATA,   O.CHEGADA, O.SAIDA, O.DATADEPAGAMENTO,'
       
-        'SUM( CAST( O.VALORMATERIAIS AS NUMERIC( 9,2 ) ) ) AS MATERIAIS  ' +
-        ','
-      'SUM( CAST( O.VALORSERVICOS AS NUMERIC( 9,2 ) ) ) AS SERVICOS ,'
-      'SUM( CAST( O.VALOR AS NUMERIC( 9 , 2 ) ) ) AS TOTAL'
+        'CAST( O.VALORMATERIAIS AS NUMERIC( 9,2 ) ) AS MATERIAIS,O.CLIENT' +
+        'E,'
+      'CAST( O.VALORSERVICOS AS NUMERIC( 9,2 ) ) AS SERVICOS ,'
+      'CAST( O.VALOR AS NUMERIC( 9 , 2 ) ) AS TOTAL,'
+      'C.FANTASIA  AS NOMEDOCLIENTE,'
+      'F.NOME AS FUNCIONARIO, F.QUANTIDADE'
       ''
       'FROM'
       'OS O'
-      ''
+      'INNER JOIN CLIENTES C ON ( O.CLIENTE = C.CODIGO )'
+      'LEFT JOIN FUNCIONARIOS F ON ( O.FUNCIONARIO = F.CODIGO )'
       ''
       'WHERE '
       'O.CLIENTE BETWEEN :CLIENTEINICIAL AND :CLIENTEFINAL AND'
-      'VALORCOBRADO > :VALOR AND COALESCE( recibo ,0 ) > :RECIBO'
-      '--VALORCOBRADO > 0 AND recibo IS NULL ')
-    Left = 72
-    Top = 5
+      'VALORCOBRADO > :VALOR AND COALESCE( recibo,0 ) > :RECIBO'
+      '--VALORCOBRADO > 0 AND recibo IS NULL '
+      ''
+      ''
+      'ORDER BY '
+      'C.NOME, O.DATA, O.FUNCIONARIO')
+    Left = 104
+    Top = 133
     ParamData = <
       item
         DataType = ftInteger
@@ -5023,5 +4907,268 @@ object frmRelPendencias: TfrmRelPendencias
         Name = 'RECIBO'
         ParamType = ptUnknown
       end>
+    object DateField1: TDateField
+      FieldName = 'DATA'
+      Origin = '"OS"."DATA"'
+    end
+    object TimeField1: TTimeField
+      FieldName = 'CHEGADA'
+      Origin = '"OS"."CHEGADA"'
+      DisplayFormat = 't'
+    end
+    object TimeField2: TTimeField
+      FieldName = 'SAIDA'
+      Origin = '"OS"."SAIDA"'
+      DisplayFormat = 't'
+    end
+    object DateField2: TDateField
+      FieldName = 'DATADEPAGAMENTO'
+      Origin = '"OS"."DATADEPAGAMENTO"'
+    end
+    object IBBCDField1: TIBBCDField
+      FieldName = 'MATERIAIS'
+      ProviderFlags = []
+      DisplayFormat = '###,###,##0.00'
+      EditFormat = '###,###,##0.00'
+      Precision = 9
+      Size = 2
+    end
+    object IBBCDField2: TIBBCDField
+      FieldName = 'SERVICOS'
+      ProviderFlags = []
+      DisplayFormat = '###,###,##0.00'
+      EditFormat = '###,###,##0.00'
+      Precision = 9
+      Size = 2
+    end
+    object IBBCDField3: TIBBCDField
+      FieldName = 'TOTAL'
+      ProviderFlags = []
+      DisplayFormat = '###,###,##0.00'
+      EditFormat = '###,###,##0.00'
+      Precision = 9
+      Size = 2
+    end
+    object IBStringField1: TIBStringField
+      FieldName = 'NOMEDOCLIENTE'
+      Origin = '"CLIENTES"."FANTASIA"'
+      Required = True
+      Size = 50
+    end
+    object IBStringField2: TIBStringField
+      FieldName = 'FUNCIONARIO'
+      Origin = '"FUNCIONARIOS"."NOME"'
+      Size = 50
+    end
+    object intgrfld1: TIntegerField
+      FieldName = 'OS'
+      Origin = '"OS"."OS"'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+    end
+    object TimeField3: TTimeField
+      FieldKind = fkCalculated
+      FieldName = 'HORAS'
+      DisplayFormat = 't'
+      Calculated = True
+    end
+    object intgrfld2: TIntegerField
+      FieldKind = fkCalculated
+      FieldName = 'TOTHORAS'
+      Calculated = True
+    end
+    object intgrfld3: TIntegerField
+      FieldKind = fkCalculated
+      FieldName = 'TOTMINUTOS'
+      Calculated = True
+    end
+    object intgrfld4: TIntegerField
+      FieldName = 'CLIENTE'
+      Origin = '"OS"."CLIENTE"'
+    end
+    object SmallintField1: TSmallintField
+      FieldName = 'QUANTIDADE'
+      Origin = '"FUNCIONARIOS"."QUANTIDADE"'
+    end
+  end
+  object IBQuery2: TIBQuery
+    Database = frmPrincipal.idbInstalLux
+    Transaction = IBTransaction1
+    BufferChunks = 1000
+    CachedUpdates = False
+    ParamCheck = True
+    SQL.Strings = (
+      'SELECT'
+      ''
+      
+        'SUM( CAST( O.VALORMATERIAIS AS NUMERIC( 9,2 ) ) ) AS MATERIAIS  ' +
+        ','
+      'SUM( CAST( O.VALORSERVICOS AS NUMERIC( 9,2 ) ) ) AS SERVICOS ,'
+      'SUM( CAST( O.VALOR AS NUMERIC( 9 , 2 ) ) ) AS TOTAL'
+      ''
+      'FROM'
+      'OS O'
+      ''
+      ''
+      'WHERE '
+      'O.CLIENTE BETWEEN :CLIENTEINICIAL AND :CLIENTEFINAL AND'
+      'VALORCOBRADO > :VALOR AND COALESCE( recibo ,0 ) > :RECIBO'
+      '--VALORCOBRADO > 0 AND recibo IS NULL ')
+    Left = 40
+    Top = 133
+    ParamData = <
+      item
+        DataType = ftInteger
+        Name = 'CLIENTEINICIAL'
+        ParamType = ptUnknown
+        Value = '0'
+      end
+      item
+        DataType = ftInteger
+        Name = 'CLIENTEFINAL'
+        ParamType = ptUnknown
+        Value = '99999'
+      end
+      item
+        DataType = ftUnknown
+        Name = 'VALOR'
+        ParamType = ptUnknown
+      end
+      item
+        DataType = ftUnknown
+        Name = 'RECIBO'
+        ParamType = ptUnknown
+      end>
+  end
+  object qryTotais: TpFIBDataSet
+    SelectSQL.Strings = (
+      'SELECT'
+      ''
+      'SUM(  O.VALORMATERIAIS ) AS MATERIAIS  ,'
+      'SUM(  O.VALORSERVICOS  ) AS SERVICOS ,'
+      'SUM( O.VALOR  ) AS TOTAL'
+      ''
+      'FROM'
+      'OS O'
+      ''
+      ''
+      '--WHERE '
+      '--O.CLIENTE BETWEEN :CLIENTEINICIAL AND :CLIENTEFINAL AND'
+      '--coalesce( o.recibo,0)  between :rinicial and :rfinal'
+      '--and'
+      
+        '--( select coalesce( sum( r.valor ),0 ) from recibos r where r.i' +
+        'd = o.recibo and r.pagamento is not null ) >= :aberto'
+      ''
+      '--VALORCOBRADO > :VALOR AND COALESCE( recibo ,0 ) > :RECIBO'
+      '--VALORCOBRADO > 0 AND recibo IS NULL ')
+    Transaction = pFIBTransaction1
+    Database = frmPrincipal.fbInstallux
+    Left = 8
+    Top = 8
+  end
+  object pFIBTransaction1: TpFIBTransaction
+    DefaultDatabase = frmPrincipal.fbInstallux
+    Left = 216
+    Top = 8
+  end
+  object qryServico: TpFIBDataSet
+    SelectSQL.Strings = (
+      'SELECT'
+      'O.OS, O.DATA,   O.CHEGADA, O.SAIDA, O.DATADEPAGAMENTO,'
+      
+        'CAST( O.VALORMATERIAIS AS NUMERIC( 9,2 ) ) AS MATERIAIS,O.CLIENT' +
+        'E,'
+      'CAST( O.VALORSERVICOS AS NUMERIC( 9,2 ) ) AS SERVICOS ,'
+      'CAST( O.VALOR AS NUMERIC( 9 , 2 ) ) AS TOTAL,'
+      'C.FANTASIA  AS NOMEDOCLIENTE,'
+      'F.NOME AS FUNCIONARIO, F.QUANTIDADE'
+      ''
+      'FROM'
+      'OS O'
+      'INNER JOIN CLIENTES C ON ( O.CLIENTE = C.CODIGO )'
+      'LEFT JOIN FUNCIONARIOS F ON ( O.FUNCIONARIO = F.CODIGO )'
+      ''
+      '--WHERE '
+      '--O.CLIENTE BETWEEN :CLIENTEINICIAL AND :CLIENTEFINAL'
+      '-- AND'
+      '--o.recibo between :rinicial and :rfinal'
+      '--and'
+      
+        '--( select  r.valor from recibos r where r.id = o.recibo and r.p' +
+        'agamento is not null ) >= :aberto'
+      ''
+      ''
+      '--VALORCOBRADO > :VALOR AND COALESCE( recibo,0 ) > :RECIBO'
+      '--VALORCOBRADO > 0 AND recibo IS NULL '
+      ''
+      ''
+      'ORDER BY '
+      'C.NOME, O.DATA, O.FUNCIONARIO')
+    AfterOpen = qryServicoAfterOpen
+    AfterScroll = qryServicoAfterScroll
+    OnCalcFields = qryServicoCalcFields
+    Transaction = pFIBTransaction1
+    Database = frmPrincipal.fbInstallux
+    Left = 136
+    Top = 8
+    object qryServicoHORAS: TTimeField
+      FieldKind = fkCalculated
+      FieldName = 'HORAS'
+      DisplayFormat = 't'
+      Calculated = True
+    end
+    object intgrfldFIBDataSet1TOTHORAS: TIntegerField
+      FieldKind = fkCalculated
+      FieldName = 'TOTHORAS'
+      Calculated = True
+    end
+    object intgrfldFIBDataSet1TOTMINUTOS: TIntegerField
+      FieldKind = fkCalculated
+      FieldName = 'TOTMINUTOS'
+      Calculated = True
+    end
+    object qryServicoOS: TFIBIntegerField
+      FieldName = 'OS'
+    end
+    object qryServicoDATA: TFIBDateField
+      FieldName = 'DATA'
+    end
+    object qryServicoCHEGADA: TFIBTimeField
+      FieldName = 'CHEGADA'
+    end
+    object qryServicoSAIDA: TFIBTimeField
+      FieldName = 'SAIDA'
+    end
+    object qryServicoDATADEPAGAMENTO: TFIBDateField
+      FieldName = 'DATADEPAGAMENTO'
+    end
+    object qryServicoMATERIAIS: TFIBFloatField
+      FieldName = 'MATERIAIS'
+    end
+    object qryServicoCLIENTE: TFIBIntegerField
+      FieldName = 'CLIENTE'
+    end
+    object qryServicoSERVICOS: TFIBFloatField
+      FieldName = 'SERVICOS'
+    end
+    object qryServicoTOTAL: TFIBFloatField
+      FieldName = 'TOTAL'
+    end
+    object qryServicoNOMEDOCLIENTE: TFIBStringField
+      FieldName = 'NOMEDOCLIENTE'
+      Size = 50
+      Transliterate = False
+      EmptyStrToNull = True
+    end
+    object qryServicoFUNCIONARIO: TFIBStringField
+      FieldName = 'FUNCIONARIO'
+      Size = 50
+      Transliterate = False
+      EmptyStrToNull = True
+    end
+    object qryServicoQUANTIDADE: TFIBIntegerField
+      FieldName = 'QUANTIDADE'
+    end
   end
 end

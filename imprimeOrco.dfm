@@ -4,7 +4,7 @@ object frmImporc: TfrmImporc
   BorderStyle = bsDialog
   Caption = 'Or'#231'amento'
   ClientHeight = 223
-  ClientWidth = 224
+  ClientWidth = 213
   Color = clMoneyGreen
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText

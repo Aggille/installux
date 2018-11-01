@@ -5,7 +5,7 @@ object frmOrcamentos: TfrmOrcamentos
   BorderStyle = bsToolWindow
   Caption = 'Or'#231'amentos'
   ClientHeight = 529
-  ClientWidth = 794
+  ClientWidth = 809
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -21,27 +21,26 @@ object frmOrcamentos: TfrmOrcamentos
   object pagOrcamento: TPageControl
     Left = 0
     Top = 0
-    Width = 794
+    Width = 809
     Height = 529
     ActivePage = tabOrcamento
     Align = alClient
     TabOrder = 0
     TabStop = False
+    ExplicitWidth = 794
     object tabPesquisa: TTabSheet
       Caption = 'Pesquisa'
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 0
-      ExplicitHeight = 0
+      ExplicitWidth = 786
       object Panel1: TPanel
         Left = 0
         Top = 0
-        Width = 786
+        Width = 801
         Height = 106
         Align = alTop
         BevelKind = bkTile
         BevelOuter = bvNone
         TabOrder = 0
+        ExplicitWidth = 786
         object Label11: TLabel
           Left = 8
           Top = 8
@@ -226,7 +225,7 @@ object frmOrcamentos: TfrmOrcamentos
       object wwDBGrid2: TwwDBGrid
         Left = 0
         Top = 106
-        Width = 786
+        Width = 801
         Height = 165
         Selected.Strings = (
           'NUMERO'#9'10'#9'N'#250'mero'
@@ -256,11 +255,12 @@ object frmOrcamentos: TfrmOrcamentos
         TitleLines = 1
         TitleButtons = False
         PaintOptions.AlternatingRowColor = 16250871
+        ExplicitWidth = 786
       end
       object wwDBGrid1: TwwDBGrid
         Left = 0
         Top = 271
-        Width = 786
+        Width = 801
         Height = 230
         ControlType.Strings = (
           'PRODUTO;CustomEdit;edtProduto;F'
@@ -302,12 +302,14 @@ object frmOrcamentos: TfrmOrcamentos
         TitleButtons = False
         UseTFields = False
         PaintOptions.AlternatingRowColor = clInfoBk
+        ExplicitWidth = 786
       end
     end
     object tabOrcamento: TTabSheet
       Caption = 'Or'#231'amento'
       ImageIndex = 1
       OnShow = tabOrcamentoShow
+      ExplicitWidth = 786
       object Label1: TLabel
         Left = 5
         Top = 40
@@ -1180,7 +1182,7 @@ object frmOrcamentos: TfrmOrcamentos
       object wwDBNavigator1: TwwDBNavigator
         Left = 0
         Top = 0
-        Width = 786
+        Width = 801
         Height = 29
         DataSource = dtsOrcamentos
         ImageList = frmPrincipal.ImageList1
@@ -1193,6 +1195,7 @@ object frmOrcamentos: TfrmOrcamentos
         BevelOuter = bvRaised
         ParentShowHint = False
         Transparent = True
+        ExplicitWidth = 154
         object wwDBNavigator1Insert: TwwNavButton
           Left = 2
           Top = 2

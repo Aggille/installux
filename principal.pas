@@ -11,7 +11,8 @@ uses
   ibTable, ibSQL, QRWebFilt, LMDGlobalHotKey, RpRender, RpRenderPDF,
   RpBase, LMDCustomComponent, LMDIniCtrl, IBDatabase, ComCtrls, ToolWin,
   System.Actions, QRXMLSFilt, QRPDFFilt, dxGDIPlusClasses, frxExportRTF,
-  frxExportHTML, frxClass, frxExportPDF, frxDBSet, frxRich;
+  frxExportHTML, frxClass, frxExportPDF, frxDBSet, frxRich, FIBDatabase,
+  pFIBDatabase;
 
   type
   TfrmPrincipal = class(TForm)
@@ -136,6 +137,7 @@ uses
     frxPDFExport1: TfrxPDFExport;
     QRPDFFilter1: TQRPDFFilter;
     frxRichObject1: TfrxRichObject;
+    fbInstallux: TpFIBDatabase;
     procedure actSaiExecute(Sender: TObject);
     procedure actArquitetosExecute(Sender: TObject);
     procedure FormShow(Sender: TObject);
@@ -181,6 +183,8 @@ uses
     procedure Locaisdeestoque1Click(Sender: TObject);
     procedure RelatriodesaldosporLocal1Click(Sender: TObject);
     procedure Relaodeaniversariantes1Click(Sender: TObject);
+    procedure fbInstalluxBeforeConnect(Database: TFIBDatabase;
+      LoginParams: TStrings; var DoConnect: Boolean);
   private
 
       INI:TIniFile;
@@ -338,12 +342,16 @@ begin
       if not connected then
         Connected := True;
 
+    with fbInstallux do
+      if not connected then
+        Connected := True;
 
    sqlEmpresa.Open;
 
 
    // Se é digitação, somente abre tela de digitação
-    if Estacao then begin
+    if Estacao then
+    begin
       Application.CreateForm( TfrmOS, frmOS );
       frmOS.ShowModal;
       Application.Terminate;
@@ -657,6 +665,30 @@ begin
    frmEtiqueta.ShowModal;
 end;
 
+procedure TfrmPrincipal.fbInstalluxBeforeConnect(Database: TFIBDatabase;
+  LoginParams: TStrings; var DoConnect: Boolean);
+var
+  caminho, usuario, senha: string;
+
+begin
+  with  idbInstalLux do
+    begin
+
+
+      caminho     := frmPrincipal.INI.ReadString('CONNECTION', 'PATH', '');
+      usuario     := frmPrincipal.INI.ReadString('CONNECTION', 'USERNAMS', 'SYSDBA');
+      senha       := frmPrincipal.INI.ReadString('CONNECTION', 'PASSWORD', 'masterkey');
+
+      Database.DatabaseName := caminho;
+      LoginParams.Values['user_name']     := usuario;
+      LoginParams.Values['password']      := senha;
+
+      Database.sqlDialect := 3;
+
+    end;
+
+end;
+
 procedure TfrmPrincipal.ProcessaMsg( var MSG:TMSG; var Handled:Boolean );
 begin
 
@@ -691,7 +723,6 @@ var
 begin
 
 //  Caminho := RetornaCaminho;
-
 
   with idbInstalLux do
     begin
