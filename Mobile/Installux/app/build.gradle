@@ -13,7 +13,7 @@ android {
     defaultConfig {
         applicationId "br.com.koutosoft.installux"
         minSdkVersion 17
-        targetSdkVersion 22
+        targetSdkVersion 23
         versionName '1.1'
         signingConfig signingConfigs.KoutoSoft
     }
