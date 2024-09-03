@@ -3,7 +3,6 @@ object frmImpfichaRecibo: TfrmImpfichaRecibo
   Top = 13
   Width = 828
   Height = 699
-  VertScrollBar.Position = 118
   AutoScroll = True
   Caption = 'ImprimeFichaRecibo'
   Color = clBtnFace
@@ -19,9 +18,10 @@ object frmImpfichaRecibo: TfrmImpfichaRecibo
   TextHeight = 13
   object qrFicha: TQuickRep
     Left = 2
-    Top = -118
+    Top = 0
     Width = 794
     Height = 1123
+    ShowingPreview = False
     DataSet = tblFicha
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
@@ -61,6 +61,7 @@ object frmImpfichaRecibo: TfrmImpfichaRecibo
     PrinterSettings.UseCustomPaperCode = False
     PrinterSettings.CustomPaperCode = 0
     PrinterSettings.PrintMetaFile = False
+    PrinterSettings.MemoryLimit = 1000000
     PrinterSettings.PrintQuality = 0
     PrinterSettings.Collate = 0
     PrinterSettings.ColorOption = 0
@@ -104,6 +105,7 @@ object frmImpfichaRecibo: TfrmImpfichaRecibo
           7.937500000000000000
           1307.041666666667000000)
         XLColumn = 0
+        XLNumFormat = nfGeneral
         Alignment = taLeftJustify
         AlignToBand = False
         AutoSize = False
@@ -115,6 +117,7 @@ object frmImpfichaRecibo: TfrmImpfichaRecibo
         WrapStyle = BreakOnSpaces
         FullJustify = False
         MaxBreakChars = 0
+        VerticalAlignment = tlTop
         FontSize = 8
       end
       object QRDBText3: TQRDBText
@@ -128,6 +131,7 @@ object frmImpfichaRecibo: TfrmImpfichaRecibo
           7.937500000000000000
           211.666666666666700000)
         XLColumn = 0
+        XLNumFormat = nfGeneral
         Alignment = taRightJustify
         AlignToBand = False
         AutoSize = False
@@ -139,6 +143,468 @@ object frmImpfichaRecibo: TfrmImpfichaRecibo
         WrapStyle = BreakOnSpaces
         FullJustify = False
         MaxBreakChars = 0
+        VerticalAlignment = tlTop
+        FontSize = 8
+      end
+    end
+    object SummaryBand1: TQRBand
+      Left = 38
+      Top = 426
+      Width = 718
+      Height = 95
+      AlignToBottom = False
+      TransparentBand = False
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -16
+      Font.Name = 'Arial'
+      Font.Style = [fsBold]
+      ForceNewColumn = False
+      ForceNewPage = False
+      ParentFont = False
+      Size.Values = (
+        251.354166666666700000
+        1899.708333333333000000)
+      PreCaluculateBandHeight = False
+      KeepOnOnePage = False
+      BandType = rbSummary
+      object lbl1: TQRLabel
+        Left = 8
+        Top = 8
+        Width = 161
+        Height = 20
+        Size.Values = (
+          52.916666666666670000
+          21.166666666666670000
+          21.166666666666670000
+          425.979166666666700000)
+        XLColumn = 0
+        XLNumFormat = nfGeneral
+        Alignment = taLeftJustify
+        AlignToBand = False
+        Caption = 'Total dos Servi'#231'os em R$'
+        Color = clWhite
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Arial'
+        Font.Style = [fsBold]
+        ParentFont = False
+        Transparent = False
+        ExportAs = exptText
+        WrapStyle = BreakOnSpaces
+        VerticalAlignment = tlTop
+        FontSize = 10
+      end
+      object lbl2: TQRLabel
+        Left = 8
+        Top = 27
+        Width = 165
+        Height = 20
+        Size.Values = (
+          52.916666666666670000
+          21.166666666666670000
+          71.437500000000000000
+          436.562500000000000000)
+        XLColumn = 0
+        XLNumFormat = nfGeneral
+        Alignment = taLeftJustify
+        AlignToBand = False
+        Caption = 'Total dos Materiais em R$'
+        Color = clWhite
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Arial'
+        Font.Style = [fsBold]
+        ParentFont = False
+        Transparent = False
+        ExportAs = exptText
+        WrapStyle = BreakOnSpaces
+        VerticalAlignment = tlTop
+        FontSize = 10
+      end
+      object lbl3: TQRLabel
+        Left = 8
+        Top = 57
+        Width = 114
+        Height = 20
+        Size.Values = (
+          52.916666666666670000
+          21.166666666666670000
+          150.812500000000000000
+          301.625000000000000000)
+        XLColumn = 0
+        XLNumFormat = nfGeneral
+        Alignment = taLeftJustify
+        AlignToBand = False
+        Caption = 'Total geral em R$'
+        Color = clWhite
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Arial'
+        Font.Style = [fsBold]
+        ParentFont = False
+        Transparent = False
+        ExportAs = exptText
+        WrapStyle = BreakOnSpaces
+        VerticalAlignment = tlTop
+        FontSize = 10
+      end
+      object QRShape2: TQRShape
+        Left = 8
+        Top = 42
+        Width = 297
+        Height = 17
+        Size.Values = (
+          44.979166666666670000
+          21.166666666666670000
+          111.125000000000000000
+          785.812500000000000000)
+        XLColumn = 0
+        XLNumFormat = nfGeneral
+        Shape = qrsHorLine
+        VertAdjust = 0
+      end
+      object qrServicos: TQRLabel
+        Left = 180
+        Top = 8
+        Width = 126
+        Height = 20
+        Size.Values = (
+          52.916666666666660000
+          476.250000000000000000
+          21.166666666666670000
+          333.375000000000000000)
+        XLColumn = 0
+        XLNumFormat = nfGeneral
+        Alignment = taRightJustify
+        AlignToBand = False
+        AutoSize = False
+        Caption = 'qrServicos'
+        Color = clWhite
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Arial'
+        Font.Style = [fsBold]
+        ParentFont = False
+        Transparent = False
+        ExportAs = exptText
+        WrapStyle = BreakOnSpaces
+        VerticalAlignment = tlTop
+        FontSize = 10
+      end
+      object qrMateriais: TQRLabel
+        Left = 180
+        Top = 27
+        Width = 126
+        Height = 20
+        Size.Values = (
+          52.916666666666670000
+          476.250000000000000000
+          71.437500000000000000
+          333.375000000000000000)
+        XLColumn = 0
+        XLNumFormat = nfGeneral
+        Alignment = taRightJustify
+        AlignToBand = False
+        AutoSize = False
+        Caption = 'QRLabel1'
+        Color = clWhite
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Arial'
+        Font.Style = [fsBold]
+        ParentFont = False
+        Transparent = False
+        ExportAs = exptText
+        WrapStyle = BreakOnSpaces
+        VerticalAlignment = tlTop
+        FontSize = 10
+      end
+      object qrTotal: TQRLabel
+        Left = 180
+        Top = 57
+        Width = 126
+        Height = 20
+        Size.Values = (
+          52.916666666666670000
+          476.250000000000000000
+          150.812500000000000000
+          333.375000000000000000)
+        XLColumn = 0
+        XLNumFormat = nfGeneral
+        Alignment = taRightJustify
+        AlignToBand = False
+        AutoSize = False
+        Caption = 'QRLabel1'
+        Color = clWhite
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Arial'
+        Font.Style = [fsBold]
+        ParentFont = False
+        Transparent = False
+        ExportAs = exptText
+        WrapStyle = BreakOnSpaces
+        VerticalAlignment = tlTop
+        FontSize = 10
+      end
+      object qrObs: TQRDBRichText
+        Left = 8
+        Top = 83
+        Width = 705
+        Height = 4
+        Size.Values = (
+          10.583333333333330000
+          21.166666666666670000
+          219.604166666666700000
+          1865.312500000000000000)
+        XLColumn = 0
+        XLNumFormat = nfGeneral
+        Alignment = taLeftJustify
+        AutoStretch = True
+        Color = clWindow
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Arial'
+        Font.Style = [fsBold]
+        HiresExport = False
+        Transparent = False
+        DataField = 'OBS'
+        DataSet = frmRecibos.tblRecibos
+      end
+    end
+    object ColumnHeaderBand1: TQRBand
+      Left = 38
+      Top = 305
+      Width = 718
+      Height = 19
+      AlignToBottom = False
+      TransparentBand = False
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Arial'
+      Font.Style = []
+      ForceNewColumn = False
+      ForceNewPage = False
+      ParentFont = False
+      Size.Values = (
+        50.270833333333330000
+        1899.708333333333000000)
+      PreCaluculateBandHeight = False
+      KeepOnOnePage = False
+      BandType = rbColumnHeader
+      object QRLabel3: TQRLabel
+        Left = 7
+        Top = 2
+        Width = 549
+        Height = 17
+        Size.Values = (
+          44.979166666666670000
+          18.520833333333330000
+          5.291666666666667000
+          1452.562500000000000000)
+        XLColumn = 0
+        XLNumFormat = nfGeneral
+        Alignment = taCenter
+        AlignToBand = False
+        AutoSize = False
+        Caption = 'Descri'#231#227'o'
+        Color = clSilver
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWhite
+        Font.Height = -13
+        Font.Name = 'Arial'
+        Font.Style = []
+        ParentFont = False
+        Transparent = False
+        ExportAs = exptText
+        WrapStyle = BreakOnSpaces
+        VerticalAlignment = tlTop
+        FontSize = 10
+      end
+      object QRLabel4: TQRLabel
+        Left = 560
+        Top = 2
+        Width = 97
+        Height = 17
+        Size.Values = (
+          44.979166666666670000
+          1481.666666666667000000
+          5.291666666666667000
+          256.645833333333400000)
+        XLColumn = 0
+        XLNumFormat = nfGeneral
+        Alignment = taCenter
+        AlignToBand = False
+        AutoSize = False
+        Caption = 'Quantidade'
+        Color = clSilver
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWhite
+        Font.Height = -13
+        Font.Name = 'Arial'
+        Font.Style = []
+        ParentFont = False
+        Transparent = False
+        ExportAs = exptText
+        WrapStyle = BreakOnSpaces
+        VerticalAlignment = tlTop
+        FontSize = 10
+      end
+    end
+    object QRGroup1: TQRGroup
+      Left = 38
+      Top = 324
+      Width = 718
+      Height = 53
+      AlignToBottom = False
+      TransparentBand = False
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -16
+      Font.Name = 'Arial'
+      Font.Style = [fsBold]
+      ForceNewColumn = False
+      ForceNewPage = False
+      ParentFont = False
+      Size.Values = (
+        140.229166666666700000
+        1899.708333333333000000)
+      PreCaluculateBandHeight = False
+      KeepOnOnePage = False
+      Expression = 'tblFicha.NOMEDOAMBIENTE'
+      Master = qrFicha
+      ReprintOnNewPage = False
+      object QRDBText4: TQRDBText
+        Left = 47
+        Top = 13
+        Width = 157
+        Height = 23
+        Size.Values = (
+          60.854166666666670000
+          124.354166666666700000
+          34.395833333333330000
+          415.395833333333300000)
+        XLColumn = 0
+        XLNumFormat = nfGeneral
+        Alignment = taLeftJustify
+        AlignToBand = False
+        Color = clWhite
+        DataSet = tblFicha
+        DataField = 'NOMEDOAMBIENTE'
+        Transparent = False
+        ExportAs = exptText
+        WrapStyle = BreakOnSpaces
+        FullJustify = False
+        MaxBreakChars = 0
+        VerticalAlignment = tlTop
+        FontSize = 12
+      end
+      object QRShape3: TQRShape
+        Left = 50
+        Top = 30
+        Width = 626
+        Height = 16
+        Size.Values = (
+          42.333333333333340000
+          132.291666666666700000
+          79.375000000000000000
+          1656.291666666667000000)
+        XLColumn = 0
+        XLNumFormat = nfGeneral
+        Shape = qrsHorLine
+        VertAdjust = 0
+      end
+    end
+    object QRGroup2: TQRGroup
+      Left = 38
+      Top = 377
+      Width = 718
+      Height = 12
+      AlignToBottom = False
+      TransparentBand = False
+      ForceNewColumn = False
+      ForceNewPage = False
+      Size.Values = (
+        31.750000000000000000
+        1899.708333333333000000)
+      PreCaluculateBandHeight = False
+      KeepOnOnePage = False
+      Expression = 'tblFicha.PRODUTO'
+      FooterBand = QRBand1
+      Master = qrFicha
+      ReprintOnNewPage = False
+    end
+    object QRBand1: TQRBand
+      Left = 38
+      Top = 409
+      Width = 718
+      Height = 17
+      AlignToBottom = False
+      TransparentBand = False
+      ForceNewColumn = False
+      ForceNewPage = False
+      Size.Values = (
+        44.979166666666670000
+        1899.708333333333000000)
+      PreCaluculateBandHeight = False
+      KeepOnOnePage = False
+      BandType = rbGroupFooter
+      object QRDBText8: TQRDBText
+        Left = 55
+        Top = 3
+        Width = 494
+        Height = 17
+        Size.Values = (
+          44.979166666666670000
+          145.520833333333300000
+          7.937500000000000000
+          1307.041666666667000000)
+        XLColumn = 0
+        XLNumFormat = nfGeneral
+        Alignment = taLeftJustify
+        AlignToBand = False
+        AutoSize = False
+        Color = clWhite
+        DataSet = tblFicha
+        DataField = 'PRODUTO'
+        Transparent = False
+        ExportAs = exptText
+        WrapStyle = BreakOnSpaces
+        FullJustify = False
+        MaxBreakChars = 0
+        VerticalAlignment = tlTop
+        FontSize = 8
+      end
+      object QRExpr1: TQRExpr
+        Left = 574
+        Top = 3
+        Width = 80
+        Height = 15
+        Size.Values = (
+          39.687500000000000000
+          1518.708333333333000000
+          7.937500000000000000
+          211.666666666666700000)
+        XLColumn = 0
+        XLNumFormat = nfGeneral
+        Alignment = taRightJustify
+        AlignToBand = False
+        AutoSize = False
+        Color = clWhite
+        ResetAfterPrint = True
+        Transparent = False
+        Expression = 'SUM(tblFicha.QUANTIDADE)'
+        ExportAs = exptText
+        WrapStyle = BreakOnSpaces
         FontSize = 8
       end
     end
@@ -168,6 +634,7 @@ object frmImpfichaRecibo: TfrmImpfichaRecibo
           568.854166666666700000
           105.833333333333300000)
         XLColumn = 0
+        XLNumFormat = nfGeneral
         Alignment = taLeftJustify
         AlignToBand = False
         Caption = 'Cliente'
@@ -181,6 +648,7 @@ object frmImpfichaRecibo: TfrmImpfichaRecibo
         Transparent = False
         ExportAs = exptText
         WrapStyle = BreakOnSpaces
+        VerticalAlignment = tlTop
         FontSize = 8
       end
       object QRLabel11: TQRLabel
@@ -194,6 +662,7 @@ object frmImpfichaRecibo: TfrmImpfichaRecibo
           608.541666666666700000
           132.291666666666700000)
         XLColumn = 0
+        XLNumFormat = nfGeneral
         Alignment = taLeftJustify
         AlignToBand = False
         Caption = 'Telefone'
@@ -207,6 +676,7 @@ object frmImpfichaRecibo: TfrmImpfichaRecibo
         Transparent = False
         ExportAs = exptText
         WrapStyle = BreakOnSpaces
+        VerticalAlignment = tlTop
         FontSize = 8
       end
       object QRDBText5: TQRDBText
@@ -220,6 +690,7 @@ object frmImpfichaRecibo: TfrmImpfichaRecibo
           566.208333333333300000
           669.395833333333300000)
         XLColumn = 0
+        XLNumFormat = nfGeneral
         Alignment = taLeftJustify
         AlignToBand = False
         AutoSize = False
@@ -237,6 +708,7 @@ object frmImpfichaRecibo: TfrmImpfichaRecibo
         WrapStyle = BreakOnSpaces
         FullJustify = False
         MaxBreakChars = 0
+        VerticalAlignment = tlTop
         FontSize = 8
       end
       object QRDBText10: TQRDBText
@@ -250,6 +722,7 @@ object frmImpfichaRecibo: TfrmImpfichaRecibo
           608.541666666666700000
           425.979166666666700000)
         XLColumn = 0
+        XLNumFormat = nfGeneral
         Alignment = taLeftJustify
         AlignToBand = False
         AutoSize = False
@@ -267,6 +740,7 @@ object frmImpfichaRecibo: TfrmImpfichaRecibo
         WrapStyle = BreakOnSpaces
         FullJustify = False
         MaxBreakChars = 0
+        VerticalAlignment = tlTop
         FontSize = 8
       end
       object QRShape1: TQRShape
@@ -280,6 +754,7 @@ object frmImpfichaRecibo: TfrmImpfichaRecibo
           521.229166666666700000
           1886.479166666667000000)
         XLColumn = 0
+        XLNumFormat = nfGeneral
         Shape = qrsHorLine
         VertAdjust = 0
       end
@@ -294,6 +769,7 @@ object frmImpfichaRecibo: TfrmImpfichaRecibo
           560.916666666666700000
           185.208333333333300000)
         XLColumn = 0
+        XLNumFormat = nfGeneral
         Alignment = taLeftJustify
         AlignToBand = False
         Caption = 'Arquiteto (a)'
@@ -307,6 +783,7 @@ object frmImpfichaRecibo: TfrmImpfichaRecibo
         Transparent = False
         ExportAs = exptText
         WrapStyle = BreakOnSpaces
+        VerticalAlignment = tlTop
         FontSize = 8
       end
       object QRDBText6: TQRDBText
@@ -320,6 +797,7 @@ object frmImpfichaRecibo: TfrmImpfichaRecibo
           563.562500000000000000
           664.104166666666700000)
         XLColumn = 0
+        XLNumFormat = nfGeneral
         Alignment = taLeftJustify
         AlignToBand = False
         AutoSize = False
@@ -337,6 +815,7 @@ object frmImpfichaRecibo: TfrmImpfichaRecibo
         WrapStyle = BreakOnSpaces
         FullJustify = False
         MaxBreakChars = 0
+        VerticalAlignment = tlTop
         FontSize = 8
       end
       object lblNumero: TQRLabel
@@ -350,6 +829,7 @@ object frmImpfichaRecibo: TfrmImpfichaRecibo
           367.770833333333300000
           251.354166666666700000)
         XLColumn = 0
+        XLNumFormat = nfGeneral
         Alignment = taLeftJustify
         AlignToBand = False
         Caption = 'Renan R. Lima'
@@ -363,6 +843,7 @@ object frmImpfichaRecibo: TfrmImpfichaRecibo
         Transparent = False
         ExportAs = exptText
         WrapStyle = BreakOnSpaces
+        VerticalAlignment = tlTop
         FontSize = 10
       end
       object QRLabel12: TQRLabel
@@ -376,6 +857,7 @@ object frmImpfichaRecibo: TfrmImpfichaRecibo
           648.229166666666700000
           79.375000000000000000)
         XLColumn = 0
+        XLNumFormat = nfGeneral
         Alignment = taLeftJustify
         AlignToBand = False
         Caption = 'Email'
@@ -389,6 +871,7 @@ object frmImpfichaRecibo: TfrmImpfichaRecibo
         Transparent = False
         ExportAs = exptText
         WrapStyle = BreakOnSpaces
+        VerticalAlignment = tlTop
         FontSize = 8
       end
       object QRDBText23: TQRDBText
@@ -402,6 +885,7 @@ object frmImpfichaRecibo: TfrmImpfichaRecibo
           648.229166666666700000
           730.250000000000000000)
         XLColumn = 0
+        XLNumFormat = nfGeneral
         Alignment = taLeftJustify
         AlignToBand = False
         AutoSize = False
@@ -419,6 +903,7 @@ object frmImpfichaRecibo: TfrmImpfichaRecibo
         WrapStyle = BreakOnSpaces
         FullJustify = False
         MaxBreakChars = 0
+        VerticalAlignment = tlTop
         FontSize = 8
       end
       object QRDBText1: TQRDBText
@@ -433,6 +918,7 @@ object frmImpfichaRecibo: TfrmImpfichaRecibo
           10.583333333333330000
           129.645833333333300000)
         XLColumn = 0
+        XLNumFormat = nfGeneral
         Alignment = taLeftJustify
         AlignToBand = False
         Color = clWhite
@@ -449,6 +935,7 @@ object frmImpfichaRecibo: TfrmImpfichaRecibo
         WrapStyle = BreakOnSpaces
         FullJustify = False
         MaxBreakChars = 0
+        VerticalAlignment = tlTop
         FontSize = 12
       end
       object QRDBText9: TQRDBText
@@ -462,6 +949,7 @@ object frmImpfichaRecibo: TfrmImpfichaRecibo
           119.062500000000000000
           195.791666666666700000)
         XLColumn = 0
+        XLNumFormat = nfGeneral
         Alignment = taLeftJustify
         AlignToBand = False
         Color = clWhite
@@ -479,6 +967,7 @@ object frmImpfichaRecibo: TfrmImpfichaRecibo
         WrapStyle = BreakOnSpaces
         FullJustify = False
         MaxBreakChars = 0
+        VerticalAlignment = tlTop
         FontSize = 10
       end
       object QRDBText12: TQRDBText
@@ -492,6 +981,7 @@ object frmImpfichaRecibo: TfrmImpfichaRecibo
           164.041666666666700000
           129.645833333333300000)
         XLColumn = 0
+        XLNumFormat = nfGeneral
         Alignment = taLeftJustify
         AlignToBand = False
         Color = clWhite
@@ -509,6 +999,7 @@ object frmImpfichaRecibo: TfrmImpfichaRecibo
         WrapStyle = BreakOnSpaces
         FullJustify = False
         MaxBreakChars = 0
+        VerticalAlignment = tlTop
         FontSize = 10
       end
       object QRLabel13: TQRLabel
@@ -522,6 +1013,7 @@ object frmImpfichaRecibo: TfrmImpfichaRecibo
           211.666666666666700000
           201.083333333333300000)
         XLColumn = 0
+        XLNumFormat = nfGeneral
         Alignment = taLeftJustify
         AlignToBand = False
         Caption = 'Fone / Fax : '
@@ -535,6 +1027,7 @@ object frmImpfichaRecibo: TfrmImpfichaRecibo
         Transparent = False
         ExportAs = exptText
         WrapStyle = BreakOnSpaces
+        VerticalAlignment = tlTop
         FontSize = 10
       end
       object QRDBText17: TQRDBText
@@ -548,6 +1041,7 @@ object frmImpfichaRecibo: TfrmImpfichaRecibo
           214.312500000000000000
           182.562500000000000000)
         XLColumn = 0
+        XLNumFormat = nfGeneral
         Alignment = taLeftJustify
         AlignToBand = False
         Color = clWhite
@@ -564,6 +1058,7 @@ object frmImpfichaRecibo: TfrmImpfichaRecibo
         WrapStyle = BreakOnSpaces
         FullJustify = False
         MaxBreakChars = 0
+        VerticalAlignment = tlTop
         FontSize = 10
       end
       object QRLabel23: TQRLabel
@@ -577,6 +1072,7 @@ object frmImpfichaRecibo: TfrmImpfichaRecibo
           261.937500000000000000
           111.125000000000000000)
         XLColumn = 0
+        XLNumFormat = nfGeneral
         Alignment = taCenter
         AlignToBand = False
         Caption = 'Email: '
@@ -590,6 +1086,7 @@ object frmImpfichaRecibo: TfrmImpfichaRecibo
         Transparent = False
         ExportAs = exptText
         WrapStyle = BreakOnSpaces
+        VerticalAlignment = tlTop
         FontSize = 10
       end
       object QRDBText11: TQRDBText
@@ -603,6 +1100,7 @@ object frmImpfichaRecibo: TfrmImpfichaRecibo
           261.937500000000000000
           105.833333333333300000)
         XLColumn = 0
+        XLNumFormat = nfGeneral
         Alignment = taLeftJustify
         AlignToBand = False
         Color = clWhite
@@ -619,6 +1117,7 @@ object frmImpfichaRecibo: TfrmImpfichaRecibo
         WrapStyle = BreakOnSpaces
         FullJustify = False
         MaxBreakChars = 0
+        VerticalAlignment = tlTop
         FontSize = 10
       end
       object QRDBText20: TQRDBText
@@ -632,6 +1131,7 @@ object frmImpfichaRecibo: TfrmImpfichaRecibo
           322.791666666666700000
           341.312500000000000000)
         XLColumn = 0
+        XLNumFormat = nfGeneral
         Alignment = taLeftJustify
         AlignToBand = False
         AutoSize = False
@@ -649,6 +1149,7 @@ object frmImpfichaRecibo: TfrmImpfichaRecibo
         WrapStyle = BreakOnSpaces
         FullJustify = False
         MaxBreakChars = 0
+        VerticalAlignment = tlTop
         FontSize = 10
       end
       object QRLabel15: TQRLabel
@@ -662,6 +1163,7 @@ object frmImpfichaRecibo: TfrmImpfichaRecibo
           375.708333333333300000
           108.479166666666700000)
         XLColumn = 0
+        XLNumFormat = nfGeneral
         Alignment = taCenter
         AlignToBand = False
         Caption = 'CREA:'
@@ -675,6 +1177,7 @@ object frmImpfichaRecibo: TfrmImpfichaRecibo
         Transparent = False
         ExportAs = exptText
         WrapStyle = BreakOnSpaces
+        VerticalAlignment = tlTop
         FontSize = 10
       end
       object QRLabel17: TQRLabel
@@ -688,6 +1191,7 @@ object frmImpfichaRecibo: TfrmImpfichaRecibo
           431.270833333333300000
           119.062500000000000000)
         XLColumn = 0
+        XLNumFormat = nfGeneral
         Alignment = taCenter
         AlignToBand = False
         Caption = 'Celular:'
@@ -701,6 +1205,7 @@ object frmImpfichaRecibo: TfrmImpfichaRecibo
         Transparent = False
         ExportAs = exptText
         WrapStyle = BreakOnSpaces
+        VerticalAlignment = tlTop
         FontSize = 10
       end
       object QRDBText25: TQRDBText
@@ -714,6 +1219,7 @@ object frmImpfichaRecibo: TfrmImpfichaRecibo
           431.270833333333300000
           246.062500000000000000)
         XLColumn = 0
+        XLNumFormat = nfGeneral
         Alignment = taLeftJustify
         AlignToBand = False
         AutoSize = False
@@ -731,6 +1237,7 @@ object frmImpfichaRecibo: TfrmImpfichaRecibo
         WrapStyle = BreakOnSpaces
         FullJustify = False
         MaxBreakChars = 0
+        VerticalAlignment = tlTop
         FontSize = 10
       end
       object QRDBText13: TQRDBText
@@ -744,6 +1251,7 @@ object frmImpfichaRecibo: TfrmImpfichaRecibo
           375.708333333333300000
           246.062500000000000000)
         XLColumn = 0
+        XLNumFormat = nfGeneral
         Alignment = taLeftJustify
         AlignToBand = False
         AutoSize = False
@@ -761,148 +1269,7 @@ object frmImpfichaRecibo: TfrmImpfichaRecibo
         WrapStyle = BreakOnSpaces
         FullJustify = False
         MaxBreakChars = 0
-        FontSize = 10
-      end
-      object QRLabel18: TQRLabel
-        Left = 405
-        Top = 163
-        Width = 45
-        Height = 17
-        Size.Values = (
-          44.979166666666670000
-          1071.562500000000000000
-          431.270833333333300000
-          119.062500000000000000)
-        XLColumn = 0
-        Alignment = taCenter
-        AlignToBand = False
-        Caption = 'Celular:'
-        Color = clWhite
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -13
-        Font.Name = 'Arial'
-        Font.Style = []
-        ParentFont = False
-        Transparent = False
-        ExportAs = exptText
-        WrapStyle = BreakOnSpaces
-        FontSize = 10
-      end
-      object QRLabel16: TQRLabel
-        Left = 407
-        Top = 142
-        Width = 41
-        Height = 17
-        Size.Values = (
-          44.979166666666670000
-          1076.854166666667000000
-          375.708333333333300000
-          108.479166666666700000)
-        XLColumn = 0
-        Alignment = taCenter
-        AlignToBand = False
-        Caption = 'CREA:'
-        Color = clWhite
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -13
-        Font.Name = 'Arial'
-        Font.Style = []
-        ParentFont = False
-        Transparent = False
-        ExportAs = exptText
-        WrapStyle = BreakOnSpaces
-        FontSize = 10
-      end
-      object QRDBText21: TQRDBText
-        Left = 407
-        Top = 122
-        Width = 209
-        Height = 17
-        Size.Values = (
-          44.979166666666670000
-          1076.854166666667000000
-          322.791666666666700000
-          552.979166666666700000)
-        XLColumn = 0
-        Alignment = taLeftJustify
-        AlignToBand = False
-        AutoSize = False
-        Color = clWhite
-        DataSet = frmPrincipal.sqlEmpresa
-        DataField = 'RESPONSAVEL2'
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -13
-        Font.Name = 'Arial'
-        Font.Style = [fsBold]
-        ParentFont = False
-        Transparent = False
-        ExportAs = exptText
-        WrapStyle = BreakOnSpaces
-        FullJustify = False
-        MaxBreakChars = 0
-        FontSize = 10
-      end
-      object QRDBText24: TQRDBText
-        Left = 459
-        Top = 142
-        Width = 125
-        Height = 17
-        Size.Values = (
-          44.979166666666670000
-          1214.437500000000000000
-          375.708333333333300000
-          330.729166666666700000)
-        XLColumn = 0
-        Alignment = taLeftJustify
-        AlignToBand = False
-        AutoSize = False
-        Color = clWhite
-        DataSet = frmPrincipal.sqlEmpresa
-        DataField = 'CREA2'
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -13
-        Font.Name = 'Arial'
-        Font.Style = []
-        ParentFont = False
-        Transparent = False
-        ExportAs = exptText
-        WrapStyle = BreakOnSpaces
-        FullJustify = False
-        MaxBreakChars = 0
-        FontSize = 10
-      end
-      object QRDBText26: TQRDBText
-        Left = 459
-        Top = 163
-        Width = 117
-        Height = 17
-        Size.Values = (
-          44.979166666666670000
-          1214.437500000000000000
-          431.270833333333300000
-          309.562500000000000000)
-        XLColumn = 0
-        Alignment = taLeftJustify
-        AlignToBand = False
-        AutoSize = False
-        Color = clWhite
-        DataSet = frmPrincipal.sqlEmpresa
-        DataField = 'FONE_RESP2'
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -13
-        Font.Name = 'Arial'
-        Font.Style = []
-        ParentFont = False
-        Transparent = False
-        ExportAs = exptText
-        WrapStyle = BreakOnSpaces
-        FullJustify = False
-        MaxBreakChars = 0
+        VerticalAlignment = tlTop
         FontSize = 10
       end
       object QRDBText14: TQRDBText
@@ -916,6 +1283,7 @@ object frmImpfichaRecibo: TfrmImpfichaRecibo
           648.229166666666700000
           666.750000000000000000)
         XLColumn = 0
+        XLNumFormat = nfGeneral
         Alignment = taLeftJustify
         AlignToBand = False
         AutoSize = False
@@ -933,6 +1301,7 @@ object frmImpfichaRecibo: TfrmImpfichaRecibo
         WrapStyle = BreakOnSpaces
         FullJustify = False
         MaxBreakChars = 0
+        VerticalAlignment = tlTop
         FontSize = 8
       end
       object QRLabel2: TQRLabel
@@ -946,6 +1315,7 @@ object frmImpfichaRecibo: TfrmImpfichaRecibo
           648.229166666666700000
           79.375000000000000000)
         XLColumn = 0
+        XLNumFormat = nfGeneral
         Alignment = taLeftJustify
         AlignToBand = False
         Caption = 'Email'
@@ -959,6 +1329,7 @@ object frmImpfichaRecibo: TfrmImpfichaRecibo
         Transparent = False
         ExportAs = exptText
         WrapStyle = BreakOnSpaces
+        VerticalAlignment = tlTop
         FontSize = 8
       end
       object QRLabel1: TQRLabel
@@ -972,6 +1343,7 @@ object frmImpfichaRecibo: TfrmImpfichaRecibo
           608.541666666666700000
           132.291666666666700000)
         XLColumn = 0
+        XLNumFormat = nfGeneral
         Alignment = taLeftJustify
         AlignToBand = False
         Caption = 'Telefone'
@@ -985,6 +1357,7 @@ object frmImpfichaRecibo: TfrmImpfichaRecibo
         Transparent = False
         ExportAs = exptText
         WrapStyle = BreakOnSpaces
+        VerticalAlignment = tlTop
         FontSize = 8
       end
       object QRDBText15: TQRDBText
@@ -998,6 +1371,7 @@ object frmImpfichaRecibo: TfrmImpfichaRecibo
           608.541666666666700000
           664.104166666666700000)
         XLColumn = 0
+        XLNumFormat = nfGeneral
         Alignment = taLeftJustify
         AlignToBand = False
         AutoSize = False
@@ -1015,6 +1389,7 @@ object frmImpfichaRecibo: TfrmImpfichaRecibo
         WrapStyle = BreakOnSpaces
         FullJustify = False
         MaxBreakChars = 0
+        VerticalAlignment = tlTop
         FontSize = 8
       end
       object QRImage1: TQRImage
@@ -1030,6 +1405,7 @@ object frmImpfichaRecibo: TfrmImpfichaRecibo
           13.229166666666670000
           582.083333333333300000)
         XLColumn = 0
+        XLNumFormat = nfGeneral
         Center = True
         Picture.Data = {
           07544269746D617042EB0800424D42EB0800000000003600000028000000FC02
@@ -19312,6 +19688,7 @@ object frmImpfichaRecibo: TfrmImpfichaRecibo
           478.895833333333300000
           211.666666666666700000)
         XLColumn = 0
+        XLNumFormat = nfGeneral
         Alignment = taRightJustify
         AlignToBand = True
         Color = clWhite
@@ -19338,6 +19715,7 @@ object frmImpfichaRecibo: TfrmImpfichaRecibo
           478.895833333333300000
           185.208333333333300000)
         XLColumn = 0
+        XLNumFormat = nfGeneral
         Alignment = taLeftJustify
         AlignToBand = False
         AutoSize = False
@@ -19355,6 +19733,7 @@ object frmImpfichaRecibo: TfrmImpfichaRecibo
         WrapStyle = BreakOnSpaces
         FullJustify = False
         MaxBreakChars = 0
+        VerticalAlignment = tlTop
         FontSize = 8
       end
       object QRLabel6: TQRLabel
@@ -19368,6 +19747,7 @@ object frmImpfichaRecibo: TfrmImpfichaRecibo
           478.895833333333300000
           84.666666666666670000)
         XLColumn = 0
+        XLNumFormat = nfGeneral
         Alignment = taCenter
         AlignToBand = False
         Caption = 'Data:'
@@ -19381,443 +19761,8 @@ object frmImpfichaRecibo: TfrmImpfichaRecibo
         Transparent = False
         ExportAs = exptText
         WrapStyle = BreakOnSpaces
+        VerticalAlignment = tlTop
         FontSize = 10
-      end
-    end
-    object SummaryBand1: TQRBand
-      Left = 38
-      Top = 426
-      Width = 718
-      Height = 95
-      AlignToBottom = False
-      TransparentBand = False
-      Font.Charset = DEFAULT_CHARSET
-      Font.Color = clWindowText
-      Font.Height = -16
-      Font.Name = 'Arial'
-      Font.Style = [fsBold]
-      ForceNewColumn = False
-      ForceNewPage = False
-      ParentFont = False
-      Size.Values = (
-        251.354166666666700000
-        1899.708333333333000000)
-      PreCaluculateBandHeight = False
-      KeepOnOnePage = False
-      BandType = rbSummary
-      object lbl1: TQRLabel
-        Left = 8
-        Top = 8
-        Width = 161
-        Height = 20
-        Size.Values = (
-          52.916666666666670000
-          21.166666666666670000
-          21.166666666666670000
-          425.979166666666700000)
-        XLColumn = 0
-        Alignment = taLeftJustify
-        AlignToBand = False
-        Caption = 'Total dos Servi'#231'os em R$'
-        Color = clWhite
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -13
-        Font.Name = 'Arial'
-        Font.Style = [fsBold]
-        ParentFont = False
-        Transparent = False
-        ExportAs = exptText
-        WrapStyle = BreakOnSpaces
-        FontSize = 10
-      end
-      object lbl2: TQRLabel
-        Left = 8
-        Top = 27
-        Width = 165
-        Height = 20
-        Size.Values = (
-          52.916666666666670000
-          21.166666666666670000
-          71.437500000000000000
-          436.562500000000000000)
-        XLColumn = 0
-        Alignment = taLeftJustify
-        AlignToBand = False
-        Caption = 'Total dos Materiais em R$'
-        Color = clWhite
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -13
-        Font.Name = 'Arial'
-        Font.Style = [fsBold]
-        ParentFont = False
-        Transparent = False
-        ExportAs = exptText
-        WrapStyle = BreakOnSpaces
-        FontSize = 10
-      end
-      object lbl3: TQRLabel
-        Left = 8
-        Top = 57
-        Width = 114
-        Height = 20
-        Size.Values = (
-          52.916666666666670000
-          21.166666666666670000
-          150.812500000000000000
-          301.625000000000000000)
-        XLColumn = 0
-        Alignment = taLeftJustify
-        AlignToBand = False
-        Caption = 'Total geral em R$'
-        Color = clWhite
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -13
-        Font.Name = 'Arial'
-        Font.Style = [fsBold]
-        ParentFont = False
-        Transparent = False
-        ExportAs = exptText
-        WrapStyle = BreakOnSpaces
-        FontSize = 10
-      end
-      object QRShape2: TQRShape
-        Left = 8
-        Top = 42
-        Width = 297
-        Height = 17
-        Size.Values = (
-          44.979166666666670000
-          21.166666666666670000
-          111.125000000000000000
-          785.812500000000000000)
-        XLColumn = 0
-        Shape = qrsHorLine
-        VertAdjust = 0
-      end
-      object qrServicos: TQRLabel
-        Left = 180
-        Top = 8
-        Width = 126
-        Height = 20
-        Size.Values = (
-          52.916666666666660000
-          476.250000000000000000
-          21.166666666666670000
-          333.375000000000000000)
-        XLColumn = 0
-        Alignment = taRightJustify
-        AlignToBand = False
-        AutoSize = False
-        Caption = 'qrServicos'
-        Color = clWhite
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -13
-        Font.Name = 'Arial'
-        Font.Style = [fsBold]
-        ParentFont = False
-        Transparent = False
-        ExportAs = exptText
-        WrapStyle = BreakOnSpaces
-        FontSize = 10
-      end
-      object qrMateriais: TQRLabel
-        Left = 180
-        Top = 27
-        Width = 126
-        Height = 20
-        Size.Values = (
-          52.916666666666670000
-          476.250000000000000000
-          71.437500000000000000
-          333.375000000000000000)
-        XLColumn = 0
-        Alignment = taRightJustify
-        AlignToBand = False
-        AutoSize = False
-        Caption = 'QRLabel1'
-        Color = clWhite
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -13
-        Font.Name = 'Arial'
-        Font.Style = [fsBold]
-        ParentFont = False
-        Transparent = False
-        ExportAs = exptText
-        WrapStyle = BreakOnSpaces
-        FontSize = 10
-      end
-      object qrTotal: TQRLabel
-        Left = 180
-        Top = 57
-        Width = 126
-        Height = 20
-        Size.Values = (
-          52.916666666666670000
-          476.250000000000000000
-          150.812500000000000000
-          333.375000000000000000)
-        XLColumn = 0
-        Alignment = taRightJustify
-        AlignToBand = False
-        AutoSize = False
-        Caption = 'QRLabel1'
-        Color = clWhite
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -13
-        Font.Name = 'Arial'
-        Font.Style = [fsBold]
-        ParentFont = False
-        Transparent = False
-        ExportAs = exptText
-        WrapStyle = BreakOnSpaces
-        FontSize = 10
-      end
-      object qrObs: TQRDBRichText
-        Left = 8
-        Top = 83
-        Width = 705
-        Height = 4
-        Size.Values = (
-          10.583333333333330000
-          21.166666666666670000
-          219.604166666666700000
-          1865.312500000000000000)
-        XLColumn = 0
-        Alignment = taLeftJustify
-        AutoStretch = True
-        Color = clWindow
-        Font.Charset = ANSI_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -16
-        Font.Name = 'Arial'
-        Font.Style = [fsBold]
-        HiresExport = False
-        DataField = 'OBS'
-        DataSet = frmRecibos.tblRecibos
-      end
-    end
-    object ColumnHeaderBand1: TQRBand
-      Left = 38
-      Top = 305
-      Width = 718
-      Height = 19
-      AlignToBottom = False
-      TransparentBand = False
-      Font.Charset = DEFAULT_CHARSET
-      Font.Color = clWindowText
-      Font.Height = -13
-      Font.Name = 'Arial'
-      Font.Style = []
-      ForceNewColumn = False
-      ForceNewPage = False
-      ParentFont = False
-      Size.Values = (
-        50.270833333333330000
-        1899.708333333333000000)
-      PreCaluculateBandHeight = False
-      KeepOnOnePage = False
-      BandType = rbColumnHeader
-      object QRLabel3: TQRLabel
-        Left = 7
-        Top = 2
-        Width = 549
-        Height = 17
-        Size.Values = (
-          44.979166666666670000
-          18.520833333333330000
-          5.291666666666667000
-          1452.562500000000000000)
-        XLColumn = 0
-        Alignment = taCenter
-        AlignToBand = False
-        AutoSize = False
-        Caption = 'Descri'#231#227'o'
-        Color = clSilver
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWhite
-        Font.Height = -13
-        Font.Name = 'Arial'
-        Font.Style = []
-        ParentFont = False
-        Transparent = False
-        ExportAs = exptText
-        WrapStyle = BreakOnSpaces
-        FontSize = 10
-      end
-      object QRLabel4: TQRLabel
-        Left = 560
-        Top = 2
-        Width = 97
-        Height = 17
-        Size.Values = (
-          44.979166666666670000
-          1481.666666666667000000
-          5.291666666666667000
-          256.645833333333400000)
-        XLColumn = 0
-        Alignment = taCenter
-        AlignToBand = False
-        AutoSize = False
-        Caption = 'Quantidade'
-        Color = clSilver
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWhite
-        Font.Height = -13
-        Font.Name = 'Arial'
-        Font.Style = []
-        ParentFont = False
-        Transparent = False
-        ExportAs = exptText
-        WrapStyle = BreakOnSpaces
-        FontSize = 10
-      end
-    end
-    object QRGroup1: TQRGroup
-      Left = 38
-      Top = 324
-      Width = 718
-      Height = 53
-      AlignToBottom = False
-      TransparentBand = False
-      Font.Charset = DEFAULT_CHARSET
-      Font.Color = clWindowText
-      Font.Height = -16
-      Font.Name = 'Arial'
-      Font.Style = [fsBold]
-      ForceNewColumn = False
-      ForceNewPage = False
-      ParentFont = False
-      Size.Values = (
-        140.229166666666700000
-        1899.708333333333000000)
-      PreCaluculateBandHeight = False
-      KeepOnOnePage = False
-      Expression = 'tblFicha.NOMEDOAMBIENTE'
-      Master = qrFicha
-      ReprintOnNewPage = False
-      object QRDBText4: TQRDBText
-        Left = 47
-        Top = 13
-        Width = 157
-        Height = 23
-        Size.Values = (
-          60.854166666666670000
-          124.354166666666700000
-          34.395833333333330000
-          415.395833333333300000)
-        XLColumn = 0
-        Alignment = taLeftJustify
-        AlignToBand = False
-        Color = clWhite
-        DataSet = tblFicha
-        DataField = 'NOMEDOAMBIENTE'
-        Transparent = False
-        ExportAs = exptText
-        WrapStyle = BreakOnSpaces
-        FullJustify = False
-        MaxBreakChars = 0
-        FontSize = 12
-      end
-      object QRShape3: TQRShape
-        Left = 50
-        Top = 30
-        Width = 626
-        Height = 16
-        Size.Values = (
-          42.333333333333340000
-          132.291666666666700000
-          79.375000000000000000
-          1656.291666666667000000)
-        XLColumn = 0
-        Shape = qrsHorLine
-        VertAdjust = 0
-      end
-    end
-    object QRGroup2: TQRGroup
-      Left = 38
-      Top = 377
-      Width = 718
-      Height = 12
-      AlignToBottom = False
-      TransparentBand = False
-      ForceNewColumn = False
-      ForceNewPage = False
-      Size.Values = (
-        31.750000000000000000
-        1899.708333333333000000)
-      PreCaluculateBandHeight = False
-      KeepOnOnePage = False
-      Expression = 'tblFicha.PRODUTO'
-      FooterBand = QRBand1
-      Master = qrFicha
-      ReprintOnNewPage = False
-    end
-    object QRBand1: TQRBand
-      Left = 38
-      Top = 409
-      Width = 718
-      Height = 17
-      AlignToBottom = False
-      TransparentBand = False
-      ForceNewColumn = False
-      ForceNewPage = False
-      Size.Values = (
-        44.979166666666670000
-        1899.708333333333000000)
-      PreCaluculateBandHeight = False
-      KeepOnOnePage = False
-      BandType = rbGroupFooter
-      object QRDBText8: TQRDBText
-        Left = 55
-        Top = 3
-        Width = 494
-        Height = 17
-        Size.Values = (
-          44.979166666666670000
-          145.520833333333300000
-          7.937500000000000000
-          1307.041666666667000000)
-        XLColumn = 0
-        Alignment = taLeftJustify
-        AlignToBand = False
-        AutoSize = False
-        Color = clWhite
-        DataSet = tblFicha
-        DataField = 'PRODUTO'
-        Transparent = False
-        ExportAs = exptText
-        WrapStyle = BreakOnSpaces
-        FullJustify = False
-        MaxBreakChars = 0
-        FontSize = 8
-      end
-      object QRExpr1: TQRExpr
-        Left = 574
-        Top = 3
-        Width = 80
-        Height = 15
-        Size.Values = (
-          39.687500000000000000
-          1518.708333333333000000
-          7.937500000000000000
-          211.666666666666700000)
-        XLColumn = 0
-        Alignment = taRightJustify
-        AlignToBand = False
-        AutoSize = False
-        Color = clWhite
-        ResetAfterPrint = True
-        Transparent = False
-        Expression = 'SUM(tblFicha.QUANTIDADE)'
-        ExportAs = exptText
-        WrapStyle = BreakOnSpaces
-        FontSize = 8
       end
     end
   end

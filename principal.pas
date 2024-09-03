@@ -12,7 +12,7 @@ uses
   RpBase, LMDCustomComponent, LMDIniCtrl, IBDatabase, ComCtrls, ToolWin,
   System.Actions, QRXMLSFilt, QRPDFFilt, dxGDIPlusClasses, frxExportRTF,
   frxExportHTML, frxClass, frxExportPDF, frxDBSet, frxRich, FIBDatabase,
-  pFIBDatabase;
+  pFIBDatabase, frxExportBaseDialog;
 
   type
   TfrmPrincipal = class(TForm)

@@ -91,6 +91,7 @@ object frmImprimeOS: TfrmImprimeOS
     Top = 223
     Width = 794
     Height = 1123
+    ShowingPreview = False
     DataSet = qryItems
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
@@ -130,6 +131,7 @@ object frmImprimeOS: TfrmImprimeOS
     PrinterSettings.UseCustomPaperCode = False
     PrinterSettings.CustomPaperCode = 0
     PrinterSettings.PrintMetaFile = False
+    PrinterSettings.MemoryLimit = 1000000
     PrinterSettings.PrintQuality = 0
     PrinterSettings.Collate = 0
     PrinterSettings.ColorOption = 0
@@ -173,6 +175,7 @@ object frmImprimeOS: TfrmImprimeOS
           7.937500000000000000
           1420.812500000000000000)
         XLColumn = 0
+        XLNumFormat = nfGeneral
         Alignment = taLeftJustify
         AlignToBand = False
         AutoSize = False
@@ -184,6 +187,7 @@ object frmImprimeOS: TfrmImprimeOS
         WrapStyle = BreakOnSpaces
         FullJustify = False
         MaxBreakChars = 0
+        VerticalAlignment = tlTop
         FontSize = 8
       end
       object QRDBText3: TQRDBText
@@ -197,6 +201,7 @@ object frmImprimeOS: TfrmImprimeOS
           7.937500000000000000
           211.666666666666700000)
         XLColumn = 0
+        XLNumFormat = nfGeneral
         Alignment = taRightJustify
         AlignToBand = False
         AutoSize = False
@@ -208,6 +213,7 @@ object frmImprimeOS: TfrmImprimeOS
         WrapStyle = BreakOnSpaces
         FullJustify = False
         MaxBreakChars = 0
+        VerticalAlignment = tlTop
         FontSize = 8
       end
     end
@@ -243,6 +249,7 @@ object frmImprimeOS: TfrmImprimeOS
           21.166666666666670000
           425.979166666666700000)
         XLColumn = 0
+        XLNumFormat = nfGeneral
         Alignment = taLeftJustify
         AlignToBand = False
         Caption = 'Total dos Servi'#231'os em R$'
@@ -256,6 +263,7 @@ object frmImprimeOS: TfrmImprimeOS
         Transparent = False
         ExportAs = exptText
         WrapStyle = BreakOnSpaces
+        VerticalAlignment = tlTop
         FontSize = 10
       end
       object lbl2: TQRLabel
@@ -269,6 +277,7 @@ object frmImprimeOS: TfrmImprimeOS
           84.666666666666670000
           436.562500000000000000)
         XLColumn = 0
+        XLNumFormat = nfGeneral
         Alignment = taLeftJustify
         AlignToBand = False
         Caption = 'Total dos Materiais em R$'
@@ -282,6 +291,7 @@ object frmImprimeOS: TfrmImprimeOS
         Transparent = False
         ExportAs = exptText
         WrapStyle = BreakOnSpaces
+        VerticalAlignment = tlTop
         FontSize = 10
       end
       object lbl3: TQRLabel
@@ -295,6 +305,7 @@ object frmImprimeOS: TfrmImprimeOS
           169.333333333333300000
           301.625000000000000000)
         XLColumn = 0
+        XLNumFormat = nfGeneral
         Alignment = taLeftJustify
         AlignToBand = False
         Caption = 'Total geral em R$'
@@ -308,6 +319,7 @@ object frmImprimeOS: TfrmImprimeOS
         Transparent = False
         ExportAs = exptText
         WrapStyle = BreakOnSpaces
+        VerticalAlignment = tlTop
         FontSize = 10
       end
       object lblTotServ: TQRLabel
@@ -321,6 +333,7 @@ object frmImprimeOS: TfrmImprimeOS
           21.166666666666670000
           317.500000000000000000)
         XLColumn = 0
+        XLNumFormat = nfGeneral
         Alignment = taRightJustify
         AlignToBand = False
         AutoSize = False
@@ -335,6 +348,7 @@ object frmImprimeOS: TfrmImprimeOS
         Transparent = False
         ExportAs = exptText
         WrapStyle = BreakOnSpaces
+        VerticalAlignment = tlTop
         FontSize = 10
       end
       object lblTotMat: TQRLabel
@@ -348,6 +362,7 @@ object frmImprimeOS: TfrmImprimeOS
           84.666666666666680000
           317.500000000000000000)
         XLColumn = 0
+        XLNumFormat = nfGeneral
         Alignment = taRightJustify
         AlignToBand = False
         AutoSize = False
@@ -362,6 +377,7 @@ object frmImprimeOS: TfrmImprimeOS
         Transparent = False
         ExportAs = exptText
         WrapStyle = BreakOnSpaces
+        VerticalAlignment = tlTop
         FontSize = 10
       end
       object lblTotal: TQRLabel
@@ -375,6 +391,7 @@ object frmImprimeOS: TfrmImprimeOS
           169.333333333333300000
           317.500000000000000000)
         XLColumn = 0
+        XLNumFormat = nfGeneral
         Alignment = taRightJustify
         AlignToBand = False
         AutoSize = False
@@ -389,6 +406,7 @@ object frmImprimeOS: TfrmImprimeOS
         Transparent = False
         ExportAs = exptText
         WrapStyle = BreakOnSpaces
+        VerticalAlignment = tlTop
         FontSize = 10
       end
       object QRShape2: TQRShape
@@ -402,6 +420,7 @@ object frmImprimeOS: TfrmImprimeOS
           127.000000000000000000
           785.812500000000000000)
         XLColumn = 0
+        XLNumFormat = nfGeneral
         Shape = qrsHorLine
         VertAdjust = 0
       end
@@ -416,6 +435,7 @@ object frmImprimeOS: TfrmImprimeOS
           169.333333333333300000
           806.979166666666800000)
         XLColumn = 0
+        XLNumFormat = nfGeneral
         Alignment = taCenter
         AlignToBand = False
         AutoSize = False
@@ -431,6 +451,7 @@ object frmImprimeOS: TfrmImprimeOS
         Transparent = False
         ExportAs = exptText
         WrapStyle = BreakOnSpaces
+        VerticalAlignment = tlTop
         FontSize = 10
       end
       object qrObs: TQRMemo
@@ -444,6 +465,7 @@ object frmImprimeOS: TfrmImprimeOS
           275.166666666666700000
           1759.479166666667000000)
         XLColumn = 0
+        XLNumFormat = nfGeneral
         Alignment = taLeftJustify
         AlignToBand = False
         AutoSize = False
@@ -492,6 +514,7 @@ object frmImprimeOS: TfrmImprimeOS
           5.291666666666667000
           153.458333333333300000)
         XLColumn = 0
+        XLNumFormat = nfGeneral
         Alignment = taCenter
         AlignToBand = False
         AutoSize = False
@@ -506,6 +529,7 @@ object frmImprimeOS: TfrmImprimeOS
         Transparent = False
         ExportAs = exptText
         WrapStyle = BreakOnSpaces
+        VerticalAlignment = tlTop
         FontSize = 10
       end
       object QRLabel3: TQRLabel
@@ -519,6 +543,7 @@ object frmImprimeOS: TfrmImprimeOS
           5.291666666666667000
           1420.812500000000000000)
         XLColumn = 0
+        XLNumFormat = nfGeneral
         Alignment = taCenter
         AlignToBand = False
         AutoSize = False
@@ -533,6 +558,7 @@ object frmImprimeOS: TfrmImprimeOS
         Transparent = False
         ExportAs = exptText
         WrapStyle = BreakOnSpaces
+        VerticalAlignment = tlTop
         FontSize = 10
       end
       object QRLabel4: TQRLabel
@@ -546,6 +572,7 @@ object frmImprimeOS: TfrmImprimeOS
           5.291666666666667000
           256.645833333333400000)
         XLColumn = 0
+        XLNumFormat = nfGeneral
         Alignment = taCenter
         AlignToBand = False
         AutoSize = False
@@ -560,6 +587,7 @@ object frmImprimeOS: TfrmImprimeOS
         Transparent = False
         ExportAs = exptText
         WrapStyle = BreakOnSpaces
+        VerticalAlignment = tlTop
         FontSize = 10
       end
     end
@@ -597,6 +625,7 @@ object frmImprimeOS: TfrmImprimeOS
           7.937500000000000000
           224.895833333333300000)
         XLColumn = 0
+        XLNumFormat = nfGeneral
         Alignment = taLeftJustify
         AlignToBand = False
         Color = clWhite
@@ -607,6 +636,7 @@ object frmImprimeOS: TfrmImprimeOS
         WrapStyle = BreakOnSpaces
         FullJustify = False
         MaxBreakChars = 0
+        VerticalAlignment = tlTop
         FontSize = 12
       end
     end
@@ -655,6 +685,7 @@ object frmImprimeOS: TfrmImprimeOS
           7.937500000000000000
           1420.812500000000000000)
         XLColumn = 0
+        XLNumFormat = nfGeneral
         Alignment = taLeftJustify
         AlignToBand = False
         AutoSize = False
@@ -666,6 +697,7 @@ object frmImprimeOS: TfrmImprimeOS
         WrapStyle = BreakOnSpaces
         FullJustify = False
         MaxBreakChars = 0
+        VerticalAlignment = tlTop
         FontSize = 8
       end
       object QRExpr1: TQRExpr
@@ -679,6 +711,7 @@ object frmImprimeOS: TfrmImprimeOS
           7.937500000000000000
           211.666666666666700000)
         XLColumn = 0
+        XLNumFormat = nfGeneral
         Alignment = taLeftJustify
         AlignToBand = False
         AutoSize = False
@@ -717,6 +750,7 @@ object frmImprimeOS: TfrmImprimeOS
           26.458333333333330000
           666.750000000000000000)
         XLColumn = 0
+        XLNumFormat = nfGeneral
         AutoSize = True
         Center = True
         Picture.Data = {
@@ -966,6 +1000,7 @@ object frmImprimeOS: TfrmImprimeOS
           439.208333333333300000
           187.854166666666700000)
         XLColumn = 0
+        XLNumFormat = nfGeneral
         Alignment = taRightJustify
         AlignToBand = True
         Color = clWhite
@@ -992,6 +1027,7 @@ object frmImprimeOS: TfrmImprimeOS
           635.000000000000000000
           121.708333333333300000)
         XLColumn = 0
+        XLNumFormat = nfGeneral
         Alignment = taLeftJustify
         AlignToBand = False
         Caption = 'Cliente'
@@ -1005,6 +1041,7 @@ object frmImprimeOS: TfrmImprimeOS
         Transparent = False
         ExportAs = exptText
         WrapStyle = BreakOnSpaces
+        VerticalAlignment = tlTop
         FontSize = 10
       end
       object QRLabel11: TQRLabel
@@ -1018,6 +1055,7 @@ object frmImprimeOS: TfrmImprimeOS
           698.500000000000000000
           87.312500000000000000)
         XLColumn = 0
+        XLNumFormat = nfGeneral
         Alignment = taLeftJustify
         AlignToBand = False
         Caption = 'Fone'
@@ -1031,6 +1069,7 @@ object frmImprimeOS: TfrmImprimeOS
         Transparent = False
         ExportAs = exptText
         WrapStyle = BreakOnSpaces
+        VerticalAlignment = tlTop
         FontSize = 10
       end
       object QRDBText5: TQRDBText
@@ -1044,6 +1083,7 @@ object frmImprimeOS: TfrmImprimeOS
           635.000000000000000000
           722.312500000000000000)
         XLColumn = 0
+        XLNumFormat = nfGeneral
         Alignment = taLeftJustify
         AlignToBand = False
         AutoSize = False
@@ -1061,6 +1101,7 @@ object frmImprimeOS: TfrmImprimeOS
         WrapStyle = BreakOnSpaces
         FullJustify = False
         MaxBreakChars = 0
+        VerticalAlignment = tlTop
         FontSize = 10
       end
       object QRDBText10: TQRDBText
@@ -1074,6 +1115,7 @@ object frmImprimeOS: TfrmImprimeOS
           698.500000000000000000
           425.979166666666700000)
         XLColumn = 0
+        XLNumFormat = nfGeneral
         Alignment = taLeftJustify
         AlignToBand = False
         AutoSize = False
@@ -1091,6 +1133,7 @@ object frmImprimeOS: TfrmImprimeOS
         WrapStyle = BreakOnSpaces
         FullJustify = False
         MaxBreakChars = 0
+        VerticalAlignment = tlTop
         FontSize = 10
       end
       object QRShape1: TQRShape
@@ -1104,6 +1147,7 @@ object frmImprimeOS: TfrmImprimeOS
           571.500000000000000000
           1844.145833333333000000)
         XLColumn = 0
+        XLNumFormat = nfGeneral
         Shape = qrsHorLine
         VertAdjust = 0
       end
@@ -1118,6 +1162,7 @@ object frmImprimeOS: TfrmImprimeOS
           698.500000000000000000
           209.020833333333300000)
         XLColumn = 0
+        XLNumFormat = nfGeneral
         Alignment = taLeftJustify
         AlignToBand = False
         Caption = 'Arquiteto (a)'
@@ -1131,6 +1176,7 @@ object frmImprimeOS: TfrmImprimeOS
         Transparent = False
         ExportAs = exptText
         WrapStyle = BreakOnSpaces
+        VerticalAlignment = tlTop
         FontSize = 10
       end
       object QRDBText6: TQRDBText
@@ -1144,6 +1190,7 @@ object frmImprimeOS: TfrmImprimeOS
           698.500000000000000000
           791.104166666666800000)
         XLColumn = 0
+        XLNumFormat = nfGeneral
         Alignment = taLeftJustify
         AlignToBand = False
         AutoSize = False
@@ -1161,6 +1208,7 @@ object frmImprimeOS: TfrmImprimeOS
         WrapStyle = BreakOnSpaces
         FullJustify = False
         MaxBreakChars = 0
+        VerticalAlignment = tlTop
         FontSize = 10
       end
       object QRSysData2: TQRSysData
@@ -1174,6 +1222,7 @@ object frmImprimeOS: TfrmImprimeOS
           502.708333333333300000
           259.291666666666700000)
         XLColumn = 0
+        XLNumFormat = nfGeneral
         Alignment = taRightJustify
         AlignToBand = True
         Color = clWhite
@@ -1200,6 +1249,7 @@ object frmImprimeOS: TfrmImprimeOS
           21.166666666666670000
           103.187500000000000000)
         XLColumn = 0
+        XLNumFormat = nfGeneral
         Alignment = taLeftJustify
         AlignToBand = False
         Color = clWhite
@@ -1216,6 +1266,7 @@ object frmImprimeOS: TfrmImprimeOS
         WrapStyle = BreakOnSpaces
         FullJustify = False
         MaxBreakChars = 0
+        VerticalAlignment = tlTop
         FontSize = 10
       end
       object QRDBText7: TQRDBText
@@ -1229,6 +1280,7 @@ object frmImprimeOS: TfrmImprimeOS
           84.666666666666670000
           195.791666666666700000)
         XLColumn = 0
+        XLNumFormat = nfGeneral
         Alignment = taLeftJustify
         AlignToBand = False
         Color = clWhite
@@ -1245,6 +1297,7 @@ object frmImprimeOS: TfrmImprimeOS
         WrapStyle = BreakOnSpaces
         FullJustify = False
         MaxBreakChars = 0
+        VerticalAlignment = tlTop
         FontSize = 10
       end
       object QRDBText9: TQRDBText
@@ -1258,6 +1311,7 @@ object frmImprimeOS: TfrmImprimeOS
           148.166666666666700000
           132.291666666666700000)
         XLColumn = 0
+        XLNumFormat = nfGeneral
         Alignment = taLeftJustify
         AlignToBand = False
         Color = clWhite
@@ -1274,6 +1328,7 @@ object frmImprimeOS: TfrmImprimeOS
         WrapStyle = BreakOnSpaces
         FullJustify = False
         MaxBreakChars = 0
+        VerticalAlignment = tlTop
         FontSize = 10
       end
       object QRLabel6: TQRLabel
@@ -1287,6 +1342,7 @@ object frmImprimeOS: TfrmImprimeOS
           148.166666666666700000
           103.187500000000000000)
         XLColumn = 0
+        XLNumFormat = nfGeneral
         Alignment = taLeftJustify
         AlignToBand = False
         Caption = 'Bairro:'
@@ -1300,6 +1356,7 @@ object frmImprimeOS: TfrmImprimeOS
         Transparent = False
         ExportAs = exptText
         WrapStyle = BreakOnSpaces
+        VerticalAlignment = tlTop
         FontSize = 10
       end
       object QRDBText11: TQRDBText
@@ -1313,6 +1370,7 @@ object frmImprimeOS: TfrmImprimeOS
           148.166666666666700000
           74.083333333333330000)
         XLColumn = 0
+        XLNumFormat = nfGeneral
         Alignment = taLeftJustify
         AlignToBand = False
         Color = clWhite
@@ -1329,6 +1387,7 @@ object frmImprimeOS: TfrmImprimeOS
         WrapStyle = BreakOnSpaces
         FullJustify = False
         MaxBreakChars = 0
+        VerticalAlignment = tlTop
         FontSize = 10
       end
       object QRDBText13: TQRDBText
@@ -1342,6 +1401,7 @@ object frmImprimeOS: TfrmImprimeOS
           211.666666666666700000
           142.875000000000000000)
         XLColumn = 0
+        XLNumFormat = nfGeneral
         Alignment = taLeftJustify
         AlignToBand = False
         Color = clWhite
@@ -1358,6 +1418,7 @@ object frmImprimeOS: TfrmImprimeOS
         WrapStyle = BreakOnSpaces
         FullJustify = False
         MaxBreakChars = 0
+        VerticalAlignment = tlTop
         FontSize = 10
       end
       object QRDBText12: TQRDBText
@@ -1371,6 +1432,7 @@ object frmImprimeOS: TfrmImprimeOS
           211.666666666666700000
           129.645833333333300000)
         XLColumn = 0
+        XLNumFormat = nfGeneral
         Alignment = taLeftJustify
         AlignToBand = False
         Color = clWhite
@@ -1387,6 +1449,7 @@ object frmImprimeOS: TfrmImprimeOS
         WrapStyle = BreakOnSpaces
         FullJustify = False
         MaxBreakChars = 0
+        VerticalAlignment = tlTop
         FontSize = 10
       end
       object QRLabel7: TQRLabel
@@ -1400,6 +1463,7 @@ object frmImprimeOS: TfrmImprimeOS
           211.666666666666700000
           119.062500000000000000)
         XLColumn = 0
+        XLNumFormat = nfGeneral
         Alignment = taLeftJustify
         AlignToBand = False
         Caption = 'Cidade:'
@@ -1413,6 +1477,7 @@ object frmImprimeOS: TfrmImprimeOS
         Transparent = False
         ExportAs = exptText
         WrapStyle = BreakOnSpaces
+        VerticalAlignment = tlTop
         FontSize = 10
       end
       object QRLabel9: TQRLabel
@@ -1426,6 +1491,7 @@ object frmImprimeOS: TfrmImprimeOS
           275.166666666666700000
           111.125000000000000000)
         XLColumn = 0
+        XLNumFormat = nfGeneral
         Alignment = taLeftJustify
         AlignToBand = False
         Caption = 'Fone : '
@@ -1439,6 +1505,7 @@ object frmImprimeOS: TfrmImprimeOS
         Transparent = False
         ExportAs = exptText
         WrapStyle = BreakOnSpaces
+        VerticalAlignment = tlTop
         FontSize = 10
       end
       object QRDBText14: TQRDBText
@@ -1452,6 +1519,7 @@ object frmImprimeOS: TfrmImprimeOS
           275.166666666666700000
           182.562500000000000000)
         XLColumn = 0
+        XLNumFormat = nfGeneral
         Alignment = taLeftJustify
         AlignToBand = False
         Color = clWhite
@@ -1468,6 +1536,7 @@ object frmImprimeOS: TfrmImprimeOS
         WrapStyle = BreakOnSpaces
         FullJustify = False
         MaxBreakChars = 0
+        VerticalAlignment = tlTop
         FontSize = 10
       end
       object QRDBText15: TQRDBText
@@ -1481,6 +1550,7 @@ object frmImprimeOS: TfrmImprimeOS
           338.666666666666700000
           105.833333333333300000)
         XLColumn = 0
+        XLNumFormat = nfGeneral
         Alignment = taLeftJustify
         AlignToBand = False
         Color = clWhite
@@ -1497,6 +1567,7 @@ object frmImprimeOS: TfrmImprimeOS
         WrapStyle = BreakOnSpaces
         FullJustify = False
         MaxBreakChars = 0
+        VerticalAlignment = tlTop
         FontSize = 10
       end
       object QRLabel23: TQRLabel
@@ -1510,6 +1581,7 @@ object frmImprimeOS: TfrmImprimeOS
           341.312500000000000000
           111.125000000000000000)
         XLColumn = 0
+        XLNumFormat = nfGeneral
         Alignment = taCenter
         AlignToBand = False
         Caption = 'Email: '
@@ -1523,6 +1595,7 @@ object frmImprimeOS: TfrmImprimeOS
         Transparent = False
         ExportAs = exptText
         WrapStyle = BreakOnSpaces
+        VerticalAlignment = tlTop
         FontSize = 10
       end
       object QRDBText20: TQRDBText
@@ -1536,6 +1609,7 @@ object frmImprimeOS: TfrmImprimeOS
           412.750000000000100000
           341.312500000000000000)
         XLColumn = 0
+        XLNumFormat = nfGeneral
         Alignment = taLeftJustify
         AlignToBand = False
         AutoSize = False
@@ -1553,6 +1627,7 @@ object frmImprimeOS: TfrmImprimeOS
         WrapStyle = BreakOnSpaces
         FullJustify = False
         MaxBreakChars = 0
+        VerticalAlignment = tlTop
         FontSize = 10
       end
       object QRDBText21: TQRDBText
@@ -1566,6 +1641,7 @@ object frmImprimeOS: TfrmImprimeOS
           412.750000000000100000
           552.979166666666800000)
         XLColumn = 0
+        XLNumFormat = nfGeneral
         Alignment = taLeftJustify
         AlignToBand = False
         AutoSize = False
@@ -1583,6 +1659,7 @@ object frmImprimeOS: TfrmImprimeOS
         WrapStyle = BreakOnSpaces
         FullJustify = False
         MaxBreakChars = 0
+        VerticalAlignment = tlTop
         FontSize = 10
       end
       object QRLabel15: TQRLabel
@@ -1596,6 +1673,7 @@ object frmImprimeOS: TfrmImprimeOS
           465.666666666666700000
           108.479166666666700000)
         XLColumn = 0
+        XLNumFormat = nfGeneral
         Alignment = taCenter
         AlignToBand = False
         Caption = 'CREA:'
@@ -1609,6 +1687,7 @@ object frmImprimeOS: TfrmImprimeOS
         Transparent = False
         ExportAs = exptText
         WrapStyle = BreakOnSpaces
+        VerticalAlignment = tlTop
         FontSize = 10
       end
       object QRDBText22: TQRDBText
@@ -1622,6 +1701,7 @@ object frmImprimeOS: TfrmImprimeOS
           465.666666666666800000
           246.062500000000000000)
         XLColumn = 0
+        XLNumFormat = nfGeneral
         Alignment = taLeftJustify
         AlignToBand = False
         AutoSize = False
@@ -1639,6 +1719,7 @@ object frmImprimeOS: TfrmImprimeOS
         WrapStyle = BreakOnSpaces
         FullJustify = False
         MaxBreakChars = 0
+        VerticalAlignment = tlTop
         FontSize = 10
       end
       object QRLabel16: TQRLabel
@@ -1652,6 +1733,7 @@ object frmImprimeOS: TfrmImprimeOS
           465.666666666666700000
           108.479166666666700000)
         XLColumn = 0
+        XLNumFormat = nfGeneral
         Alignment = taCenter
         AlignToBand = False
         Caption = 'CREA:'
@@ -1665,6 +1747,7 @@ object frmImprimeOS: TfrmImprimeOS
         Transparent = False
         ExportAs = exptText
         WrapStyle = BreakOnSpaces
+        VerticalAlignment = tlTop
         FontSize = 10
       end
       object QRDBText24: TQRDBText
@@ -1678,6 +1761,7 @@ object frmImprimeOS: TfrmImprimeOS
           465.666666666666800000
           330.729166666666700000)
         XLColumn = 0
+        XLNumFormat = nfGeneral
         Alignment = taLeftJustify
         AlignToBand = False
         AutoSize = False
@@ -1695,6 +1779,7 @@ object frmImprimeOS: TfrmImprimeOS
         WrapStyle = BreakOnSpaces
         FullJustify = False
         MaxBreakChars = 0
+        VerticalAlignment = tlTop
         FontSize = 10
       end
       object QRLabel17: TQRLabel
@@ -1708,6 +1793,7 @@ object frmImprimeOS: TfrmImprimeOS
           521.229166666666700000
           119.062500000000000000)
         XLColumn = 0
+        XLNumFormat = nfGeneral
         Alignment = taCenter
         AlignToBand = False
         Caption = 'Celular:'
@@ -1721,6 +1807,7 @@ object frmImprimeOS: TfrmImprimeOS
         Transparent = False
         ExportAs = exptText
         WrapStyle = BreakOnSpaces
+        VerticalAlignment = tlTop
         FontSize = 10
       end
       object QRDBText25: TQRDBText
@@ -1734,6 +1821,7 @@ object frmImprimeOS: TfrmImprimeOS
           521.229166666666800000
           246.062500000000000000)
         XLColumn = 0
+        XLNumFormat = nfGeneral
         Alignment = taLeftJustify
         AlignToBand = False
         AutoSize = False
@@ -1751,6 +1839,7 @@ object frmImprimeOS: TfrmImprimeOS
         WrapStyle = BreakOnSpaces
         FullJustify = False
         MaxBreakChars = 0
+        VerticalAlignment = tlTop
         FontSize = 10
       end
       object QRLabel18: TQRLabel
@@ -1764,6 +1853,7 @@ object frmImprimeOS: TfrmImprimeOS
           521.229166666666700000
           119.062500000000000000)
         XLColumn = 0
+        XLNumFormat = nfGeneral
         Alignment = taCenter
         AlignToBand = False
         Caption = 'Celular:'
@@ -1777,6 +1867,7 @@ object frmImprimeOS: TfrmImprimeOS
         Transparent = False
         ExportAs = exptText
         WrapStyle = BreakOnSpaces
+        VerticalAlignment = tlTop
         FontSize = 10
       end
       object QRDBText26: TQRDBText
@@ -1790,6 +1881,7 @@ object frmImprimeOS: TfrmImprimeOS
           521.229166666666800000
           309.562500000000000000)
         XLColumn = 0
+        XLNumFormat = nfGeneral
         Alignment = taLeftJustify
         AlignToBand = False
         AutoSize = False
@@ -1807,6 +1899,7 @@ object frmImprimeOS: TfrmImprimeOS
         WrapStyle = BreakOnSpaces
         FullJustify = False
         MaxBreakChars = 0
+        VerticalAlignment = tlTop
         FontSize = 10
       end
     end

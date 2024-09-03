@@ -136,11 +136,18 @@ end;
 
 procedure TfrmImprimeOS.FormShow(Sender: TObject);
 begin
+
    with edtResponsavel do
    begin
     Items.Clear;
-    Items.Add( frmPrincipal.sqlEmpresa.fieldbyname( 'Responsavel1' ).asString );
-    Items.Add( frmPrincipal.sqlEmpresa.fieldbyname( 'Responsavel2' ).asString );
+    if( frmPrincipal.sqlEmpresa.fieldbyname( 'Responsavel1' ).asString <> '' ) then
+      Items.Add( frmPrincipal.sqlEmpresa.fieldbyname( 'Responsavel1' ).asString );
+
+    if( frmPrincipal.sqlEmpresa.fieldbyname( 'Responsavel2' ).asString <> '' ) then
+      Items.Add( frmPrincipal.sqlEmpresa.fieldbyname( 'Responsavel2' ).asString );
+
+    edtResponsavel.ItemIndex := 0;
+
    end;
 
   if not abre([tblClientes]) then

@@ -77,15 +77,10 @@ type
     QRDBText19: TQRDBText;
     QRLabel23: TQRLabel;
     QRDBText20: TQRDBText;
-    QRDBText21: TQRDBText;
     QRLabel15: TQRLabel;
     QRDBText22: TQRDBText;
-    QRLabel16: TQRLabel;
-    QRDBText24: TQRDBText;
     QRLabel17: TQRLabel;
     QRDBText25: TQRDBText;
-    QRLabel18: TQRLabel;
-    QRDBText26: TQRDBText;
     QRLabel9: TQRLabel;
     QRLabel10: TQRLabel;
     QRDBText23: TQRDBText;

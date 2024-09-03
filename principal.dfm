@@ -744,12 +744,12 @@ object frmPrincipal: TfrmPrincipal
     Height = 427
     Align = alClient
     ParentColor = True
-    TabOrder = 1
+    TabOrder = 0
     object Image2: TImage
       Left = 1
       Top = 1
-      Width = 1005
-      Height = 232
+      Width = 764
+      Height = 255
       Align = alClient
       AutoSize = True
       Center = True
@@ -5148,8 +5148,6 @@ object frmPrincipal: TfrmPrincipal
         1B020F3A38383838383838383838BC0830FFF5FF81B8762ACBE3B03F00000000
         49454E44AE426082}
       Transparent = True
-      ExplicitWidth = 764
-      ExplicitHeight = 255
     end
     object Panel2: TPanel
       Left = 1
@@ -8830,7 +8828,7 @@ object frmPrincipal: TfrmPrincipal
     Left = 124
     Top = 119
     Bitmap = {
-      494C010112001300600010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C010112001300640010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000400000005000000001002000000000000050
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
@@ -10309,12 +10307,14 @@ object frmPrincipal: TfrmPrincipal
     ShowProgress = True
     OverwritePrompt = False
     DataOnly = False
+    OpenAfterExport = False
     FixedWidth = True
     Background = False
     Centered = False
     EmptyLines = True
     Print = False
     PictureType = gpPNG
+    Outline = False
     Left = 600
     Top = 40
   end
@@ -10324,6 +10324,7 @@ object frmPrincipal: TfrmPrincipal
     OverwritePrompt = False
     DataOnly = False
     PictureType = gpPNG
+    OpenAfterExport = False
     Wysiwyg = True
     Creator = 'FastReport'
     SuppressPageHeadersFooters = False
@@ -10345,11 +10346,15 @@ object frmPrincipal: TfrmPrincipal
     ShowProgress = True
     OverwritePrompt = False
     DataOnly = False
+    EmbedFontsIfProtected = False
+    InteractiveFormsFontSubset = 'A-Z,a-z,0-9,#43-#47 '
+    OpenAfterExport = False
     PrintOptimized = False
     Outline = False
     Background = False
     HTMLTags = True
     Quality = 95
+    Transparency = False
     Author = 'FastReport'
     Subject = 'FastReport PDF export'
     ProtectionFlags = [ePrint, eModify, eCopy, eAnnot]
@@ -10359,6 +10364,9 @@ object frmPrincipal: TfrmPrincipal
     FitWindow = False
     CenterWindow = False
     PrintScaling = False
+    PdfA = False
+    PDFStandard = psNone
+    PDFVersion = pv17
     Left = 640
     Top = 40
   end
