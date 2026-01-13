@@ -4,8 +4,8 @@ package br.com.koutosoft.installux.modelo;
  * Created by KoutoSoft Sistemas on 18/06/2015.
  */
 public class local {
-    private int ID;
-    private String Nome;
+    public int ID;
+    public String Nome;
 
     public int getID() {
         return ID;

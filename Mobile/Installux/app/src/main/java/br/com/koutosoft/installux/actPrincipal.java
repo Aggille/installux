@@ -4,7 +4,7 @@ import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.AsyncTask;
-import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -19,7 +19,7 @@ import br.com.koutosoft.installux.util.*;
 import br.com.koutosoft.installux.comum.constantes;
 
 
-public class actPrincipal extends ActionBarActivity {
+public class actPrincipal extends AppCompatActivity {
 
     private Button btnConfig;
     private Button btnFichas;

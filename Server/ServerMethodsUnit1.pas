@@ -9,7 +9,7 @@ uses System.SysUtils, System.Classes, System.Json, vcl.Dialogs,
   FireDAC.Stan.Async, Data.DB, FireDAC.Comp.Client, FireDAC.Phys.FB,
   FireDAC.Phys.IBBase, FireDAC.Stan.StorageBin, FireDAC.Stan.Param,
   FireDAC.DatS, FireDAC.DApt.Intf, FireDAC.DApt, FireDAC.Comp.DataSet,
-  FireDAC.Phys.MSAcc;
+  FireDAC.Phys.MSAcc, FireDAC.VCLUI.Wait, FireDAC.Phys.FBDef;
 
 type
 {$METHODINFO ON}
@@ -49,8 +49,6 @@ type
     function gravaFicha( ficha, itens:String ):String;
 
 
-
-
   end;
 {$METHODINFO OFF}
 
@@ -61,8 +59,6 @@ implementation
 
 
 uses System.StrUtils, Efuncoes;
-
-
 
 function TServerMethods1.getClientes( w:String='' ;  o:String = ''): TJsonArray;
 var
@@ -76,8 +72,6 @@ begin
   begin
     close;
     sql.Clear;
-
-
 
     if( w <> '' ) then
       w := ' AND ' + w;
@@ -317,7 +311,6 @@ begin
 
   try
 
-
     qryIncFicha.Close;
     qryIncServico.Close;
 
@@ -395,7 +388,6 @@ begin
   fdInstallux.Params.Clear;
   FDManager.ConnectionDefFileName := 'Conexoes.ini';
   fdinstallux.ConnectionDefName := 'Installux';
-
 end;
 
 procedure TServerMethods1.DataModuleCreate(Sender: TObject);

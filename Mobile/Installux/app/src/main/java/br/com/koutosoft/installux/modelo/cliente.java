@@ -4,9 +4,9 @@ package br.com.koutosoft.installux.modelo;
  * Created by KoutoSoft Sistemas on 16/06/2015.
  */
 public class cliente {
-    private int ID;
-    private String Nome;
-    private int ID_Arquiteto;
+    public int ID;
+    public String Nome;
+    public int ID_Arquiteto;
 
     public int getID_Arquiteto() {return ID_Arquiteto;}
 

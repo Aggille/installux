@@ -28,7 +28,7 @@ public class itemDAO {
             aux.setProduto(cursor.getInt(2));
             aux.setLocal(cursor.getInt(3));
             aux.setAmbiente(cursor.getInt(4));
-            aux.setQuantidade(cursor.getFloat(5));
+            aux.setQuantidade(cursor.getInt(5));
         }
         return aux;
 

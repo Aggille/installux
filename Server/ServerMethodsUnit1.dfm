@@ -1,5 +1,4 @@
 object ServerMethods1: TServerMethods1
-  OldCreateOrder = False
   OnCreate = DataModuleCreate
   Height = 275
   Width = 749

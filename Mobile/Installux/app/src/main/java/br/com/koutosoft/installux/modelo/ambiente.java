@@ -4,10 +4,10 @@ package br.com.koutosoft.installux.modelo;
  * Created by KoutoSoft Sistemas on 18/06/2015.
  */
 public class ambiente {
-    private int ID;
-    private String Nome;
-    private int Cliente;
-    private int Ambiente;
+    public int ID;
+    public String Nome;
+    public int Cliente;
+    public int Ambiente;
 
 
     public int getAmbiente() {

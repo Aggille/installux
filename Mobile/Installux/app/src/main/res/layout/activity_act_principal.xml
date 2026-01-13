@@ -6,6 +6,7 @@
     android:layout_gravity="top"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:paddingTop="@dimen/activity_vertical_margin"
     android:orientation="vertical"
     tools:context=".actPrincipal">
 

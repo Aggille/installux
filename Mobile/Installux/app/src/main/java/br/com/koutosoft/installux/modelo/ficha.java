@@ -7,15 +7,15 @@ import java.util.Date;
  * Created by KoutoSoft Sistemas on 30/06/2015.
  */
 public class ficha {
-    private int ID;
-    private String Data;
-    private int Cliente;
-    private int Arquiteto;
-    private String Chegada;
-    private String Saida;
-    private String Encerramento;
-    private int ID_FichaSistema;
-    private String Obs;
+    public int ID;
+    public String Data;
+    public int Cliente;
+    public int Arquiteto;
+    public String Chegada;
+    public String Saida;
+    public String Encerramento;
+    public int ID_FichaSistema;
+    public String Obs;
 
     public String getObs() {
         return Obs;

@@ -9,11 +9,11 @@ import br.com.koutosoft.installux.comum.constantes;
  * Created by Leandro on 02/06/2015.
  */
 public class configuracao {
-    private String servidor;
-    private String porta;
-    private int funcionario;
-    private String senha;
-    private SharedPreferences prefs;
+    public String servidor;
+    public String porta;
+    public int funcionario;
+    public String senha;
+    public SharedPreferences prefs;
 
 
     public configuracao( Context context) {
@@ -25,8 +25,6 @@ public class configuracao {
     {
         return getSenha().equals(constantes.SENHA_ADMIN);
     }
-
-
 
     public void grava()
     {
@@ -40,7 +38,7 @@ public class configuracao {
 
     public void carrega()
     {
-        setServidor(prefs.getString("servidor", "localhost"));
+        setServidor(prefs.getString("servidor", "67d206721b2f.sn.mynetname.net"));
         setPorta( prefs.getString("porta_servidor", "8080"));
         setFuncionario( prefs.getInt("funcionario",0));
         setSenha(prefs.getString( "senha",""));
@@ -57,7 +55,6 @@ public class configuracao {
     public String getPorta() {
         return porta;
     }
-
     public void setPorta(String porta) {
         this.porta = porta;
     }
@@ -69,11 +66,9 @@ public class configuracao {
     public void setFuncionario(int funcionario) {
         this.funcionario = funcionario;
     }
-
     public String getSenha() {
         return senha;
     }
-
     public void setSenha(String senha) {
         this.senha = senha;
     }

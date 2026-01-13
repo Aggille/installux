@@ -1,11 +1,14 @@
 package br.com.koutosoft.installux.modelo;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 /**
  * Created by Leandro on 02/06/2015.
  */
 public class funcionario {
-    private int ID;
-    private String Nome;
+
+    public int ID;
+    public String Nome;
 
     public String toString()
     {

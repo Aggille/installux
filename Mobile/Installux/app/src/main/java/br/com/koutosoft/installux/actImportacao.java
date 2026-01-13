@@ -1,5 +1,7 @@
 package br.com.koutosoft.installux;
 
+import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.app.ProgressDialog;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -71,138 +73,148 @@ public class actImportacao extends AppCompatActivity {
             localDao = new localDAO(actImportacao.this);
             arquitetoDao = new arquitetoDAO(actImportacao.this);
             ambienteDao = new ambienteDAO(actImportacao.this);
-
-
         }
 
+        @SuppressLint("WrongThread")
         @Override
         protected Void doInBackground(Void... params) {
+            try {
 
-            if( chkLocais.isChecked()) {
+                if (chkLocais.isChecked()) {
 
-                // Importa os Locais
+                    // Importa os Locais
 
-                titulo = getString(R.string.msg_importando_locais);
-                publishProgress();
-                locais = servico.getLocais();
-
-                if( locais != null ) {
-                    progresso.setProgress(0);
-                    progresso.setMax(locais.length);
-                    localDao.excluiTudo();
-
-                    for (int x = 0; x < locais.length; x++) {
-                        localDao.inclui(locais[x]);
-                        progresso.setProgress(x);
-                        progresso.incrementProgressBy(1);
-                    }
-                }
-            }
-
-            if( chkAmbientes.isChecked()) {
-                // Importa os Ambientes
-
-                titulo = getString(R.string.msg_importando_ambientes);
-                publishProgress();
-                ambientes = servico.getAmbientes();
-
-                if( ambientes != null ) {
-                    progresso.setProgress(0);
-                    progresso.setMax(ambientes.length);
-                    ambienteDao.excluiTudo();
-
-                    for (int x = 0; x < ambientes.length; x++) {
-                        ambienteDao.inclui(ambientes[x]);
-                        progresso.setProgress(x);
-                        progresso.incrementProgressBy(1);
-                    }
-                }
-            }
-
-            if( chkArquitetos.isChecked()) {
-                // Importa os Arquitetos
-
-                titulo = getString(R.string.msg_importando_arquitetos);
-                publishProgress();
-                arquitetos = servico.getArquitetos();
-
-                if( arquitetos != null ) {
-                    progresso.setProgress(0);
-                    progresso.setMax(arquitetos.length);
-                    arquitetoDao.excluiTudo();
-
-                    for (int x = 0; x < arquitetos.length; x++) {
-                        arquitetoDao.inclui(arquitetos[x]);
-                        progresso.setProgress(x);
-                        progresso.incrementProgressBy(1);
-                    }
-                }
-            }
-
-            if( chkProdutos.isChecked()) {
-
-                // Importa os Produtos
-
-                titulo = getString(R.string.msg_importando_produtos);
-                publishProgress();
-                produtos = servico.getProdutos();
-                if ( produtos != null ) {
-                    progresso.setProgress(0);
-                    progresso.setMax(produtos.length);
-                    produtoDao.excluiTudo();
-
-                    for (int x = 0; x < produtos.length; x++) {
-                        produtoDao.inclui(produtos[x]);
-                        progresso.setProgress(x);
-                        progresso.incrementProgressBy(1);
-                    }
-                }
-            }
-
-            if( chkFuncionarios.isChecked()) {
-
-                // Importa os funcionários
-
-                funcionarios = servico.getFuncionarios();
-
-                if( funcionarios != null ) {
-                    progresso.setProgress(0);
-                    progresso.setMax(funcionarios.length);
-                    funcionarioDao.excluiTudo();
-                    titulo = getString(R.string.msg_importando_funcionarios);
+                    titulo = getString(R.string.msg_importando_locais);
                     publishProgress();
+                    locais = servico.getLocais();
 
+                    if (locais != null) {
+                        progresso.setProgress(0);
+                        progresso.setMax(locais.length);
+                        localDao.excluiTudo();
 
-                    for (int x = 0; x < funcionarios.length; x++) {
-                        funcionarioDao.inclui(funcionarios[x]);
-                        progresso.setProgress(x);
-                        progresso.incrementProgressBy(1);
+                        for (int x = 0; x < locais.length; x++) {
+                            localDao.inclui(locais[x]);
+                            progresso.setProgress(x);
+                            progresso.incrementProgressBy(1);
+                        }
                     }
                 }
+
+                if (chkAmbientes.isChecked()) {
+                    // Importa os Ambientes
+
+                    titulo = getString(R.string.msg_importando_ambientes);
+                    publishProgress();
+                    ambientes = servico.getAmbientes();
+
+                    if (ambientes != null) {
+                        progresso.setProgress(0);
+                        progresso.setMax(ambientes.length);
+                        ambienteDao.excluiTudo();
+
+                        for (int x = 0; x < ambientes.length; x++) {
+                            ambienteDao.inclui(ambientes[x]);
+                            progresso.setProgress(x);
+                            progresso.incrementProgressBy(1);
+                        }
+
+                    }
+                }
+
+                    if (chkArquitetos.isChecked()) {
+                        // Importa os Arquitetos
+
+                        titulo = getString(R.string.msg_importando_arquitetos);
+                        publishProgress();
+                        arquitetos = servico.getArquitetos();
+
+                        if (arquitetos != null) {
+                            progresso.setProgress(0);
+                            progresso.setMax(arquitetos.length);
+                            arquitetoDao.excluiTudo();
+
+                            for (int x = 0; x < arquitetos.length; x++) {
+                                arquitetoDao.inclui(arquitetos[x]);
+                                progresso.setProgress(x);
+                                progresso.incrementProgressBy(1);
+                            }
+                        }
+                    }
+
+                    if (chkProdutos.isChecked()) {
+
+                        // Importa os Produtos
+
+                        titulo = getString(R.string.msg_importando_produtos);
+                        publishProgress();
+                        produtos = servico.getProdutos();
+                        if (produtos != null) {
+                            progresso.setProgress(0);
+                            progresso.setMax(produtos.length);
+                            produtoDao.excluiTudo();
+
+                            for (int x = 0; x < produtos.length; x++) {
+                                produtoDao.inclui(produtos[x]);
+                                progresso.setProgress(x);
+                                progresso.incrementProgressBy(1);
+                            }
+                        }
+                    }
+
+                    if (chkFuncionarios.isChecked()) {
+
+                        // Importa os funcionários
+
+                        funcionarios = servico.getFuncionarios();
+
+                        if (funcionarios != null) {
+                            progresso.setProgress(0);
+                            progresso.setMax(funcionarios.length);
+                            funcionarioDao.excluiTudo();
+                            titulo = getString(R.string.msg_importando_funcionarios);
+                            publishProgress();
+
+
+                            for (int x = 0; x < funcionarios.length; x++) {
+                                funcionarioDao.inclui(funcionarios[x]);
+                                progresso.setProgress(x);
+                                progresso.incrementProgressBy(1);
+                            }
+                        }
+
+                    }
+
+                    if (chkClientes.isChecked()) {
+                        // importa os Clientes
+
+                        clientes = servico.getClientes();
+                        if (clientes != null) {
+                            progresso.setProgress(0);
+                            progresso.setMax(clientes.length);
+                            clienteDao.excluiTudo();
+                            titulo = getString(R.string.msg_importando_clientes);
+                            publishProgress();
+
+                            for (int x = 0; x < clientes.length; x++) {
+                                clienteDao.inclui(clientes[x]);
+                                progresso.setProgress(x);
+                                progresso.incrementProgressBy(1);
+                            }
+                        }
+                    }
 
             }
-
-            if( chkClientes.isChecked()) {
-                // importa os Clientes
-
-                clientes = servico.getClientes();
-                if( clientes != null ) {
-                    progresso.setProgress(0);
-                    progresso.setMax(clientes.length);
-                    clienteDao.excluiTudo();
-                    titulo = getString(R.string.msg_importando_clientes);
-                    publishProgress();
-
-                    for (int x = 0; x < clientes.length; x++) {
-                        clienteDao.inclui(clientes[x]);
-                        progresso.setProgress(x);
-                        progresso.incrementProgressBy(1);
+            catch( Exception ex ) {
+                actImportacao.this.runOnUiThread(new Runnable() {
+                    public void run() {
+                        mensagem.erro(actImportacao.this, ex.getMessage());        //something here
                     }
-                }
+                });
+
             }
 
             return null;
-
         }
 
         @Override

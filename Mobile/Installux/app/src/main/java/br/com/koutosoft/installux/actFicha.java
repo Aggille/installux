@@ -304,7 +304,7 @@ public class actFicha extends AppCompatActivity {
             i.setQuantidade(0);
         }
         else {
-            i.setQuantidade(Float.parseFloat(edtQtde.getText().toString()));
+            i.setQuantidade(Integer.parseInt(edtQtde.getText().toString()));
         }
 
         items.add(i);

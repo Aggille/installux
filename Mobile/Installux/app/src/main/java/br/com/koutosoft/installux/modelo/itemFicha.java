@@ -4,13 +4,13 @@ package br.com.koutosoft.installux.modelo;
  * Created by KoutoSoft Sistemas on 30/06/2015.
  */
 public class itemFicha {
-    private int ID;
-    private int Ficha;
-    private int Produto;
-    private int Local;
-    private int Ambiente;
-    private float Quantidade;
-    private long ID_Ficha;
+    public int ID;
+    public int Ficha;
+    public int Produto;
+    public int Local;
+    public int Ambiente;
+    public int Quantidade;
+    public long ID_Ficha;
 
     public int getID() {
         return ID;
@@ -52,11 +52,11 @@ public class itemFicha {
         Ambiente = ambiente;
     }
 
-    public float getQuantidade() {
+    public int getQuantidade() {
         return Quantidade;
     }
 
-    public void setQuantidade(float quantidade) {
+    public void setQuantidade(int quantidade) {
         Quantidade = quantidade;
     }
 

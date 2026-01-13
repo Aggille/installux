@@ -14,6 +14,11 @@ import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+
+import org.json.JSONException;
+
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -99,7 +104,7 @@ public class actEnvia extends AppCompatActivity {
 
                 // envia a ficha...
 
-                String r;
+                String r="";
                 service s = new service( actEnvia.this );
                 itemFicha[] auxItem;
 
@@ -111,20 +116,27 @@ public class actEnvia extends AppCompatActivity {
                     items.add(auxItem[z]);
                 }
 
-                r = s.gravaFicha( it  , items);
+                try {
+                    r = s.gravaFicha( it  , items);
+                    it.setID_FichaSistema( Integer.parseInt(r) );
+                    sqlHelper sql_helper = new sqlHelper( actEnvia.this );
+                    String sql = "UPDATE TB_FICHAS SET ID_FICHA_SISTEMA="+r+" WHERE ID_FICHA=" + String.valueOf(it.getID());
+                    sql_helper.executaSql(sql);
+                    map = new HashMap<String, String>();
+                    map.put("id", String.valueOf(it.getID()) );
+                    map.put("id_ficha", String.valueOf(it.getID_FichaSistema()));
+                    map.put( "cliente" , c.getCliente( it.getCliente() ).getNome());
+                    this.feedList.add(map);
 
-                it.setID_FichaSistema( Integer.parseInt(r) );
+                } catch (Exception e) {
+                    actEnvia.this.runOnUiThread(new Runnable() {
+                        public void run() {
+                            mensagem.erro(actEnvia.this, e.getMessage());        //something here
+                        }
 
-                sqlHelper sql_helper = new sqlHelper( actEnvia.this );
-                String sql = "UPDATE TB_FICHAS SET ID_FICHA_SISTEMA="+r+" WHERE ID_FICHA=" + String.valueOf(it.getID());
-                sql_helper.executaSql(sql);
+                    });
+                }
 
-
-                map = new HashMap<String, String>();
-                map.put("id", String.valueOf(it.getID()) );
-                map.put("id_ficha", String.valueOf(it.getID_FichaSistema()));
-                map.put( "cliente" , c.getCliente( it.getCliente() ).getNome());
-                this.feedList.add(map);
 
             }
 
